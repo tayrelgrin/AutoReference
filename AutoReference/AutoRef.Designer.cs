@@ -59,6 +59,13 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.EEEEListBox = new System.Windows.Forms.ListBox();
+            this.button_Modify = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.CarrierListBox = new System.Windows.Forms.ListBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.BuildListBox = new System.Windows.Forms.ListBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // PrjListBox
@@ -75,7 +82,7 @@
             // 
             this.prjAddButton.Location = new System.Drawing.Point(29, 230);
             this.prjAddButton.Name = "prjAddButton";
-            this.prjAddButton.Size = new System.Drawing.Size(83, 44);
+            this.prjAddButton.Size = new System.Drawing.Size(54, 44);
             this.prjAddButton.TabIndex = 1;
             this.prjAddButton.Text = "ADD";
             this.prjAddButton.UseVisualStyleBackColor = true;
@@ -83,9 +90,9 @@
             // 
             // prjDeleteButton
             // 
-            this.prjDeleteButton.Location = new System.Drawing.Point(118, 230);
+            this.prjDeleteButton.Location = new System.Drawing.Point(149, 230);
             this.prjDeleteButton.Name = "prjDeleteButton";
-            this.prjDeleteButton.Size = new System.Drawing.Size(83, 44);
+            this.prjDeleteButton.Size = new System.Drawing.Size(54, 44);
             this.prjDeleteButton.TabIndex = 2;
             this.prjDeleteButton.Text = "Delete";
             this.prjDeleteButton.UseVisualStyleBackColor = true;
@@ -228,7 +235,7 @@
             // 
             // nextButton
             // 
-            this.nextButton.Location = new System.Drawing.Point(717, 342);
+            this.nextButton.Location = new System.Drawing.Point(717, 480);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(128, 48);
             this.nextButton.TabIndex = 22;
@@ -238,7 +245,7 @@
             // 
             // closelButton
             // 
-            this.closelButton.Location = new System.Drawing.Point(717, 408);
+            this.closelButton.Location = new System.Drawing.Point(717, 543);
             this.closelButton.Name = "closelButton";
             this.closelButton.Size = new System.Drawing.Size(128, 48);
             this.closelButton.TabIndex = 23;
@@ -260,7 +267,7 @@
             // 
             this.InputRefCheckBox.AutoSize = true;
             this.InputRefCheckBox.Font = new System.Drawing.Font("굴림", 12F);
-            this.InputRefCheckBox.Location = new System.Drawing.Point(730, 302);
+            this.InputRefCheckBox.Location = new System.Drawing.Point(55, 300);
             this.InputRefCheckBox.Name = "InputRefCheckBox";
             this.InputRefCheckBox.Size = new System.Drawing.Size(91, 20);
             this.InputRefCheckBox.TabIndex = 27;
@@ -285,6 +292,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(146, 22);
             this.textBox2.TabIndex = 30;
+            this.textBox2.Text = "ex : C1010";
             // 
             // label9
             // 
@@ -336,7 +344,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(757, 24);
+            this.label8.Location = new System.Drawing.Point(433, 576);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(37, 12);
             this.label8.TabIndex = 36;
@@ -344,18 +352,78 @@
             // 
             // EEEEListBox
             // 
-            this.EEEEListBox.FormattingEnabled = true;
+            this.EEEEListBox.Enabled = false;
             this.EEEEListBox.ItemHeight = 12;
-            this.EEEEListBox.Location = new System.Drawing.Point(707, 39);
+            this.EEEEListBox.Location = new System.Drawing.Point(419, 591);
             this.EEEEListBox.Name = "EEEEListBox";
-            this.EEEEListBox.Size = new System.Drawing.Size(146, 28);
+            this.EEEEListBox.Size = new System.Drawing.Size(70, 28);
             this.EEEEListBox.TabIndex = 35;
+            // 
+            // button_Modify
+            // 
+            this.button_Modify.Location = new System.Drawing.Point(89, 230);
+            this.button_Modify.Name = "button_Modify";
+            this.button_Modify.Size = new System.Drawing.Size(54, 44);
+            this.button_Modify.TabIndex = 37;
+            this.button_Modify.Text = "Modify";
+            this.button_Modify.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(227, 480);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(43, 12);
+            this.label14.TabIndex = 39;
+            this.label14.Text = "Carrier";
+            // 
+            // CarrierListBox
+            // 
+            this.CarrierListBox.FormattingEnabled = true;
+            this.CarrierListBox.ItemHeight = 12;
+            this.CarrierListBox.Location = new System.Drawing.Point(276, 469);
+            this.CarrierListBox.Name = "CarrierListBox";
+            this.CarrierListBox.Size = new System.Drawing.Size(410, 40);
+            this.CarrierListBox.TabIndex = 38;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(237, 526);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(33, 12);
+            this.label15.TabIndex = 41;
+            this.label15.Text = "Build";
+            // 
+            // BuildListBox
+            // 
+            this.BuildListBox.FormattingEnabled = true;
+            this.BuildListBox.ItemHeight = 12;
+            this.BuildListBox.Location = new System.Drawing.Point(276, 515);
+            this.BuildListBox.Name = "BuildListBox";
+            this.BuildListBox.Size = new System.Drawing.Size(410, 40);
+            this.BuildListBox.TabIndex = 40;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.InputRefCheckBox);
+            this.groupBox1.Location = new System.Drawing.Point(692, 70);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(181, 320);
+            this.groupBox1.TabIndex = 42;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Input Data";
             // 
             // AutoRef
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(878, 497);
+            this.ClientSize = new System.Drawing.Size(878, 631);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.BuildListBox);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.CarrierListBox);
+            this.Controls.Add(this.button_Modify);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.EEEEListBox);
             this.Controls.Add(this.label13);
@@ -365,7 +433,6 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.InputRefCheckBox);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.closelButton);
             this.Controls.Add(this.nextButton);
@@ -387,9 +454,12 @@
             this.Controls.Add(this.prjDeleteButton);
             this.Controls.Add(this.prjAddButton);
             this.Controls.Add(this.PrjListBox);
+            this.Controls.Add(this.groupBox1);
             this.Name = "AutoRef";
             this.Text = "AutoReference";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AutoRef_FormClosing);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -428,6 +498,12 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ListBox EEEEListBox;
+        private System.Windows.Forms.Button button_Modify;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ListBox CarrierListBox;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ListBox BuildListBox;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 
