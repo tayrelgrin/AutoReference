@@ -63,7 +63,7 @@ namespace AutoReference
 
             FileDelete(strFilePath);
 
-            PrintProjectToListBox(); 
+            PrintProjectToListBox();
             CleanListBoxes();
         }
 

@@ -31,21 +31,14 @@
             this.PrjListBox = new System.Windows.Forms.ListBox();
             this.prjAddButton = new System.Windows.Forms.Button();
             this.prjDeleteButton = new System.Windows.Forms.Button();
-            this.ConfigListBox = new System.Windows.Forms.ListBox();
-            this.SensorListBox = new System.Windows.Forms.ListBox();
-            this.LensListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.IRCFListBox = new System.Windows.Forms.ListBox();
-            this.SubstrateListBox = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.StiffenerListBox = new System.Windows.Forms.ListBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.FlexListBox = new System.Windows.Forms.ListBox();
             this.nextButton = new System.Windows.Forms.Button();
             this.closelButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -61,10 +54,9 @@
             this.EEEEListBox = new System.Windows.Forms.ListBox();
             this.button_Modify = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
-            this.CarrierListBox = new System.Windows.Forms.ListBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.BuildListBox = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.SensorListView = new System.Windows.Forms.ListView();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,33 +90,6 @@
             this.prjDeleteButton.UseVisualStyleBackColor = true;
             this.prjDeleteButton.Click += new System.EventHandler(this.prjDeleteButton_Click);
             // 
-            // ConfigListBox
-            // 
-            this.ConfigListBox.FormattingEnabled = true;
-            this.ConfigListBox.ItemHeight = 12;
-            this.ConfigListBox.Location = new System.Drawing.Point(276, 97);
-            this.ConfigListBox.Name = "ConfigListBox";
-            this.ConfigListBox.Size = new System.Drawing.Size(410, 76);
-            this.ConfigListBox.TabIndex = 3;
-            // 
-            // SensorListBox
-            // 
-            this.SensorListBox.FormattingEnabled = true;
-            this.SensorListBox.ItemHeight = 12;
-            this.SensorListBox.Location = new System.Drawing.Point(276, 39);
-            this.SensorListBox.Name = "SensorListBox";
-            this.SensorListBox.Size = new System.Drawing.Size(410, 52);
-            this.SensorListBox.TabIndex = 4;
-            // 
-            // LensListBox
-            // 
-            this.LensListBox.FormattingEnabled = true;
-            this.LensListBox.ItemHeight = 12;
-            this.LensListBox.Location = new System.Drawing.Point(276, 237);
-            this.LensListBox.Name = "LensListBox";
-            this.LensListBox.Size = new System.Drawing.Size(410, 76);
-            this.LensListBox.TabIndex = 5;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -137,7 +102,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(229, 64);
+            this.label2.Location = new System.Drawing.Point(225, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 12);
             this.label2.TabIndex = 7;
@@ -160,24 +125,6 @@
             this.label4.Size = new System.Drawing.Size(100, 12);
             this.label4.TabIndex = 10;
             this.label4.Text = "Lens component";
-            // 
-            // IRCFListBox
-            // 
-            this.IRCFListBox.FormattingEnabled = true;
-            this.IRCFListBox.ItemHeight = 12;
-            this.IRCFListBox.Location = new System.Drawing.Point(276, 178);
-            this.IRCFListBox.Name = "IRCFListBox";
-            this.IRCFListBox.Size = new System.Drawing.Size(410, 52);
-            this.IRCFListBox.TabIndex = 11;
-            // 
-            // SubstrateListBox
-            // 
-            this.SubstrateListBox.FormattingEnabled = true;
-            this.SubstrateListBox.ItemHeight = 12;
-            this.SubstrateListBox.Location = new System.Drawing.Point(276, 365);
-            this.SubstrateListBox.Name = "SubstrateListBox";
-            this.SubstrateListBox.Size = new System.Drawing.Size(410, 52);
-            this.SubstrateListBox.TabIndex = 12;
             // 
             // label5
             // 
@@ -206,15 +153,6 @@
             this.label10.TabIndex = 21;
             this.label10.Text = "Stiffener";
             // 
-            // StiffenerListBox
-            // 
-            this.StiffenerListBox.FormattingEnabled = true;
-            this.StiffenerListBox.ItemHeight = 12;
-            this.StiffenerListBox.Location = new System.Drawing.Point(276, 319);
-            this.StiffenerListBox.Name = "StiffenerListBox";
-            this.StiffenerListBox.Size = new System.Drawing.Size(410, 40);
-            this.StiffenerListBox.TabIndex = 19;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -223,15 +161,6 @@
             this.label11.Size = new System.Drawing.Size(29, 12);
             this.label11.TabIndex = 18;
             this.label11.Text = "Flex";
-            // 
-            // FlexListBox
-            // 
-            this.FlexListBox.FormattingEnabled = true;
-            this.FlexListBox.ItemHeight = 12;
-            this.FlexListBox.Location = new System.Drawing.Point(276, 423);
-            this.FlexListBox.Name = "FlexListBox";
-            this.FlexListBox.Size = new System.Drawing.Size(410, 40);
-            this.FlexListBox.TabIndex = 17;
             // 
             // nextButton
             // 
@@ -377,15 +306,6 @@
             this.label14.TabIndex = 39;
             this.label14.Text = "Carrier";
             // 
-            // CarrierListBox
-            // 
-            this.CarrierListBox.FormattingEnabled = true;
-            this.CarrierListBox.ItemHeight = 12;
-            this.CarrierListBox.Location = new System.Drawing.Point(276, 469);
-            this.CarrierListBox.Name = "CarrierListBox";
-            this.CarrierListBox.Size = new System.Drawing.Size(410, 40);
-            this.CarrierListBox.TabIndex = 38;
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -394,15 +314,6 @@
             this.label15.Size = new System.Drawing.Size(33, 12);
             this.label15.TabIndex = 41;
             this.label15.Text = "Build";
-            // 
-            // BuildListBox
-            // 
-            this.BuildListBox.FormattingEnabled = true;
-            this.BuildListBox.ItemHeight = 12;
-            this.BuildListBox.Location = new System.Drawing.Point(276, 515);
-            this.BuildListBox.Name = "BuildListBox";
-            this.BuildListBox.Size = new System.Drawing.Size(410, 40);
-            this.BuildListBox.TabIndex = 40;
             // 
             // groupBox1
             // 
@@ -414,15 +325,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Input Data";
             // 
+            // SensorListView
+            // 
+            this.SensorListView.Location = new System.Drawing.Point(276, 39);
+            this.SensorListView.Name = "SensorListView";
+            this.SensorListView.Size = new System.Drawing.Size(410, 36);
+            this.SensorListView.TabIndex = 43;
+            this.SensorListView.UseCompatibleStateImageBehavior = false;
+            this.SensorListView.View = System.Windows.Forms.View.List;
+            // 
             // AutoRef
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(878, 631);
+            this.Controls.Add(this.SensorListView);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.BuildListBox);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.CarrierListBox);
             this.Controls.Add(this.button_Modify);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.EEEEListBox);
@@ -437,20 +356,13 @@
             this.Controls.Add(this.closelButton);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.StiffenerListBox);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.FlexListBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.SubstrateListBox);
-            this.Controls.Add(this.IRCFListBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.LensListBox);
-            this.Controls.Add(this.SensorListBox);
-            this.Controls.Add(this.ConfigListBox);
             this.Controls.Add(this.prjDeleteButton);
             this.Controls.Add(this.prjAddButton);
             this.Controls.Add(this.PrjListBox);
@@ -470,21 +382,14 @@
         private System.Windows.Forms.ListBox PrjListBox;
         private System.Windows.Forms.Button prjAddButton;
         private System.Windows.Forms.Button prjDeleteButton;
-        private System.Windows.Forms.ListBox ConfigListBox;
-        private System.Windows.Forms.ListBox SensorListBox;
-        private System.Windows.Forms.ListBox LensListBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListBox IRCFListBox;
-        private System.Windows.Forms.ListBox SubstrateListBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ListBox StiffenerListBox;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ListBox FlexListBox;
         private System.Windows.Forms.Button nextButton;
         private System.Windows.Forms.Button closelButton;
         private System.Windows.Forms.TextBox textBox1;
@@ -500,10 +405,9 @@
         private System.Windows.Forms.ListBox EEEEListBox;
         private System.Windows.Forms.Button button_Modify;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ListBox CarrierListBox;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ListBox BuildListBox;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ListView SensorListView;
     }
 }
 

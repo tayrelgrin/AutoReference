@@ -15,7 +15,7 @@ namespace AutoReference
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AutoRef());
+            Application.Run(new StartForm());
         }
     }
 }
