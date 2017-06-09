@@ -129,6 +129,7 @@ namespace AutoReference
             SaveListDataToFile( AlgorithmList,       "Algorithm",        strFilePath);
             SaveListDataToFile( ColorCalList,        "ColorCal",         strFilePath);
             SaveListDataToFile( ColorShadingList,    "ColorShading",     strFilePath);
+            SaveListDataToFile( CarrierList,         "Carrier",          strFilePath);
             SaveListDataToFile( TraceabilityRevList, "TraceabilityRev",  strFilePath);
             SaveListDataToFile( ConfigList,          "Config",           strFilePath);
 
@@ -191,6 +192,7 @@ namespace AutoReference
             LoadDataFromFile( ref AlgorithmList,        "Algorithm",        inFilePath);
             LoadDataFromFile( ref ColorCalList,         "ColorCal",         inFilePath);
             LoadDataFromFile( ref ColorShadingList,     "ColorShading",     inFilePath);
+            LoadDataFromFile( ref CarrierList,          "Carrier",          inFilePath);
             LoadDataFromFile( ref TraceabilityRevList,  "TraceabilityRev",  inFilePath);
             LoadDataFromFile( ref ConfigList,           "Config",           inFilePath);
             

@@ -168,16 +168,6 @@ namespace AutoReference
                     inListView.Items.Add(lvi);
                 }
             }
-           
-        }
-
-        private void PrintToListBox(List<BaseData> inData, ListBox inListBox)
-        {
-            inListBox.Items.Clear();
-            foreach (var temp in inData)
-            {
-                inListBox.Items.Add(temp.strVendorName + " " + temp.strBinaryValue + " " + temp.strHexValue);
-            }
         }
 
         private void PrintEEEEToTextBox(VSRData inData)

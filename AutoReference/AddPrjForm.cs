@@ -33,6 +33,7 @@ namespace AutoReference
             InitializeComponent();
 
             SetRightClickMenu();
+            InitAllListViews();
 
             string strPDFPath = strPath;
             string strTXTPath = null;
@@ -52,7 +53,8 @@ namespace AutoReference
             SetRightClickMenu();
             // Set cursor as default arrow
             Cursor.Current = Cursors.Default;
-
+            
+            InitAllListViews();
             PrintItemsToListBox();
         }
 
@@ -185,23 +187,26 @@ namespace AutoReference
         private void PrintItemsToListBox()
         {
             PrjListBox.Items.Clear();
-            PrjListBox.Items.Add(CNewVSRData.m_strVSRVersion + "-" + CNewVSRData.m_strPrjName);
+            PrjListBox.Items.Add(CNewVSRData.m_strPrjName);
 
-//             PrintToListBox(PartsListBox, ref CNewVSRData.PartsList);
-//             PrintToListBox(NVMListBox, ref CNewVSRData.NVMList);
-//             PrintToListBox(CameraPrjListBox, ref CNewVSRData.CameraPrjList);
-//             PrintToListBox(ProgramVariantListBox, ref CNewVSRData.ProgramVariantList);
-//             PrintToListBox(IntegratorListBox, ref CNewVSRData.IntegratorList);
-//             PrintToListBox(LensListBox, ref CNewVSRData.LensList);
-//             PrintToListBox(IRCFListBox, ref CNewVSRData.IRCFList);
-//             PrintToListBox(SubstrateListBox, ref CNewVSRData.SubstrateList);
-//             PrintToListBox(SensorListBox, ref CNewVSRData.SensorList);
-//             PrintToListBox(FlexListBox, ref CNewVSRData.FlexList);
-//             PrintToListBox(StiffenerListBox, ref CNewVSRData.StiffenerList);
-//             PrintToListBox(CameraListBox, ref CNewVSRData.CameraBuildList);
-//             PrintToListBox(AlgorithmListBox, ref CNewVSRData.AlgorithmList);
-//             PrintToListBox(ColorShadingListBox, ref CNewVSRData.ColorShadingList);
-//             PrintToListBox(TraceabilityRevListBox, ref CNewVSRData.TraceabilityRevList);
+            VersionListBox.Items.Clear();
+            VersionListBox.Items.Add(CNewVSRData.m_strVSRVersion);
+
+            PrintToListView(PartsListView, ref CNewVSRData.PartsList);
+            PrintToListView(NVMListView, ref CNewVSRData.NVMList);
+            PrintToListView(CameraPrjListView, ref CNewVSRData.CameraPrjList);
+            PrintToListView(ProgramVariantListView, ref CNewVSRData.ProgramVariantList);
+            PrintToListView(IntegratorListView, ref CNewVSRData.IntegratorList);
+            PrintToListView(LensListView, ref CNewVSRData.LensList);
+            PrintToListView(IRCFListView, ref CNewVSRData.IRCFList);
+            PrintToListView(SubstrateListView, ref CNewVSRData.SubstrateList);
+            PrintToListView(SensorListView, ref CNewVSRData.SensorList);
+            PrintToListView(FlexListView, ref CNewVSRData.FlexList);
+            PrintToListView(StiffenerListView, ref CNewVSRData.StiffenerList);
+            PrintToListView(CameraListView, ref CNewVSRData.CameraBuildList);
+            PrintToListView(AlgorithmListView, ref CNewVSRData.AlgorithmList);
+            PrintToListView(ColorShadingListView, ref CNewVSRData.ColorShadingList);
+            PrintToListView(TraceabilityRevListView, ref CNewVSRData.TraceabilityRevList);
 
             EEEEListBox.Items.Clear();
             EEEEListBox.Items.Add(CNewVSRData.m_strEEEE);
@@ -439,6 +444,32 @@ namespace AutoReference
             }
         }
 
+        private void PrintToListView(ListView inTargetListView, ref List<BaseData> inList)
+        {
+            inTargetListView.Items.Clear();
+            if (inTargetListView == PartsListView)
+            {
+                foreach (var printData in inList)
+                {
+                    ListViewItem lvi = new ListViewItem("");
+                    lvi.SubItems.Add(printData.strVendorName);
+                    inTargetListView.Items.Add(lvi);
+                }
+            }
+            else
+            {
+                foreach (var printData in inList)
+                {
+                    ListViewItem lvi = new ListViewItem("");
+                    lvi.SubItems.Add(printData.strVendorName);
+                    lvi.SubItems.Add(printData.strBinaryValue);
+                    lvi.SubItems.Add(printData.strHexValue);
+                    inTargetListView.Items.Add(lvi);
+                }
+            }
+        }
+
+
         private bool ParcingData(string inString, ref List<BaseData> inList)
         {
             BaseData CBaseData = new BaseData();
@@ -450,7 +481,6 @@ namespace AutoReference
             string strHex = null;
             int n0xCount = 0;
             int nBinaryCount = 0;
-
             int nInt0Index = inString.IndexOf("0");
 
             foreach (var temp in strTempArray)
@@ -507,7 +537,6 @@ namespace AutoReference
             if (inResult)
             {
                 m_CTempData = inData;
-                
             }
         }
 
@@ -526,295 +555,60 @@ namespace AutoReference
             CNewVSRData.m_strVSRVersion = m_CTempData.strBinaryValue;
             PrintItemsToListBox();
         }
-
-        private void PartsListBox_DoubleClick(object sender, EventArgs e)
-        {
-            int nSelectIndex = PartsListBox.SelectedIndex ;
-            m_CTempData = CNewVSRData.PartsList[nSelectIndex];
-
-            ModifyForm Cmodify = new ModifyForm("Parts", m_CTempData);
-            Cmodify.SendModifyResultEvent += new ModifyForm.SendModifyResult(GetModifyResult);
-
-            Cmodify.ShowDialog();
-            CNewVSRData.PartsList[nSelectIndex] = m_CTempData;
-            PrintItemsToListBox();
-        }
-
-        private void NVMListBox_DoubleClick(object sender, EventArgs e)
-        {
-            int nSelectIndex = NVMListBox.SelectedIndex ;
-            m_CTempData = CNewVSRData.NVMList[nSelectIndex];
-
-            ModifyForm Cmodify = new ModifyForm("NVM", m_CTempData);
-            Cmodify.SendModifyResultEvent += new ModifyForm.SendModifyResult(GetModifyResult);
-
-            Cmodify.ShowDialog();
-            CNewVSRData.NVMList[nSelectIndex] = m_CTempData;
-            PrintItemsToListBox();
-        }
-
-        private void LensListBox_DoubleClick(object sender, EventArgs e)
-        {
-            int nSelectIndex = LensListBox.SelectedIndex ;
-            m_CTempData = CNewVSRData.LensList[nSelectIndex];
-            ModifyForm Cmodify = new ModifyForm("Lens", m_CTempData);
-            Cmodify.SendModifyResultEvent += new ModifyForm.SendModifyResult(GetModifyResult);
-
-            Cmodify.ShowDialog();
-            CNewVSRData.LensList[nSelectIndex] = m_CTempData;
-            PrintItemsToListBox();
-        }
-
-        private void SubstrateListBox_DoubleClick(object sender, EventArgs e)
-        {
-            int nSelectIndex = SubstrateListBox.SelectedIndex ;
-            m_CTempData = CNewVSRData.SubstrateList[nSelectIndex];
-            ModifyForm Cmodify = new ModifyForm("Substrate", m_CTempData);
-            Cmodify.SendModifyResultEvent += new ModifyForm.SendModifyResult(GetModifyResult);
-
-            Cmodify.ShowDialog();
-            CNewVSRData.SubstrateList[nSelectIndex] = m_CTempData;
-            PrintItemsToListBox();
-        }
-
-        private void CameraPrjListBox_DoubleClick(object sender, EventArgs e)
-        {
-            int nSelectIndex = CameraPrjListBox.SelectedIndex;
-            m_CTempData = CNewVSRData.CameraPrjList[nSelectIndex];
-            ModifyForm Cmodify = new ModifyForm("Camera Project", m_CTempData);
-            Cmodify.SendModifyResultEvent += new ModifyForm.SendModifyResult(GetModifyResult);
-
-            Cmodify.ShowDialog();
-            CNewVSRData.CameraPrjList[nSelectIndex] = m_CTempData;
-            PrintItemsToListBox();
-        }
-
-        private void ProgramVariantListBox_DoubleClick(object sender, EventArgs e)
-        {
-            int nSelectIndex = ProgramVariantListBox.SelectedIndex;
-            m_CTempData = CNewVSRData.ProgramVariantList[nSelectIndex];
-            ModifyForm Cmodify = new ModifyForm("Program Variant", m_CTempData);
-            Cmodify.SendModifyResultEvent += new ModifyForm.SendModifyResult(GetModifyResult);
-
-            Cmodify.ShowDialog();
-            CNewVSRData.ProgramVariantList[nSelectIndex] = m_CTempData;
-            PrintItemsToListBox();
-        }
-
-        private void IntegratorListBox_DoubleClick(object sender, EventArgs e)
-        {
-            int nSelectIndex = IntegratorListBox.SelectedIndex;
-            m_CTempData = CNewVSRData.IntegratorList[nSelectIndex];
-            ModifyForm Cmodify = new ModifyForm("Integrator", m_CTempData);
-            Cmodify.SendModifyResultEvent += new ModifyForm.SendModifyResult(GetModifyResult);
-            
-            Cmodify.ShowDialog();
-            CNewVSRData.IntegratorList[nSelectIndex] = m_CTempData;
-            PrintItemsToListBox();
-        }
-
-        private void IRCFListBox_DoubleClick(object sender, EventArgs e)
-        {
-            int nSelectIndex = IRCFListBox.SelectedIndex;
-            m_CTempData = CNewVSRData.IRCFList[nSelectIndex];
-            ModifyForm Cmodify = new ModifyForm("IRCF", m_CTempData);
-            Cmodify.SendModifyResultEvent += new ModifyForm.SendModifyResult(GetModifyResult);
-
-            Cmodify.ShowDialog();
-            CNewVSRData.IRCFList[nSelectIndex] = m_CTempData;
-            PrintItemsToListBox();
-        }
-
-        private void SensorListBox_DoubleClick(object sender, EventArgs e)
-        {
-            int nSelectIndex = SensorListBox.SelectedIndex;
-            m_CTempData = CNewVSRData.SensorList[nSelectIndex];
-            ModifyForm Cmodify = new ModifyForm("Sensor", m_CTempData);
-            Cmodify.SendModifyResultEvent += new ModifyForm.SendModifyResult(GetModifyResult);
-
-            Cmodify.ShowDialog();
-            CNewVSRData.SensorList[nSelectIndex] = m_CTempData;
-            PrintItemsToListBox();
-        }
-
-        private void FlexListBox_DoubleClick(object sender, EventArgs e)
-        {
-            int nSelectIndex = FlexListBox.SelectedIndex;
-            m_CTempData = CNewVSRData.FlexList[nSelectIndex];
-            ModifyForm Cmodify = new ModifyForm("Flex", m_CTempData);
-            Cmodify.SendModifyResultEvent += new ModifyForm.SendModifyResult(GetModifyResult);
-
-            Cmodify.ShowDialog();
-            CNewVSRData.FlexList[nSelectIndex] = m_CTempData;
-            PrintItemsToListBox();
-        }
-
-        private void StiffenerListBox_DoubleClick(object sender, EventArgs e)
-        {
-            int nSelectIndex = StiffenerListBox.SelectedIndex;
-            m_CTempData = CNewVSRData.StiffenerList[nSelectIndex];
-            ModifyForm Cmodify = new ModifyForm("Stiffener", m_CTempData);
-            Cmodify.SendModifyResultEvent += new ModifyForm.SendModifyResult(GetModifyResult);
-
-            Cmodify.ShowDialog();
-            CNewVSRData.StiffenerList[nSelectIndex] = m_CTempData;
-            PrintItemsToListBox();
-        }
-
-        private void CameraListBox_DoubleClick(object sender, EventArgs e)
-        {
-            int nSelectIndex = CameraListBox.SelectedIndex;
-            m_CTempData = CNewVSRData.CameraBuildList[nSelectIndex];
-            ModifyForm Cmodify = new ModifyForm("Camera Build", m_CTempData);
-            Cmodify.SendModifyResultEvent += new ModifyForm.SendModifyResult(GetModifyResult);
-
-            Cmodify.ShowDialog();
-            CNewVSRData.CameraBuildList[nSelectIndex] = m_CTempData;
-            PrintItemsToListBox();
-        }
-
-        private void AlgorithmListBox_DoubleClick(object sender, EventArgs e)
-        {
-            int nSelectIndex = AlgorithmListBox.SelectedIndex;
-            m_CTempData = CNewVSRData.AlgorithmList[nSelectIndex];
-            ModifyForm Cmodify = new ModifyForm("Algorithm", m_CTempData);
-            Cmodify.SendModifyResultEvent += new ModifyForm.SendModifyResult(GetModifyResult);
-
-            Cmodify.ShowDialog();
-            CNewVSRData.AlgorithmList[nSelectIndex] = m_CTempData;
-            PrintItemsToListBox();
-        }
-
-        private void ColorCalListBox_DoubleClick(object sender, EventArgs e)
-        {
-            int nSelectIndex = EEEEListBox.SelectedIndex;
-          
-        }
-
-        private void ColorShadingListBox_DoubleClick(object sender, EventArgs e)
-        {
-            int nSelectIndex = ColorShadingListBox.SelectedIndex;
-            m_CTempData = CNewVSRData.ColorShadingList[nSelectIndex];
-            ModifyForm Cmodify = new ModifyForm("Color Shading", m_CTempData);
-            Cmodify.SendModifyResultEvent += new ModifyForm.SendModifyResult(GetModifyResult);
-
-            Cmodify.ShowDialog();
-            CNewVSRData.ColorShadingList[nSelectIndex] = m_CTempData;
-            PrintItemsToListBox();
-        }
-
-        private void TraceabilityRevListBox_DoubleClick(object sender, EventArgs e)
-        {
-            int nSelectIndex = TraceabilityRevListBox.SelectedIndex;
-            m_CTempData = CNewVSRData.TraceabilityRevList[nSelectIndex];
-            ModifyForm Cmodify = new ModifyForm("Color Shading", m_CTempData);
-            Cmodify.SendModifyResultEvent += new ModifyForm.SendModifyResult(GetModifyResult);
-
-            Cmodify.ShowDialog();
-            CNewVSRData.TraceabilityRevList[nSelectIndex] = m_CTempData;
-            PrintItemsToListBox();
-        }
-
+      
         private void PrjListBox_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
                 CMenu.Show(PrjListBox, new System.Drawing.Point(e.X, e.Y));
-        }
-
-        private void PartsListBox_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-                CMenu.Show(PartsListBox, new System.Drawing.Point(e.X, e.Y));
-        }
-
-        private void NVMListBox_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-                CMenu.Show(NVMListBox, new System.Drawing.Point(e.X, e.Y));
-        }
-
-        private void LensListBox_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-                CMenu.Show(LensListBox, new System.Drawing.Point(e.X, e.Y));
-        }
-
-        private void SubstrateListBox_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-                CMenu.Show(SubstrateListBox, new System.Drawing.Point(e.X, e.Y));
-        }
-
-        private void CameraPrjListBox_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-                CMenu.Show(CameraPrjListBox, new System.Drawing.Point(e.X, e.Y));
-        }
-
-        private void ProgramVariantListBox_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-                CMenu.Show(ProgramVariantListBox, new System.Drawing.Point(e.X, e.Y));
-        }
-
-        private void IntegratorListBox_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-                CMenu.Show(ProgramVariantListBox, new System.Drawing.Point(e.X, e.Y));
-        }
-
-        private void IRCFListBox_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-                CMenu.Show(IRCFListBox, new System.Drawing.Point(e.X, e.Y));
-        }
+        }        
 
         private void SensorListBox_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
-                CMenu.Show(SensorListBox, new System.Drawing.Point(e.X, e.Y));
-        }
+                CMenu.Show(SensorListView, new System.Drawing.Point(e.X, e.Y));
+        }     
         
-        private void FlexListBox_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-                CMenu.Show(FlexListBox, new System.Drawing.Point(e.X, e.Y));
-        }
-
-        private void StiffenerListBox_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-                CMenu.Show(StiffenerListBox, new System.Drawing.Point(e.X, e.Y));
-        }
-
-        private void CameraListBox_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-                CMenu.Show(CameraListBox, new System.Drawing.Point(e.X, e.Y));
-        }
-
-        private void AlgorithmListBox_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-                CMenu.Show(AlgorithmListBox, new System.Drawing.Point(e.X, e.Y));
-        }
-
         private void EEEEListBox_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
                 CMenu.Show(EEEEListBox, new System.Drawing.Point(e.X, e.Y));
         }
 
-        private void ColorShadingListBox_MouseDown(object sender, MouseEventArgs e)
+        private void InitAllListViews()
         {
-            if (e.Button == MouseButtons.Right)
-                CMenu.Show(ColorShadingListBox, new System.Drawing.Point(e.X, e.Y));
+            InitListView(PartsListView);
+            InitListView(NVMListView);
+            InitListView(LensListView);
+            InitListView(SubstrateListView);
+            InitListView(CameraPrjListView);
+            InitListView(ProgramVariantListView);
+            InitListView(IntegratorListView);
+            
+            InitListView(IRCFListView);
+            InitListView(SensorListView);
+            InitListView(FlexListView);
+            InitListView(StiffenerListView);
+            InitListView(CameraListView);
+            InitListView(AlgorithmListView);
+            InitListView(ColorShadingListView);
+            InitListView(TraceabilityRevListView);
         }
 
-        private void TraceabilityRevListBox_MouseDown(object sender, MouseEventArgs e)
+        private void InitListView(ListView inListView)
         {
-            if (e.Button == MouseButtons.Right)
-                CMenu.Show(TraceabilityRevListBox, new System.Drawing.Point(e.X, e.Y));
+            inListView.FullRowSelect = true;
+            inListView.Columns.Add("", 0);
+            
+            if (inListView != PartsListView)
+            {
+                inListView.Columns.Add("Item", 130);
+                inListView.Columns.Add("Binary", 80);
+                inListView.Columns.Add("Hex", 80);
+            }
+            else
+            {
+                inListView.Columns.Add("Item", 300);
+            }
         }
     }
 }

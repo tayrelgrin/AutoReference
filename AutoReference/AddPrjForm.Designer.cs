@@ -62,13 +62,13 @@
             this.ProgramVariantListView = new System.Windows.Forms.ListView();
             this.IntegratorListView = new System.Windows.Forms.ListView();
             this.IRCFListView = new System.Windows.Forms.ListView();
-            this.SensorListBox = new System.Windows.Forms.ListView();
+            this.SensorListView = new System.Windows.Forms.ListView();
             this.FlexListView = new System.Windows.Forms.ListView();
             this.StiffenerListView = new System.Windows.Forms.ListView();
             this.CameraListView = new System.Windows.Forms.ListView();
-            this.Algorithm = new System.Windows.Forms.ListView();
+            this.AlgorithmListView = new System.Windows.Forms.ListView();
             this.ColorShadingListView = new System.Windows.Forms.ListView();
-            this.TraceabillityRevListView = new System.Windows.Forms.ListView();
+            this.TraceabilityRevListView = new System.Windows.Forms.ListView();
             this.EEEEListBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
@@ -406,17 +406,17 @@
             this.IRCFListView.UseCompatibleStateImageBehavior = false;
             this.IRCFListView.View = System.Windows.Forms.View.Details;
             // 
-            // SensorListBox
+            // SensorListView
             // 
-            this.SensorListBox.FullRowSelect = true;
-            this.SensorListBox.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.SensorListBox.HideSelection = false;
-            this.SensorListBox.Location = new System.Drawing.Point(519, 110);
-            this.SensorListBox.Name = "SensorListBox";
-            this.SensorListBox.Size = new System.Drawing.Size(329, 79);
-            this.SensorListBox.TabIndex = 87;
-            this.SensorListBox.UseCompatibleStateImageBehavior = false;
-            this.SensorListBox.View = System.Windows.Forms.View.Details;
+            this.SensorListView.FullRowSelect = true;
+            this.SensorListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.SensorListView.HideSelection = false;
+            this.SensorListView.Location = new System.Drawing.Point(519, 110);
+            this.SensorListView.Name = "SensorListView";
+            this.SensorListView.Size = new System.Drawing.Size(329, 79);
+            this.SensorListView.TabIndex = 87;
+            this.SensorListView.UseCompatibleStateImageBehavior = false;
+            this.SensorListView.View = System.Windows.Forms.View.Details;
             // 
             // FlexListView
             // 
@@ -454,17 +454,17 @@
             this.CameraListView.UseCompatibleStateImageBehavior = false;
             this.CameraListView.View = System.Windows.Forms.View.Details;
             // 
-            // Algorithm
+            // AlgorithmListView
             // 
-            this.Algorithm.FullRowSelect = true;
-            this.Algorithm.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.Algorithm.HideSelection = false;
-            this.Algorithm.Location = new System.Drawing.Point(519, 418);
-            this.Algorithm.Name = "Algorithm";
-            this.Algorithm.Size = new System.Drawing.Size(329, 30);
-            this.Algorithm.TabIndex = 91;
-            this.Algorithm.UseCompatibleStateImageBehavior = false;
-            this.Algorithm.View = System.Windows.Forms.View.Details;
+            this.AlgorithmListView.FullRowSelect = true;
+            this.AlgorithmListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.AlgorithmListView.HideSelection = false;
+            this.AlgorithmListView.Location = new System.Drawing.Point(519, 418);
+            this.AlgorithmListView.Name = "AlgorithmListView";
+            this.AlgorithmListView.Size = new System.Drawing.Size(329, 30);
+            this.AlgorithmListView.TabIndex = 91;
+            this.AlgorithmListView.UseCompatibleStateImageBehavior = false;
+            this.AlgorithmListView.View = System.Windows.Forms.View.Details;
             // 
             // ColorShadingListView
             // 
@@ -478,17 +478,17 @@
             this.ColorShadingListView.UseCompatibleStateImageBehavior = false;
             this.ColorShadingListView.View = System.Windows.Forms.View.Details;
             // 
-            // TraceabillityRevListView
+            // TraceabilityRevListView
             // 
-            this.TraceabillityRevListView.FullRowSelect = true;
-            this.TraceabillityRevListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.TraceabillityRevListView.HideSelection = false;
-            this.TraceabillityRevListView.Location = new System.Drawing.Point(519, 490);
-            this.TraceabillityRevListView.Name = "TraceabillityRevListView";
-            this.TraceabillityRevListView.Size = new System.Drawing.Size(329, 30);
-            this.TraceabillityRevListView.TabIndex = 93;
-            this.TraceabillityRevListView.UseCompatibleStateImageBehavior = false;
-            this.TraceabillityRevListView.View = System.Windows.Forms.View.Details;
+            this.TraceabilityRevListView.FullRowSelect = true;
+            this.TraceabilityRevListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.TraceabilityRevListView.HideSelection = false;
+            this.TraceabilityRevListView.Location = new System.Drawing.Point(519, 490);
+            this.TraceabilityRevListView.Name = "TraceabilityRevListView";
+            this.TraceabilityRevListView.Size = new System.Drawing.Size(329, 30);
+            this.TraceabilityRevListView.TabIndex = 93;
+            this.TraceabilityRevListView.UseCompatibleStateImageBehavior = false;
+            this.TraceabilityRevListView.View = System.Windows.Forms.View.Details;
             // 
             // EEEEListBox
             // 
@@ -505,13 +505,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(898, 647);
             this.Controls.Add(this.EEEEListBox);
-            this.Controls.Add(this.TraceabillityRevListView);
+            this.Controls.Add(this.TraceabilityRevListView);
             this.Controls.Add(this.ColorShadingListView);
-            this.Controls.Add(this.Algorithm);
+            this.Controls.Add(this.AlgorithmListView);
             this.Controls.Add(this.CameraListView);
             this.Controls.Add(this.StiffenerListView);
             this.Controls.Add(this.FlexListView);
-            this.Controls.Add(this.SensorListBox);
+            this.Controls.Add(this.SensorListView);
             this.Controls.Add(this.IRCFListView);
             this.Controls.Add(this.IntegratorListView);
             this.Controls.Add(this.ProgramVariantListView);
@@ -589,13 +589,13 @@
         private System.Windows.Forms.ListView ProgramVariantListView;
         private System.Windows.Forms.ListView IntegratorListView;
         private System.Windows.Forms.ListView IRCFListView;
-        private System.Windows.Forms.ListView SensorListBox;
+        private System.Windows.Forms.ListView SensorListView;
         private System.Windows.Forms.ListView FlexListView;
         private System.Windows.Forms.ListView StiffenerListView;
         private System.Windows.Forms.ListView CameraListView;
-        private System.Windows.Forms.ListView Algorithm;
+        private System.Windows.Forms.ListView AlgorithmListView;
         private System.Windows.Forms.ListView ColorShadingListView;
-        private System.Windows.Forms.ListView TraceabillityRevListView;
+        private System.Windows.Forms.ListView TraceabilityRevListView;
         private System.Windows.Forms.ListBox EEEEListBox;
 
     }
