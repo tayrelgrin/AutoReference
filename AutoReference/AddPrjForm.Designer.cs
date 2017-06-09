@@ -34,42 +34,42 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.PrjListBox = new System.Windows.Forms.ListBox();
-            this.NVMListBox = new System.Windows.Forms.ListBox();
-            this.LensListBox = new System.Windows.Forms.ListBox();
-            this.StiffenerListBox = new System.Windows.Forms.ListBox();
-            this.SubstrateListBox = new System.Windows.Forms.ListBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.IRCFListBox = new System.Windows.Forms.ListBox();
-            this.ProgramVariantListBox = new System.Windows.Forms.ListBox();
             this.AddCloseButton = new System.Windows.Forms.Button();
             this.AddOKbutton = new System.Windows.Forms.Button();
-            this.PartsListBox = new System.Windows.Forms.ListBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.CameraPrjListBox = new System.Windows.Forms.ListBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.IntegratorListBox = new System.Windows.Forms.ListBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.SensorListBox = new System.Windows.Forms.ListBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.FlexListBox = new System.Windows.Forms.ListBox();
-            this.CameraListBox = new System.Windows.Forms.ListBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.AlgorithmListBox = new System.Windows.Forms.ListBox();
-            this.ColorShadingListBox = new System.Windows.Forms.ListBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.TraceabilityRevListBox = new System.Windows.Forms.ListBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.EEEEListBox = new System.Windows.Forms.ListBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.VersionListBox = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.PartsListView = new System.Windows.Forms.ListView();
+            this.NVMListView = new System.Windows.Forms.ListView();
+            this.LensListView = new System.Windows.Forms.ListView();
+            this.SubstrateListView = new System.Windows.Forms.ListView();
+            this.CameraPrjListView = new System.Windows.Forms.ListView();
+            this.ProgramVariantListView = new System.Windows.Forms.ListView();
+            this.IntegratorListView = new System.Windows.Forms.ListView();
+            this.IRCFListView = new System.Windows.Forms.ListView();
+            this.SensorListBox = new System.Windows.Forms.ListView();
+            this.FlexListView = new System.Windows.Forms.ListView();
+            this.StiffenerListView = new System.Windows.Forms.ListView();
+            this.CameraListView = new System.Windows.Forms.ListView();
+            this.Algorithm = new System.Windows.Forms.ListView();
+            this.ColorShadingListView = new System.Windows.Forms.ListView();
+            this.TraceabillityRevListView = new System.Windows.Forms.ListView();
+            this.EEEEListBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // label1
@@ -84,7 +84,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 211);
+            this.label2.Location = new System.Drawing.Point(27, 200);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 30;
@@ -128,50 +128,6 @@
             this.PrjListBox.DoubleClick += new System.EventHandler(this.PrjListBox_DoubleClick);
             this.PrjListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PrjListBox_MouseDown);
             // 
-            // NVMListBox
-            // 
-            this.NVMListBox.FormattingEnabled = true;
-            this.NVMListBox.ItemHeight = 12;
-            this.NVMListBox.Location = new System.Drawing.Point(85, 204);
-            this.NVMListBox.Name = "NVMListBox";
-            this.NVMListBox.Size = new System.Drawing.Size(329, 28);
-            this.NVMListBox.TabIndex = 40;
-            this.NVMListBox.DoubleClick += new System.EventHandler(this.NVMListBox_DoubleClick);
-            this.NVMListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.NVMListBox_MouseDown);
-            // 
-            // LensListBox
-            // 
-            this.LensListBox.FormattingEnabled = true;
-            this.LensListBox.ItemHeight = 12;
-            this.LensListBox.Location = new System.Drawing.Point(85, 238);
-            this.LensListBox.Name = "LensListBox";
-            this.LensListBox.Size = new System.Drawing.Size(329, 136);
-            this.LensListBox.TabIndex = 41;
-            this.LensListBox.DoubleClick += new System.EventHandler(this.LensListBox_DoubleClick);
-            this.LensListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LensListBox_MouseDown);
-            // 
-            // StiffenerListBox
-            // 
-            this.StiffenerListBox.FormattingEnabled = true;
-            this.StiffenerListBox.ItemHeight = 12;
-            this.StiffenerListBox.Location = new System.Drawing.Point(522, 281);
-            this.StiffenerListBox.Name = "StiffenerListBox";
-            this.StiffenerListBox.Size = new System.Drawing.Size(328, 76);
-            this.StiffenerListBox.TabIndex = 43;
-            this.StiffenerListBox.DoubleClick += new System.EventHandler(this.StiffenerListBox_DoubleClick);
-            this.StiffenerListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.StiffenerListBox_MouseDown);
-            // 
-            // SubstrateListBox
-            // 
-            this.SubstrateListBox.FormattingEnabled = true;
-            this.SubstrateListBox.ItemHeight = 12;
-            this.SubstrateListBox.Location = new System.Drawing.Point(85, 380);
-            this.SubstrateListBox.Name = "SubstrateListBox";
-            this.SubstrateListBox.Size = new System.Drawing.Size(329, 88);
-            this.SubstrateListBox.TabIndex = 44;
-            this.SubstrateListBox.DoubleClick += new System.EventHandler(this.SubstrateListBox_DoubleClick);
-            this.SubstrateListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SubstrateListBox_MouseDown);
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -189,28 +145,6 @@
             this.label11.Size = new System.Drawing.Size(40, 12);
             this.label11.TabIndex = 45;
             this.label11.Text = "IRCF :";
-            // 
-            // IRCFListBox
-            // 
-            this.IRCFListBox.FormattingEnabled = true;
-            this.IRCFListBox.ItemHeight = 12;
-            this.IRCFListBox.Location = new System.Drawing.Point(522, 23);
-            this.IRCFListBox.Name = "IRCFListBox";
-            this.IRCFListBox.Size = new System.Drawing.Size(328, 76);
-            this.IRCFListBox.TabIndex = 48;
-            this.IRCFListBox.DoubleClick += new System.EventHandler(this.IRCFListBox_DoubleClick);
-            this.IRCFListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.IRCFListBox_MouseDown);
-            // 
-            // ProgramVariantListBox
-            // 
-            this.ProgramVariantListBox.FormattingEnabled = true;
-            this.ProgramVariantListBox.ItemHeight = 12;
-            this.ProgramVariantListBox.Location = new System.Drawing.Point(85, 510);
-            this.ProgramVariantListBox.Name = "ProgramVariantListBox";
-            this.ProgramVariantListBox.Size = new System.Drawing.Size(329, 28);
-            this.ProgramVariantListBox.TabIndex = 47;
-            this.ProgramVariantListBox.DoubleClick += new System.EventHandler(this.ProgramVariantListBox_DoubleClick);
-            this.ProgramVariantListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ProgramVariantListBox_MouseDown);
             // 
             // AddCloseButton
             // 
@@ -232,17 +166,6 @@
             this.AddOKbutton.UseVisualStyleBackColor = true;
             this.AddOKbutton.Click += new System.EventHandler(this.AddOKButtonClick);
             // 
-            // PartsListBox
-            // 
-            this.PartsListBox.FormattingEnabled = true;
-            this.PartsListBox.ItemHeight = 12;
-            this.PartsListBox.Location = new System.Drawing.Point(86, 62);
-            this.PartsListBox.Name = "PartsListBox";
-            this.PartsListBox.Size = new System.Drawing.Size(328, 136);
-            this.PartsListBox.TabIndex = 52;
-            this.PartsListBox.DoubleClick += new System.EventHandler(this.PartsListBox_DoubleClick);
-            this.PartsListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PartsListBox_MouseDown);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -251,17 +174,6 @@
             this.label8.Size = new System.Drawing.Size(50, 12);
             this.label8.TabIndex = 53;
             this.label8.Text = "Parts   :";
-            // 
-            // CameraPrjListBox
-            // 
-            this.CameraPrjListBox.FormattingEnabled = true;
-            this.CameraPrjListBox.ItemHeight = 12;
-            this.CameraPrjListBox.Location = new System.Drawing.Point(85, 476);
-            this.CameraPrjListBox.Name = "CameraPrjListBox";
-            this.CameraPrjListBox.Size = new System.Drawing.Size(329, 28);
-            this.CameraPrjListBox.TabIndex = 54;
-            this.CameraPrjListBox.DoubleClick += new System.EventHandler(this.CameraPrjListBox_DoubleClick);
-            this.CameraPrjListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CameraPrjListBox_MouseDown);
             // 
             // label9
             // 
@@ -284,22 +196,11 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(14, 551);
+            this.label13.Location = new System.Drawing.Point(12, 563);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(65, 12);
             this.label13.TabIndex = 57;
             this.label13.Text = "Integrator :";
-            // 
-            // IntegratorListBox
-            // 
-            this.IntegratorListBox.FormattingEnabled = true;
-            this.IntegratorListBox.ItemHeight = 12;
-            this.IntegratorListBox.Location = new System.Drawing.Point(85, 544);
-            this.IntegratorListBox.Name = "IntegratorListBox";
-            this.IntegratorListBox.Size = new System.Drawing.Size(329, 28);
-            this.IntegratorListBox.TabIndex = 58;
-            this.IntegratorListBox.DoubleClick += new System.EventHandler(this.IntegratorListBox_DoubleClick);
-            this.IntegratorListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.IntegratorListBox_MouseDown);
             // 
             // label14
             // 
@@ -310,17 +211,6 @@
             this.label14.TabIndex = 59;
             this.label14.Text = "Stiffener :";
             // 
-            // SensorListBox
-            // 
-            this.SensorListBox.FormattingEnabled = true;
-            this.SensorListBox.ItemHeight = 12;
-            this.SensorListBox.Location = new System.Drawing.Point(522, 105);
-            this.SensorListBox.Name = "SensorListBox";
-            this.SensorListBox.Size = new System.Drawing.Size(328, 100);
-            this.SensorListBox.TabIndex = 60;
-            this.SensorListBox.DoubleClick += new System.EventHandler(this.SensorListBox_DoubleClick);
-            this.SensorListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SensorListBox_MouseDown);
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -329,28 +219,6 @@
             this.label15.Size = new System.Drawing.Size(37, 12);
             this.label15.TabIndex = 61;
             this.label15.Text = "Flex :";
-            // 
-            // FlexListBox
-            // 
-            this.FlexListBox.FormattingEnabled = true;
-            this.FlexListBox.ItemHeight = 12;
-            this.FlexListBox.Location = new System.Drawing.Point(522, 211);
-            this.FlexListBox.Name = "FlexListBox";
-            this.FlexListBox.Size = new System.Drawing.Size(328, 64);
-            this.FlexListBox.TabIndex = 62;
-            this.FlexListBox.DoubleClick += new System.EventHandler(this.FlexListBox_DoubleClick);
-            this.FlexListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FlexListBox_MouseDown);
-            // 
-            // CameraListBox
-            // 
-            this.CameraListBox.FormattingEnabled = true;
-            this.CameraListBox.ItemHeight = 12;
-            this.CameraListBox.Location = new System.Drawing.Point(522, 365);
-            this.CameraListBox.Name = "CameraListBox";
-            this.CameraListBox.Size = new System.Drawing.Size(328, 52);
-            this.CameraListBox.TabIndex = 63;
-            this.CameraListBox.DoubleClick += new System.EventHandler(this.CameraListBox_DoubleClick);
-            this.CameraListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CameraListBox_MouseDown);
             // 
             // label16
             // 
@@ -379,28 +247,6 @@
             this.label18.TabIndex = 66;
             this.label18.Text = "Algorithm :";
             // 
-            // AlgorithmListBox
-            // 
-            this.AlgorithmListBox.FormattingEnabled = true;
-            this.AlgorithmListBox.ItemHeight = 12;
-            this.AlgorithmListBox.Location = new System.Drawing.Point(522, 423);
-            this.AlgorithmListBox.Name = "AlgorithmListBox";
-            this.AlgorithmListBox.Size = new System.Drawing.Size(328, 28);
-            this.AlgorithmListBox.TabIndex = 67;
-            this.AlgorithmListBox.DoubleClick += new System.EventHandler(this.AlgorithmListBox_DoubleClick);
-            this.AlgorithmListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlgorithmListBox_MouseDown);
-            // 
-            // ColorShadingListBox
-            // 
-            this.ColorShadingListBox.FormattingEnabled = true;
-            this.ColorShadingListBox.ItemHeight = 12;
-            this.ColorShadingListBox.Location = new System.Drawing.Point(522, 457);
-            this.ColorShadingListBox.Name = "ColorShadingListBox";
-            this.ColorShadingListBox.Size = new System.Drawing.Size(328, 28);
-            this.ColorShadingListBox.TabIndex = 71;
-            this.ColorShadingListBox.DoubleClick += new System.EventHandler(this.ColorShadingListBox_DoubleClick);
-            this.ColorShadingListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ColorShadingListBox_MouseDown);
-            // 
             // label20
             // 
             this.label20.AutoSize = true;
@@ -418,17 +264,6 @@
             this.label21.Size = new System.Drawing.Size(59, 12);
             this.label21.TabIndex = 70;
             this.label21.Text = "Shading :";
-            // 
-            // TraceabilityRevListBox
-            // 
-            this.TraceabilityRevListBox.FormattingEnabled = true;
-            this.TraceabilityRevListBox.ItemHeight = 12;
-            this.TraceabilityRevListBox.Location = new System.Drawing.Point(522, 491);
-            this.TraceabilityRevListBox.Name = "TraceabilityRevListBox";
-            this.TraceabilityRevListBox.Size = new System.Drawing.Size(328, 28);
-            this.TraceabilityRevListBox.TabIndex = 74;
-            this.TraceabilityRevListBox.DoubleClick += new System.EventHandler(this.TraceabilityRevListBox_DoubleClick);
-            this.TraceabilityRevListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TraceabilityRevListBox_MouseDown);
             // 
             // label22
             // 
@@ -448,15 +283,6 @@
             this.label23.TabIndex = 72;
             this.label23.Text = "Traceability";
             // 
-            // EEEEListBox
-            // 
-            this.EEEEListBox.FormattingEnabled = true;
-            this.EEEEListBox.ItemHeight = 12;
-            this.EEEEListBox.Location = new System.Drawing.Point(522, 525);
-            this.EEEEListBox.Name = "EEEEListBox";
-            this.EEEEListBox.Size = new System.Drawing.Size(328, 28);
-            this.EEEEListBox.TabIndex = 76;
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -466,14 +292,14 @@
             this.label19.TabIndex = 75;
             this.label19.Text = "EEEE :";
             // 
-            // listBox1
+            // VersionListBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(299, 25);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(115, 28);
-            this.listBox1.TabIndex = 77;
+            this.VersionListBox.FormattingEnabled = true;
+            this.VersionListBox.ItemHeight = 12;
+            this.VersionListBox.Location = new System.Drawing.Point(299, 25);
+            this.VersionListBox.Name = "VersionListBox";
+            this.VersionListBox.Size = new System.Drawing.Size(115, 28);
+            this.VersionListBox.TabIndex = 77;
             // 
             // label4
             // 
@@ -484,47 +310,236 @@
             this.label4.TabIndex = 78;
             this.label4.Text = "Version :";
             // 
+            // PartsListView
+            // 
+            this.PartsListView.FullRowSelect = true;
+            this.PartsListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.PartsListView.HideSelection = false;
+            this.PartsListView.Location = new System.Drawing.Point(85, 59);
+            this.PartsListView.Name = "PartsListView";
+            this.PartsListView.Size = new System.Drawing.Size(329, 122);
+            this.PartsListView.TabIndex = 79;
+            this.PartsListView.UseCompatibleStateImageBehavior = false;
+            this.PartsListView.View = System.Windows.Forms.View.Details;
+            // 
+            // NVMListView
+            // 
+            this.NVMListView.FullRowSelect = true;
+            this.NVMListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.NVMListView.HideSelection = false;
+            this.NVMListView.Location = new System.Drawing.Point(85, 187);
+            this.NVMListView.Name = "NVMListView";
+            this.NVMListView.Size = new System.Drawing.Size(329, 36);
+            this.NVMListView.TabIndex = 80;
+            this.NVMListView.UseCompatibleStateImageBehavior = false;
+            this.NVMListView.View = System.Windows.Forms.View.Details;
+            // 
+            // LensListView
+            // 
+            this.LensListView.FullRowSelect = true;
+            this.LensListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.LensListView.HideSelection = false;
+            this.LensListView.Location = new System.Drawing.Point(85, 229);
+            this.LensListView.Name = "LensListView";
+            this.LensListView.Size = new System.Drawing.Size(329, 132);
+            this.LensListView.TabIndex = 81;
+            this.LensListView.UseCompatibleStateImageBehavior = false;
+            this.LensListView.View = System.Windows.Forms.View.Details;
+            // 
+            // SubstrateListView
+            // 
+            this.SubstrateListView.FullRowSelect = true;
+            this.SubstrateListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.SubstrateListView.HideSelection = false;
+            this.SubstrateListView.Location = new System.Drawing.Point(85, 367);
+            this.SubstrateListView.Name = "SubstrateListView";
+            this.SubstrateListView.Size = new System.Drawing.Size(329, 102);
+            this.SubstrateListView.TabIndex = 82;
+            this.SubstrateListView.UseCompatibleStateImageBehavior = false;
+            this.SubstrateListView.View = System.Windows.Forms.View.Details;
+            // 
+            // CameraPrjListView
+            // 
+            this.CameraPrjListView.FullRowSelect = true;
+            this.CameraPrjListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.CameraPrjListView.HideSelection = false;
+            this.CameraPrjListView.Location = new System.Drawing.Point(85, 473);
+            this.CameraPrjListView.Name = "CameraPrjListView";
+            this.CameraPrjListView.Size = new System.Drawing.Size(329, 34);
+            this.CameraPrjListView.TabIndex = 83;
+            this.CameraPrjListView.UseCompatibleStateImageBehavior = false;
+            this.CameraPrjListView.View = System.Windows.Forms.View.Details;
+            // 
+            // ProgramVariantListView
+            // 
+            this.ProgramVariantListView.FullRowSelect = true;
+            this.ProgramVariantListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.ProgramVariantListView.HideSelection = false;
+            this.ProgramVariantListView.Location = new System.Drawing.Point(85, 513);
+            this.ProgramVariantListView.Name = "ProgramVariantListView";
+            this.ProgramVariantListView.Size = new System.Drawing.Size(329, 34);
+            this.ProgramVariantListView.TabIndex = 84;
+            this.ProgramVariantListView.UseCompatibleStateImageBehavior = false;
+            this.ProgramVariantListView.View = System.Windows.Forms.View.Details;
+            // 
+            // IntegratorListView
+            // 
+            this.IntegratorListView.FullRowSelect = true;
+            this.IntegratorListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.IntegratorListView.HideSelection = false;
+            this.IntegratorListView.Location = new System.Drawing.Point(85, 553);
+            this.IntegratorListView.Name = "IntegratorListView";
+            this.IntegratorListView.Size = new System.Drawing.Size(329, 34);
+            this.IntegratorListView.TabIndex = 85;
+            this.IntegratorListView.UseCompatibleStateImageBehavior = false;
+            this.IntegratorListView.View = System.Windows.Forms.View.Details;
+            // 
+            // IRCFListView
+            // 
+            this.IRCFListView.FullRowSelect = true;
+            this.IRCFListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.IRCFListView.HideSelection = false;
+            this.IRCFListView.Location = new System.Drawing.Point(519, 25);
+            this.IRCFListView.Name = "IRCFListView";
+            this.IRCFListView.Size = new System.Drawing.Size(329, 79);
+            this.IRCFListView.TabIndex = 86;
+            this.IRCFListView.UseCompatibleStateImageBehavior = false;
+            this.IRCFListView.View = System.Windows.Forms.View.Details;
+            // 
+            // SensorListBox
+            // 
+            this.SensorListBox.FullRowSelect = true;
+            this.SensorListBox.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.SensorListBox.HideSelection = false;
+            this.SensorListBox.Location = new System.Drawing.Point(519, 110);
+            this.SensorListBox.Name = "SensorListBox";
+            this.SensorListBox.Size = new System.Drawing.Size(329, 79);
+            this.SensorListBox.TabIndex = 87;
+            this.SensorListBox.UseCompatibleStateImageBehavior = false;
+            this.SensorListBox.View = System.Windows.Forms.View.Details;
+            // 
+            // FlexListView
+            // 
+            this.FlexListView.FullRowSelect = true;
+            this.FlexListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.FlexListView.HideSelection = false;
+            this.FlexListView.Location = new System.Drawing.Point(519, 195);
+            this.FlexListView.Name = "FlexListView";
+            this.FlexListView.Size = new System.Drawing.Size(329, 79);
+            this.FlexListView.TabIndex = 88;
+            this.FlexListView.UseCompatibleStateImageBehavior = false;
+            this.FlexListView.View = System.Windows.Forms.View.Details;
+            // 
+            // StiffenerListView
+            // 
+            this.StiffenerListView.FullRowSelect = true;
+            this.StiffenerListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.StiffenerListView.HideSelection = false;
+            this.StiffenerListView.Location = new System.Drawing.Point(519, 280);
+            this.StiffenerListView.Name = "StiffenerListView";
+            this.StiffenerListView.Size = new System.Drawing.Size(329, 72);
+            this.StiffenerListView.TabIndex = 89;
+            this.StiffenerListView.UseCompatibleStateImageBehavior = false;
+            this.StiffenerListView.View = System.Windows.Forms.View.Details;
+            // 
+            // CameraListView
+            // 
+            this.CameraListView.FullRowSelect = true;
+            this.CameraListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.CameraListView.HideSelection = false;
+            this.CameraListView.Location = new System.Drawing.Point(519, 358);
+            this.CameraListView.Name = "CameraListView";
+            this.CameraListView.Size = new System.Drawing.Size(329, 54);
+            this.CameraListView.TabIndex = 90;
+            this.CameraListView.UseCompatibleStateImageBehavior = false;
+            this.CameraListView.View = System.Windows.Forms.View.Details;
+            // 
+            // Algorithm
+            // 
+            this.Algorithm.FullRowSelect = true;
+            this.Algorithm.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.Algorithm.HideSelection = false;
+            this.Algorithm.Location = new System.Drawing.Point(519, 418);
+            this.Algorithm.Name = "Algorithm";
+            this.Algorithm.Size = new System.Drawing.Size(329, 30);
+            this.Algorithm.TabIndex = 91;
+            this.Algorithm.UseCompatibleStateImageBehavior = false;
+            this.Algorithm.View = System.Windows.Forms.View.Details;
+            // 
+            // ColorShadingListView
+            // 
+            this.ColorShadingListView.FullRowSelect = true;
+            this.ColorShadingListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.ColorShadingListView.HideSelection = false;
+            this.ColorShadingListView.Location = new System.Drawing.Point(519, 454);
+            this.ColorShadingListView.Name = "ColorShadingListView";
+            this.ColorShadingListView.Size = new System.Drawing.Size(329, 30);
+            this.ColorShadingListView.TabIndex = 92;
+            this.ColorShadingListView.UseCompatibleStateImageBehavior = false;
+            this.ColorShadingListView.View = System.Windows.Forms.View.Details;
+            // 
+            // TraceabillityRevListView
+            // 
+            this.TraceabillityRevListView.FullRowSelect = true;
+            this.TraceabillityRevListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.TraceabillityRevListView.HideSelection = false;
+            this.TraceabillityRevListView.Location = new System.Drawing.Point(519, 490);
+            this.TraceabillityRevListView.Name = "TraceabillityRevListView";
+            this.TraceabillityRevListView.Size = new System.Drawing.Size(329, 30);
+            this.TraceabillityRevListView.TabIndex = 93;
+            this.TraceabillityRevListView.UseCompatibleStateImageBehavior = false;
+            this.TraceabillityRevListView.View = System.Windows.Forms.View.Details;
+            // 
+            // EEEEListBox
+            // 
+            this.EEEEListBox.FormattingEnabled = true;
+            this.EEEEListBox.ItemHeight = 12;
+            this.EEEEListBox.Location = new System.Drawing.Point(519, 526);
+            this.EEEEListBox.Name = "EEEEListBox";
+            this.EEEEListBox.Size = new System.Drawing.Size(329, 28);
+            this.EEEEListBox.TabIndex = 94;
+            // 
             // AddPrjForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(898, 647);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.EEEEListBox);
+            this.Controls.Add(this.TraceabillityRevListView);
+            this.Controls.Add(this.ColorShadingListView);
+            this.Controls.Add(this.Algorithm);
+            this.Controls.Add(this.CameraListView);
+            this.Controls.Add(this.StiffenerListView);
+            this.Controls.Add(this.FlexListView);
+            this.Controls.Add(this.SensorListBox);
+            this.Controls.Add(this.IRCFListView);
+            this.Controls.Add(this.IntegratorListView);
+            this.Controls.Add(this.ProgramVariantListView);
+            this.Controls.Add(this.CameraPrjListView);
+            this.Controls.Add(this.SubstrateListView);
+            this.Controls.Add(this.LensListView);
+            this.Controls.Add(this.NVMListView);
+            this.Controls.Add(this.PartsListView);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.VersionListBox);
             this.Controls.Add(this.label19);
-            this.Controls.Add(this.TraceabilityRevListBox);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label23);
-            this.Controls.Add(this.ColorShadingListBox);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label20);
-            this.Controls.Add(this.AlgorithmListBox);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.CameraListBox);
-            this.Controls.Add(this.FlexListBox);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.SensorListBox);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.IntegratorListBox);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.CameraPrjListBox);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.PartsListBox);
             this.Controls.Add(this.AddOKbutton);
             this.Controls.Add(this.AddCloseButton);
-            this.Controls.Add(this.IRCFListBox);
-            this.Controls.Add(this.ProgramVariantListBox);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.SubstrateListBox);
-            this.Controls.Add(this.StiffenerListBox);
-            this.Controls.Add(this.LensListBox);
-            this.Controls.Add(this.NVMListBox);
             this.Controls.Add(this.PrjListBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -546,42 +561,42 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ListBox PrjListBox;
-        private System.Windows.Forms.ListBox NVMListBox;
-        private System.Windows.Forms.ListBox LensListBox;
-        private System.Windows.Forms.ListBox StiffenerListBox;
-        private System.Windows.Forms.ListBox SubstrateListBox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ListBox IRCFListBox;
-        private System.Windows.Forms.ListBox ProgramVariantListBox;
         private System.Windows.Forms.Button AddCloseButton;
         private System.Windows.Forms.Button AddOKbutton;
-        private System.Windows.Forms.ListBox PartsListBox;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ListBox CameraPrjListBox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ListBox IntegratorListBox;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ListBox SensorListBox;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ListBox FlexListBox;
-        private System.Windows.Forms.ListBox CameraListBox;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.ListBox AlgorithmListBox;
-        private System.Windows.Forms.ListBox ColorShadingListBox;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.ListBox TraceabilityRevListBox;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.ListBox EEEEListBox;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox VersionListBox;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ListView PartsListView;
+        private System.Windows.Forms.ListView NVMListView;
+        private System.Windows.Forms.ListView LensListView;
+        private System.Windows.Forms.ListView SubstrateListView;
+        private System.Windows.Forms.ListView CameraPrjListView;
+        private System.Windows.Forms.ListView ProgramVariantListView;
+        private System.Windows.Forms.ListView IntegratorListView;
+        private System.Windows.Forms.ListView IRCFListView;
+        private System.Windows.Forms.ListView SensorListBox;
+        private System.Windows.Forms.ListView FlexListView;
+        private System.Windows.Forms.ListView StiffenerListView;
+        private System.Windows.Forms.ListView CameraListView;
+        private System.Windows.Forms.ListView Algorithm;
+        private System.Windows.Forms.ListView ColorShadingListView;
+        private System.Windows.Forms.ListView TraceabillityRevListView;
+        private System.Windows.Forms.ListBox EEEEListBox;
 
     }
 }

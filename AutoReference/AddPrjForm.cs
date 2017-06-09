@@ -19,7 +19,7 @@ namespace AutoReference
         private BaseData m_CTempData = new BaseData();        
         private List<string> strList = new List<string>();
         private BaseData CNewBaseData = new BaseData();
-        private VSRData CNewVSRData = new VSRData();
+        private VSRData CNewVSRData = null;
         private ContextMenu CMenu = new ContextMenu();
 
         public delegate void SendAddResult(bool bResult, VSRData CVSRData);
@@ -29,6 +29,7 @@ namespace AutoReference
         {
             m_strPartData = null;
             m_bParts = false;
+            CNewVSRData = new VSRData();
             InitializeComponent();
 
             SetRightClickMenu();
@@ -44,12 +45,25 @@ namespace AutoReference
             Cursor.Current = Cursors.Default;
         }
 
+        public AddPrjForm(VSRData inData)
+        {
+            InitializeComponent();
+            CNewVSRData = inData;
+            SetRightClickMenu();
+            // Set cursor as default arrow
+            Cursor.Current = Cursors.Default;
+
+            PrintItemsToListBox();
+        }
+
         private void SetRightClickMenu()
         {
-            MenuItem m1 = new MenuItem("Modify");
-            MenuItem m2 = new MenuItem("Delete");
+            MenuItem m1 = new MenuItem("Add");
+            MenuItem m2 = new MenuItem("Modify");
+            MenuItem m3 = new MenuItem("Delete");
             CMenu.MenuItems.Add(m1);
             CMenu.MenuItems.Add(m2);
+            CMenu.MenuItems.Add(m3);
         }
 
         private void AddCloseButtonClick(object sender, EventArgs e)
@@ -173,21 +187,21 @@ namespace AutoReference
             PrjListBox.Items.Clear();
             PrjListBox.Items.Add(CNewVSRData.m_strVSRVersion + "-" + CNewVSRData.m_strPrjName);
 
-            PrintToListBox(PartsListBox, ref CNewVSRData.PartsList);
-            PrintToListBox(NVMListBox, ref CNewVSRData.NVMList);
-            PrintToListBox(CameraPrjListBox, ref CNewVSRData.CameraPrjList);
-            PrintToListBox(ProgramVariantListBox, ref CNewVSRData.ProgramVariantList);
-            PrintToListBox(IntegratorListBox, ref CNewVSRData.IntegratorList);
-            PrintToListBox(LensListBox, ref CNewVSRData.LensList);
-            PrintToListBox(IRCFListBox, ref CNewVSRData.IRCFList);
-            PrintToListBox(SubstrateListBox, ref CNewVSRData.SubstrateList);
-            PrintToListBox(SensorListBox, ref CNewVSRData.SensorList);
-            PrintToListBox(FlexListBox, ref CNewVSRData.FlexList);
-            PrintToListBox(StiffenerListBox, ref CNewVSRData.StiffenerList);
-            PrintToListBox(CameraListBox, ref CNewVSRData.CameraBuildList);
-            PrintToListBox(AlgorithmListBox, ref CNewVSRData.AlgorithmList);
-            PrintToListBox(ColorShadingListBox, ref CNewVSRData.ColorShadingList);
-            PrintToListBox(TraceabilityRevListBox, ref CNewVSRData.TraceabilityRevList);
+//             PrintToListBox(PartsListBox, ref CNewVSRData.PartsList);
+//             PrintToListBox(NVMListBox, ref CNewVSRData.NVMList);
+//             PrintToListBox(CameraPrjListBox, ref CNewVSRData.CameraPrjList);
+//             PrintToListBox(ProgramVariantListBox, ref CNewVSRData.ProgramVariantList);
+//             PrintToListBox(IntegratorListBox, ref CNewVSRData.IntegratorList);
+//             PrintToListBox(LensListBox, ref CNewVSRData.LensList);
+//             PrintToListBox(IRCFListBox, ref CNewVSRData.IRCFList);
+//             PrintToListBox(SubstrateListBox, ref CNewVSRData.SubstrateList);
+//             PrintToListBox(SensorListBox, ref CNewVSRData.SensorList);
+//             PrintToListBox(FlexListBox, ref CNewVSRData.FlexList);
+//             PrintToListBox(StiffenerListBox, ref CNewVSRData.StiffenerList);
+//             PrintToListBox(CameraListBox, ref CNewVSRData.CameraBuildList);
+//             PrintToListBox(AlgorithmListBox, ref CNewVSRData.AlgorithmList);
+//             PrintToListBox(ColorShadingListBox, ref CNewVSRData.ColorShadingList);
+//             PrintToListBox(TraceabilityRevListBox, ref CNewVSRData.TraceabilityRevList);
 
             EEEEListBox.Items.Clear();
             EEEEListBox.Items.Add(CNewVSRData.m_strEEEE);
@@ -438,10 +452,6 @@ namespace AutoReference
             int nBinaryCount = 0;
 
             int nInt0Index = inString.IndexOf("0");
-//             int nInt1Index = inString.IndexOf("1");
-// 
-//             if (nInt0Index > nInt1Index && nInt1Index != -1)
-//                 nInt0Index = nInt1Index;
 
             foreach (var temp in strTempArray)
             {
@@ -806,6 +816,5 @@ namespace AutoReference
             if (e.Button == MouseButtons.Right)
                 CMenu.Show(TraceabilityRevListBox, new System.Drawing.Point(e.X, e.Y));
         }
-        
     }
 }

@@ -28,33 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem21 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem22 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem23 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem24 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem25 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem26 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem27 = new System.Windows.Forms.ListViewItem("");
             this.PrjListBox = new System.Windows.Forms.ListBox();
             this.prjAddButton = new System.Windows.Forms.Button();
             this.prjDeleteButton = new System.Windows.Forms.Button();
@@ -76,7 +49,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.button_Modify = new System.Windows.Forms.Button();
+            this.prjModifyButton = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -300,14 +273,15 @@
             this.label13.TabIndex = 34;
             this.label13.Text = "Ref Version";
             // 
-            // button_Modify
+            // prjModifyButton
             // 
-            this.button_Modify.Location = new System.Drawing.Point(89, 230);
-            this.button_Modify.Name = "button_Modify";
-            this.button_Modify.Size = new System.Drawing.Size(54, 44);
-            this.button_Modify.TabIndex = 37;
-            this.button_Modify.Text = "Modify";
-            this.button_Modify.UseVisualStyleBackColor = true;
+            this.prjModifyButton.Location = new System.Drawing.Point(89, 230);
+            this.prjModifyButton.Name = "prjModifyButton";
+            this.prjModifyButton.Size = new System.Drawing.Size(54, 44);
+            this.prjModifyButton.TabIndex = 37;
+            this.prjModifyButton.Text = "Modify";
+            this.prjModifyButton.UseVisualStyleBackColor = true;
+            this.prjModifyButton.Click += new System.EventHandler(this.button_Modify_Click);
             // 
             // label14
             // 
@@ -390,28 +364,21 @@
             // 
             this.SensorListView.FullRowSelect = true;
             this.SensorListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.SensorListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3});
+            this.SensorListView.HideSelection = false;
             this.SensorListView.Location = new System.Drawing.Point(276, 39);
-            this.SensorListView.MultiSelect = false;
             this.SensorListView.Name = "SensorListView";
             this.SensorListView.Size = new System.Drawing.Size(410, 122);
             this.SensorListView.TabIndex = 43;
             this.SensorListView.UseCompatibleStateImageBehavior = false;
             this.SensorListView.View = System.Windows.Forms.View.Details;
+            this.SensorListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SensorListView_MouseClick);
             // 
             // ConfigListView
             // 
             this.ConfigListView.FullRowSelect = true;
             this.ConfigListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.ConfigListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem4,
-            listViewItem5,
-            listViewItem6});
+            this.ConfigListView.HideSelection = false;
             this.ConfigListView.Location = new System.Drawing.Point(276, 167);
-            this.ConfigListView.MultiSelect = false;
             this.ConfigListView.Name = "ConfigListView";
             this.ConfigListView.Size = new System.Drawing.Size(410, 85);
             this.ConfigListView.TabIndex = 44;
@@ -422,12 +389,8 @@
             // 
             this.IRCFListView.FullRowSelect = true;
             this.IRCFListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.IRCFListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem7,
-            listViewItem8,
-            listViewItem9});
+            this.IRCFListView.HideSelection = false;
             this.IRCFListView.Location = new System.Drawing.Point(276, 258);
-            this.IRCFListView.MultiSelect = false;
             this.IRCFListView.Name = "IRCFListView";
             this.IRCFListView.Size = new System.Drawing.Size(410, 45);
             this.IRCFListView.TabIndex = 45;
@@ -438,12 +401,8 @@
             // 
             this.LensListView.FullRowSelect = true;
             this.LensListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.LensListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem10,
-            listViewItem11,
-            listViewItem12});
+            this.LensListView.HideSelection = false;
             this.LensListView.Location = new System.Drawing.Point(276, 309);
-            this.LensListView.MultiSelect = false;
             this.LensListView.Name = "LensListView";
             this.LensListView.Size = new System.Drawing.Size(410, 57);
             this.LensListView.TabIndex = 46;
@@ -454,12 +413,8 @@
             // 
             this.StiffenerListView.FullRowSelect = true;
             this.StiffenerListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.StiffenerListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem13,
-            listViewItem14,
-            listViewItem15});
+            this.StiffenerListView.HideSelection = false;
             this.StiffenerListView.Location = new System.Drawing.Point(276, 372);
-            this.StiffenerListView.MultiSelect = false;
             this.StiffenerListView.Name = "StiffenerListView";
             this.StiffenerListView.Size = new System.Drawing.Size(410, 57);
             this.StiffenerListView.TabIndex = 47;
@@ -470,12 +425,8 @@
             // 
             this.SubstrateListView.FullRowSelect = true;
             this.SubstrateListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.SubstrateListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem16,
-            listViewItem17,
-            listViewItem18});
+            this.SubstrateListView.HideSelection = false;
             this.SubstrateListView.Location = new System.Drawing.Point(276, 435);
-            this.SubstrateListView.MultiSelect = false;
             this.SubstrateListView.Name = "SubstrateListView";
             this.SubstrateListView.Size = new System.Drawing.Size(410, 53);
             this.SubstrateListView.TabIndex = 48;
@@ -486,12 +437,8 @@
             // 
             this.FlexListView.FullRowSelect = true;
             this.FlexListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.FlexListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem19,
-            listViewItem20,
-            listViewItem21});
+            this.FlexListView.HideSelection = false;
             this.FlexListView.Location = new System.Drawing.Point(276, 494);
-            this.FlexListView.MultiSelect = false;
             this.FlexListView.Name = "FlexListView";
             this.FlexListView.Size = new System.Drawing.Size(410, 46);
             this.FlexListView.TabIndex = 49;
@@ -502,12 +449,8 @@
             // 
             this.CarrierListView.FullRowSelect = true;
             this.CarrierListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.CarrierListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem22,
-            listViewItem23,
-            listViewItem24});
+            this.CarrierListView.HideSelection = false;
             this.CarrierListView.Location = new System.Drawing.Point(276, 546);
-            this.CarrierListView.MultiSelect = false;
             this.CarrierListView.Name = "CarrierListView";
             this.CarrierListView.Size = new System.Drawing.Size(410, 36);
             this.CarrierListView.TabIndex = 50;
@@ -518,12 +461,8 @@
             // 
             this.BuildListView.FullRowSelect = true;
             this.BuildListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.BuildListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem25,
-            listViewItem26,
-            listViewItem27});
+            this.BuildListView.HideSelection = false;
             this.BuildListView.Location = new System.Drawing.Point(276, 587);
-            this.BuildListView.MultiSelect = false;
             this.BuildListView.Name = "BuildListView";
             this.BuildListView.Size = new System.Drawing.Size(410, 36);
             this.BuildListView.TabIndex = 51;
@@ -592,7 +531,7 @@
             this.Controls.Add(this.SensorListView);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.button_Modify);
+            this.Controls.Add(this.prjModifyButton);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.closelButton);
             this.Controls.Add(this.nextButton);
@@ -642,7 +581,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button button_Modify;
+        private System.Windows.Forms.Button prjModifyButton;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.GroupBox groupBox1;

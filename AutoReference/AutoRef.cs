@@ -26,7 +26,6 @@ namespace AutoReference
             DataFileLoad();
             initAllListViews();
             PrintProjectToListBox();
-            
         }
 
         private void PrjAddButton_Click(object sender, EventArgs e)
@@ -34,7 +33,6 @@ namespace AutoReference
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "PDF 파일 (*.pdf) | *.pdf";
 
-            
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 string path = ofd.FileName;
@@ -42,11 +40,11 @@ namespace AutoReference
                 AddPrjForm addDlg = new AddPrjForm(path);
                 addDlg.SendAddResultEvent += new AddPrjForm.SendAddResult(GetAddResult);
                 addDlg.ShowDialog();
-
             }
             if (m_bAddResult)
             {
                 DataList.Add(m_AddVSR);
+                
                 PrintProjectToListBox();
             }
         }
@@ -62,7 +60,6 @@ namespace AutoReference
             }
 
             FileDelete(strFilePath);
-
             PrintProjectToListBox();
             CleanListBoxes();
         }
@@ -106,7 +103,7 @@ namespace AutoReference
             {
                 CSelectedData = DataList[nSelectIndex];
                 PrintItemToListView(CSelectedData.SensorList,       SensorListView);
-                PrintItemToListView(CSelectedData.PartsList,       ConfigListView);
+                PrintItemToListView(CSelectedData.PartsList,        ConfigListView);
                 PrintItemToListView(CSelectedData.IRCFList,         IRCFListView);
                 PrintItemToListView(CSelectedData.LensList,         LensListView);
                 PrintItemToListView(CSelectedData.StiffenerList,    StiffenerListView);
@@ -135,23 +132,43 @@ namespace AutoReference
         {
             inListView.FullRowSelect = true;
             inListView.Columns.Add("", 0);
-            inListView.Columns.Add("Item", 180);
-            inListView.Columns.Add("Binary", 100);
-            inListView.Columns.Add("Hex", 100);
+            
+            if (inListView != ConfigListView)
+            {
+                inListView.Columns.Add("Item", 180);
+                inListView.Columns.Add("Binary", 100);
+                inListView.Columns.Add("Hex", 100);
+            }
+            else
+            {
+                inListView.Columns.Add("Item", 300);
+            }
         }
 
         private void PrintItemToListView(List<BaseData> inData, ListView inListView)
         {
             inListView.Items.Clear();
-            
-            foreach (var temp in inData)
+            if (inListView == ConfigListView)
             {
-                ListViewItem lvi = new ListViewItem("");
-                lvi.SubItems.Add(temp.strVendorName);
-                lvi.SubItems.Add(temp.strBinaryValue);
-                lvi.SubItems.Add(temp.strHexValue);
-                inListView.Items.Add(lvi);
+                foreach (var temp in inData)
+                {
+                    ListViewItem lvi = new ListViewItem("");
+                    lvi.SubItems.Add(temp.strVendorName);                    
+                    inListView.Items.Add(lvi);
+                }
             }
+            else
+            {
+                foreach (var temp in inData)
+                {
+                    ListViewItem lvi = new ListViewItem("");
+                    lvi.SubItems.Add(temp.strVendorName);
+                    lvi.SubItems.Add(temp.strBinaryValue);
+                    lvi.SubItems.Add(temp.strHexValue);
+                    inListView.Items.Add(lvi);
+                }
+            }
+           
         }
 
         private void PrintToListBox(List<BaseData> inData, ListBox inListBox)
@@ -265,6 +282,48 @@ namespace AutoReference
             }
 
             return true;
-        }      
+        }
+
+        private void button_Modify_Click(object sender, EventArgs e)
+        {
+            string strTemp = PrjListBox.SelectedItem.ToString();
+            VSRData CSelectedData = new VSRData();
+            CSelectedData.SetFileName(strTemp);
+            int nSelectIndex = -1;
+            nSelectIndex = PrjListBox.SelectedIndex;
+
+            if (nSelectIndex != -1 && strTemp != "")
+            {
+                CSelectedData = DataList[nSelectIndex];
+                AddPrjForm addDlg = new AddPrjForm(CSelectedData);
+                addDlg.SendAddResultEvent += new AddPrjForm.SendAddResult(GetAddResult);
+                addDlg.ShowDialog();
+            }
+        }
+
+        private void SensorListView_MouseClick(object sender, MouseEventArgs e)
+        {
+            int nSelecedIndex = -1;
+
+            nSelecedIndex = SensorListView.FocusedItem.Index;
+           // string strSelecteIndex = SensorListView.FocusedItem.Index;
+            SensorListView.BeginUpdate();
+            int nIndex = 0;
+            foreach (ListViewItem item in SensorListView.Items)
+            {
+                if (nIndex == nSelecedIndex)
+                {
+                    item.BackColor = Color.Aqua;
+                    item.Focused = true;
+                }
+                else
+                {
+                    item.BackColor = Color.White;
+                    item.Focused = false;
+                }
+                nIndex++;
+            }
+            SensorListView.EndUpdate();
+        }
     }
 }
