@@ -32,19 +32,20 @@ namespace AutoReference
         public List<BaseData> ColorCalList;
         public List<BaseData> ColorShadingList;
         public List<BaseData> TraceabilityRevList;
+        public List<BaseData> CarrierList;
         public List<BaseData> ConfigList;
         public string m_strEEEE;
         public string m_strVSRVersion;
         public string m_strPrjName;
+        public string m_strFileName;
         
 
         public VSRData()
         {
             m_strVSRVersion = null;
             m_strPrjName    = null;
-
-            m_strEEEE       = " ";
-
+            m_strEEEE       = "";
+            m_strFileName   = "";
             PartsList           = new List<BaseData>();
             NVMList             = new List<BaseData>();
             LensList            = new List<BaseData>();
@@ -62,6 +63,7 @@ namespace AutoReference
             ColorCalList        = new List<BaseData>();
             ColorShadingList    = new List<BaseData>();
             TraceabilityRevList = new List<BaseData>();
+            CarrierList         = new List<BaseData>();
             ConfigList          = new List<BaseData>();
         }
 
@@ -103,7 +105,11 @@ namespace AutoReference
 
         public void SaveDataToFile()
         {
-            string strFilePath = Application.StartupPath + "\\Data\\" + m_strPrjName + m_strVSRVersion + ".ini";
+            string strFilePath;
+            if (m_strFileName == "")
+                strFilePath = Application.StartupPath + "\\Data\\" + m_strPrjName + m_strVSRVersion + ".ini";
+            else
+                strFilePath = Application.StartupPath + "\\Data\\" + m_strFileName + ".ini";
 
             SaveVSRVersionToFile();
             SaveEEEEToFile();
@@ -131,7 +137,11 @@ namespace AutoReference
         public void SaveVSRVersionToFile()
         {
             string strSection = "VSR";
-            string strFilePath = Application.StartupPath + "\\Data\\" + m_strPrjName + m_strVSRVersion + ".ini";
+            string strFilePath;
+            if (m_strFileName == "")
+                strFilePath = Application.StartupPath + "\\Data\\" + m_strPrjName + m_strVSRVersion + ".ini";
+            else
+                strFilePath = Application.StartupPath + "\\Data\\" + m_strFileName + ".ini";
 
             WritePrivateProfileString(strSection, "Version", m_strVSRVersion, strFilePath);
             WritePrivateProfileString(strSection, "PrjName", m_strPrjName, strFilePath);
@@ -140,7 +150,11 @@ namespace AutoReference
         public void SaveEEEEToFile()
         {
             string strSection = "EEEE";
-            string strFilePath = Application.StartupPath + "\\Data\\" + m_strPrjName + m_strVSRVersion + ".ini";
+            string strFilePath;
+            if(m_strFileName == "")
+                strFilePath = Application.StartupPath + "\\Data\\" + m_strPrjName + m_strVSRVersion + ".ini";
+            else
+                strFilePath = Application.StartupPath + "\\Data\\" + m_strFileName + ".ini";
 
             WritePrivateProfileString(strSection, "Code", m_strEEEE, strFilePath);
         }
@@ -215,8 +229,12 @@ namespace AutoReference
                 BaseData CAddData = new BaseData();
                 CAddData.ReadInfoFromFile(inFilePath, strSection, i.ToString());
                 inListData.Add(CAddData);
-                
             }
+        }
+
+        public void SetFileName(string inData)
+        {
+            m_strFileName = inData;
         }
     }
 }

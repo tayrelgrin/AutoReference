@@ -24,7 +24,7 @@ namespace AutoReference
             DataList = new List<VSRData>();
 
             DataFileLoad();
-            
+            initAllListViews();
             PrintProjectToListBox();
             
         }
@@ -97,37 +97,60 @@ namespace AutoReference
             int nSelectIndex = -1;
 
             nSelectIndex = PrjListBox.SelectedIndex;
+            string strTemp = PrjListBox.SelectedItem.ToString();
+
             VSRData CSelectedData = new VSRData();
+            CSelectedData.SetFileName(strTemp);
 
             if (nSelectIndex != -1)
             {
                 CSelectedData = DataList[nSelectIndex];
-
-                PrintEEEEToListBox(CSelectedData);
-                PrintToListBox(CSelectedData.PartsList, ConfigListBox);
-                PrintToListBox(CSelectedData.IRCFList, IRCFListBox);
-                PrintToListBox(CSelectedData.SensorList, SensorListBox);
-                PrintToListBox(CSelectedData.StiffenerList, StiffenerListBox);
-                PrintToListBox(CSelectedData.SubstrateList, SubstrateListBox);
-                PrintToListBox(CSelectedData.LensList, LensListBox);
-                PrintToListBox(CSelectedData.FlexList, FlexListBox);
+                PrintItemToListView(CSelectedData.SensorList,       SensorListView);
+                PrintItemToListView(CSelectedData.PartsList,       ConfigListView);
+                PrintItemToListView(CSelectedData.IRCFList,         IRCFListView);
+                PrintItemToListView(CSelectedData.LensList,         LensListView);
+                PrintItemToListView(CSelectedData.StiffenerList,    StiffenerListView);
+                PrintItemToListView(CSelectedData.SubstrateList,    SubstrateListView);
+                PrintItemToListView(CSelectedData.FlexList,         FlexListView);
+                PrintItemToListView(CSelectedData.CarrierList,      CarrierListView);
+                PrintItemToListView(CSelectedData.CameraBuildList,  BuildListView);
+                PrintEEEEToTextBox(CSelectedData);
             }
         }
 
-        void GetAddResult(bool inResult, VSRData inAddVSR)
+        private void initAllListViews()
         {
-            m_AddVSR = inAddVSR;
-            m_bAddResult = inResult;
+            InitListView(SensorListView);
+            InitListView(ConfigListView);
+            InitListView(IRCFListView);
+            InitListView(LensListView);
+            InitListView(StiffenerListView);
+            InitListView(SubstrateListView);
+            InitListView(FlexListView);
+            InitListView(CarrierListView);
+            InitListView(BuildListView);
         }
-        
-        private void PrintConfigToListBox(List<BaseData> inData)
-        {
-            ConfigListBox.Items.Clear();
-            VSRData aa = new VSRData();
 
+        private void InitListView(ListView inListView)
+        {
+            inListView.FullRowSelect = true;
+            inListView.Columns.Add("", 0);
+            inListView.Columns.Add("Item", 180);
+            inListView.Columns.Add("Binary", 100);
+            inListView.Columns.Add("Hex", 100);
+        }
+
+        private void PrintItemToListView(List<BaseData> inData, ListView inListView)
+        {
+            inListView.Items.Clear();
+            
             foreach (var temp in inData)
             {
-                ConfigListBox.Items.Add(temp.strVendorName + " " + temp.strBinaryValue);
+                ListViewItem lvi = new ListViewItem("");
+                lvi.SubItems.Add(temp.strVendorName);
+                lvi.SubItems.Add(temp.strBinaryValue);
+                lvi.SubItems.Add(temp.strHexValue);
+                inListView.Items.Add(lvi);
             }
         }
 
@@ -140,37 +163,16 @@ namespace AutoReference
             }
         }
 
-        private void PrintFlexToListBox(List<BaseData> inData)
+        private void PrintEEEEToTextBox(VSRData inData)
         {
-            FlexListBox.Items.Clear();
-            foreach (var temp in inData)
-            {
-                FlexListBox.Items.Add(temp.strVendorName + " " + temp.strBinaryValue);
-            }
+            EEEETextBox.Clear();
+            EEEETextBox.Text = inData.m_strEEEE;
         }
 
-        private void PrintSubstrateToListBox(List<BaseData> inData)
+        void GetAddResult(bool inResult, VSRData inAddVSR)
         {
-            SubstrateListBox.Items.Clear();
-            foreach (var temp in inData)
-            {
-                SubstrateListBox.Items.Add(temp.strVendorName + " " + temp.strBinaryValue);
-            }
-        }
-
-        private void PrintLensToListBox(List<BaseData> inData)
-        {
-            LensListBox.Items.Clear();
-            foreach (var temp in inData)
-            {
-                LensListBox.Items.Add(temp.strVendorName + " " + temp.strBinaryValue);
-            }
-        }
-
-        private void PrintEEEEToListBox(VSRData inData)
-        {
-            EEEEListBox.Items.Clear();
-            EEEEListBox.Items.Add(inData.m_strEEEE);
+            m_AddVSR = inAddVSR;
+            m_bAddResult = inResult;
         }
 
         private void PrintProjectToListBox()
@@ -220,14 +222,7 @@ namespace AutoReference
 
         private void CleanListBoxes()
         {
-            EEEEListBox.Items.Clear();
-            ConfigListBox.Items.Clear();
-            IRCFListBox.Items.Clear();
-            SensorListBox.Items.Clear();
-            StiffenerListBox.Items.Clear();
-            SubstrateListBox.Items.Clear();
-            LensListBox.Items.Clear();
-            FlexListBox.Items.Clear();
+            EEEETextBox.Clear();
         }
 
         private bool MakeDirectory(string inStrPath)
@@ -252,9 +247,7 @@ namespace AutoReference
                     MessageBox.Show(fileNotFound.Message);
                     return false;
                 }
-                
             }
-
             return true;
         }
 
@@ -272,6 +265,6 @@ namespace AutoReference
             }
 
             return true;
-        }
+        }      
     }
 }

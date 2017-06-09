@@ -68,6 +68,8 @@
             this.label23 = new System.Windows.Forms.Label();
             this.EEEEListBox = new System.Windows.Forms.ListBox();
             this.label19 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -121,7 +123,7 @@
             this.PrjListBox.ItemHeight = 12;
             this.PrjListBox.Location = new System.Drawing.Point(85, 25);
             this.PrjListBox.Name = "PrjListBox";
-            this.PrjListBox.Size = new System.Drawing.Size(329, 28);
+            this.PrjListBox.Size = new System.Drawing.Size(115, 28);
             this.PrjListBox.TabIndex = 39;
             this.PrjListBox.DoubleClick += new System.EventHandler(this.PrjListBox_DoubleClick);
             this.PrjListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PrjListBox_MouseDown);
@@ -464,11 +466,31 @@
             this.label19.TabIndex = 75;
             this.label19.Text = "EEEE :";
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 12;
+            this.listBox1.Location = new System.Drawing.Point(299, 25);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(115, 28);
+            this.listBox1.TabIndex = 77;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(241, 33);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 12);
+            this.label4.TabIndex = 78;
+            this.label4.Text = "Version :";
+            // 
             // AddPrjForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(898, 647);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.EEEEListBox);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.TraceabilityRevListBox);
@@ -558,6 +580,8 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.ListBox EEEEListBox;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label4;
 
     }
 }
