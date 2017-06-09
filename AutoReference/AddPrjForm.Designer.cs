@@ -321,6 +321,7 @@
             this.PartsListView.TabIndex = 79;
             this.PartsListView.UseCompatibleStateImageBehavior = false;
             this.PartsListView.View = System.Windows.Forms.View.Details;
+            this.PartsListView.DoubleClick += new System.EventHandler(this.PartsListView_DoubleClick);
             // 
             // NVMListView
             // 
@@ -333,6 +334,7 @@
             this.NVMListView.TabIndex = 80;
             this.NVMListView.UseCompatibleStateImageBehavior = false;
             this.NVMListView.View = System.Windows.Forms.View.Details;
+            this.NVMListView.DoubleClick += new System.EventHandler(this.NVMListView_DoubleClick);
             // 
             // LensListView
             // 
@@ -345,6 +347,7 @@
             this.LensListView.TabIndex = 81;
             this.LensListView.UseCompatibleStateImageBehavior = false;
             this.LensListView.View = System.Windows.Forms.View.Details;
+            this.LensListView.DoubleClick += new System.EventHandler(this.LensListView_DoubleClick);
             // 
             // SubstrateListView
             // 
@@ -357,6 +360,7 @@
             this.SubstrateListView.TabIndex = 82;
             this.SubstrateListView.UseCompatibleStateImageBehavior = false;
             this.SubstrateListView.View = System.Windows.Forms.View.Details;
+            this.SubstrateListView.DoubleClick += new System.EventHandler(this.SubstrateListView_DoubleClick);
             // 
             // CameraPrjListView
             // 
@@ -369,6 +373,7 @@
             this.CameraPrjListView.TabIndex = 83;
             this.CameraPrjListView.UseCompatibleStateImageBehavior = false;
             this.CameraPrjListView.View = System.Windows.Forms.View.Details;
+            this.CameraPrjListView.DoubleClick += new System.EventHandler(this.CameraPrjListView_DoubleClick);
             // 
             // ProgramVariantListView
             // 
@@ -381,6 +386,7 @@
             this.ProgramVariantListView.TabIndex = 84;
             this.ProgramVariantListView.UseCompatibleStateImageBehavior = false;
             this.ProgramVariantListView.View = System.Windows.Forms.View.Details;
+            this.ProgramVariantListView.DoubleClick += new System.EventHandler(this.ProgramVariantListView_DoubleClick);
             // 
             // IntegratorListView
             // 
@@ -405,6 +411,7 @@
             this.IRCFListView.TabIndex = 86;
             this.IRCFListView.UseCompatibleStateImageBehavior = false;
             this.IRCFListView.View = System.Windows.Forms.View.Details;
+            this.IRCFListView.DoubleClick += new System.EventHandler(this.IRCFListView_DoubleClick);
             // 
             // SensorListView
             // 
@@ -417,6 +424,7 @@
             this.SensorListView.TabIndex = 87;
             this.SensorListView.UseCompatibleStateImageBehavior = false;
             this.SensorListView.View = System.Windows.Forms.View.Details;
+            this.SensorListView.DoubleClick += new System.EventHandler(this.SensorListView_DoubleClick);
             // 
             // FlexListView
             // 
@@ -429,6 +437,7 @@
             this.FlexListView.TabIndex = 88;
             this.FlexListView.UseCompatibleStateImageBehavior = false;
             this.FlexListView.View = System.Windows.Forms.View.Details;
+            this.FlexListView.DoubleClick += new System.EventHandler(this.FlexListView_DoubleClick);
             // 
             // StiffenerListView
             // 
@@ -441,6 +450,7 @@
             this.StiffenerListView.TabIndex = 89;
             this.StiffenerListView.UseCompatibleStateImageBehavior = false;
             this.StiffenerListView.View = System.Windows.Forms.View.Details;
+            this.StiffenerListView.DoubleClick += new System.EventHandler(this.StiffenerListView_DoubleClick);
             // 
             // CameraListView
             // 
@@ -453,6 +463,7 @@
             this.CameraListView.TabIndex = 90;
             this.CameraListView.UseCompatibleStateImageBehavior = false;
             this.CameraListView.View = System.Windows.Forms.View.Details;
+            this.CameraListView.DoubleClick += new System.EventHandler(this.CameraListView_DoubleClick);
             // 
             // AlgorithmListView
             // 
@@ -465,6 +476,7 @@
             this.AlgorithmListView.TabIndex = 91;
             this.AlgorithmListView.UseCompatibleStateImageBehavior = false;
             this.AlgorithmListView.View = System.Windows.Forms.View.Details;
+            this.AlgorithmListView.DoubleClick += new System.EventHandler(this.AlgorithmListView_DoubleClick);
             // 
             // ColorShadingListView
             // 
@@ -477,6 +489,7 @@
             this.ColorShadingListView.TabIndex = 92;
             this.ColorShadingListView.UseCompatibleStateImageBehavior = false;
             this.ColorShadingListView.View = System.Windows.Forms.View.Details;
+            this.ColorShadingListView.DoubleClick += new System.EventHandler(this.ColorShadingListView_DoubleClick);
             // 
             // TraceabilityRevListView
             // 
@@ -489,6 +502,7 @@
             this.TraceabilityRevListView.TabIndex = 93;
             this.TraceabilityRevListView.UseCompatibleStateImageBehavior = false;
             this.TraceabilityRevListView.View = System.Windows.Forms.View.Details;
+            this.TraceabilityRevListView.DoubleClick += new System.EventHandler(this.TraceabilityRevListView_DoubleClick);
             // 
             // EEEEListBox
             // 

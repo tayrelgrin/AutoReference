@@ -18,6 +18,18 @@ namespace AutoReference
         {
             InitializeComponent();
             TargetItem.Text = inTargetName;
+            if (inTargetName == "Parts")
+            {
+                label_Vendor.Text = "Config";
+                label_Binary.Text = "Parts Combination";
+                Point TempPoint = new Point();
+                TempPoint.X = 135;
+                TempPoint.Y = 64;
+                label_Binary.Location = TempPoint;
+                HexTextBox.Enabled = false;
+                ApplePNTextBox.Enabled = false;
+            }
+
             TargetTextBox.Text  = inTargetData.strVendorName;
             BinaryTextBox.Text  = inTargetData.strBinaryValue;
             HexTextBox.Text     = inTargetData.strHexValue;

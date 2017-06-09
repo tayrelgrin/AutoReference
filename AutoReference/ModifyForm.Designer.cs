@@ -32,13 +32,13 @@
             this.ModiCancelButton = new System.Windows.Forms.Button();
             this.TargetTextBox = new System.Windows.Forms.TextBox();
             this.TargetItem = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label_Binary = new System.Windows.Forms.Label();
             this.BinaryTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.HexTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.ApplePNTextBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label_Vendor = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ModiOKButton
@@ -77,14 +77,14 @@
             this.TargetItem.TabIndex = 3;
             this.TargetItem.Text = "TargetItem";
             // 
-            // label1
+            // label_Binary
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(164, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Binary";
+            this.label_Binary.AutoSize = true;
+            this.label_Binary.Location = new System.Drawing.Point(164, 65);
+            this.label_Binary.Name = "label_Binary";
+            this.label_Binary.Size = new System.Drawing.Size(41, 12);
+            this.label_Binary.TabIndex = 5;
+            this.label_Binary.Text = "Binary";
             // 
             // BinaryTextBox
             // 
@@ -125,26 +125,26 @@
             this.ApplePNTextBox.Size = new System.Drawing.Size(335, 21);
             this.ApplePNTextBox.TabIndex = 8;
             // 
-            // label4
+            // label_Vendor
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(164, 26);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 12);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Verdor";
+            this.label_Vendor.AutoSize = true;
+            this.label_Vendor.Location = new System.Drawing.Point(164, 26);
+            this.label_Vendor.Name = "label_Vendor";
+            this.label_Vendor.Size = new System.Drawing.Size(42, 12);
+            this.label_Vendor.TabIndex = 10;
+            this.label_Vendor.Text = "Verdor";
             // 
             // ModifyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(374, 310);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label_Vendor);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ApplePNTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.HexTextBox);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label_Binary);
             this.Controls.Add(this.BinaryTextBox);
             this.Controls.Add(this.TargetItem);
             this.Controls.Add(this.TargetTextBox);
@@ -163,12 +163,12 @@
         private System.Windows.Forms.Button ModiCancelButton;
         private System.Windows.Forms.TextBox TargetTextBox;
         private System.Windows.Forms.Label TargetItem;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_Binary;
         private System.Windows.Forms.TextBox BinaryTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox HexTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox ApplePNTextBox;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label_Vendor;
     }
 }

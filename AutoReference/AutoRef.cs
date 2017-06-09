@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Reflection;
 
 namespace AutoReference
 {
@@ -20,6 +21,16 @@ namespace AutoReference
         public AutoRef()
         {
             InitializeComponent();
+
+            Assembly assemObj = Assembly.GetExecutingAssembly();
+            Version v = assemObj.GetName().Version;
+
+            int nMajorV = v.Major;
+            int nMinorV = v.Minor;
+            int nBuildV = v.Build;
+            int nRevisionV = v.Revision;
+
+            this.Text += " " + nMajorV.ToString() + "." + nMinorV.ToString() + "." + nBuildV.ToString() + "." + nRevisionV.ToString();
 
             DataList = new List<VSRData>();
 
@@ -68,14 +79,10 @@ namespace AutoReference
         {
             string selected = null;
 
-            if (InputRefCheckBox.Checked)
-            {
-                FolderBrowserDialog ofd = new FolderBrowserDialog();
+            FolderBrowserDialog ofd = new FolderBrowserDialog();
 
-                ofd.ShowDialog();
-
-                selected = ofd.SelectedPath;
-            }
+            ofd.ShowDialog();
+            selected = ofd.SelectedPath;
 
             PrintMidResultForm midDlg = new PrintMidResultForm();
 
@@ -94,13 +101,14 @@ namespace AutoReference
             int nSelectIndex = -1;
 
             nSelectIndex = PrjListBox.SelectedIndex;
-            string strTemp = PrjListBox.SelectedItem.ToString();
+            string strTemp;
 
             VSRData CSelectedData = new VSRData();
-            CSelectedData.SetFileName(strTemp);
 
             if (nSelectIndex != -1)
             {
+                strTemp = PrjListBox.SelectedItem.ToString();
+                CSelectedData.SetFileName(strTemp);
                 CSelectedData = DataList[nSelectIndex];
                 PrintItemToListView(CSelectedData.SensorList,       SensorListView);
                 PrintItemToListView(CSelectedData.PartsList,        ConfigListView);
@@ -141,7 +149,7 @@ namespace AutoReference
             }
             else
             {
-                inListView.Columns.Add("Item", 300);
+                inListView.Columns.Add("Item", 380);
             }
         }
 

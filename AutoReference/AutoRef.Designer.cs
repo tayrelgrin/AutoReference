@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AutoRef));
             this.PrjListBox = new System.Windows.Forms.ListBox();
             this.prjAddButton = new System.Windows.Forms.Button();
             this.prjDeleteButton = new System.Windows.Forms.Button();
@@ -585,7 +586,6 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Enabled = false;
             this.label8.Location = new System.Drawing.Point(442, 618);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 12);
@@ -624,7 +624,6 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Enabled = false;
             this.label18.Location = new System.Drawing.Point(507, 618);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(73, 12);
@@ -634,7 +633,6 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Enabled = false;
             this.label19.Location = new System.Drawing.Point(652, 618);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(70, 12);
@@ -687,6 +685,7 @@
             this.Controls.Add(this.prjAddButton);
             this.Controls.Add(this.PrjListBox);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AutoRef";
             this.Text = "AutoReference";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AutoRef_FormClosing);

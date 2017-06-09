@@ -610,5 +610,123 @@ namespace AutoReference
                 inListView.Columns.Add("Item", 300);
             }
         }
+
+        private void PartsListView_DoubleClick(object sender, EventArgs e)
+        {
+            int nSelectIndex = PartsListView.FocusedItem.Index;
+            string strConfig = CNewVSRData.PartsList[nSelectIndex].strVendorName;
+            string[] strConfigData = strConfig.Split(',');
+            m_CTempData.strVendorName = strConfigData[0];
+            m_CTempData.strBinaryValue = strConfigData[1];
+            m_CTempData.strHexValue = CNewVSRData.PartsList[nSelectIndex].strHexValue;
+
+            ModifyForm Cmodify = new ModifyForm("Parts", m_CTempData);
+            Cmodify.SendModifyResultEvent += new ModifyForm.SendModifyResult(GetModifyResult);
+
+            Cmodify.ShowDialog();
+
+            strConfigData[0] = m_CTempData.strVendorName;
+            strConfigData[1] = m_CTempData.strBinaryValue;
+            CNewVSRData.PartsList[nSelectIndex].strVendorName = strConfigData[0] + "," + strConfigData[1];
+            CNewVSRData.PartsList[nSelectIndex].strHexValue = m_CTempData.strHexValue;
+            PrintItemsToListBox();
+        }
+
+        private void NVMListView_DoubleClick(object sender, EventArgs e)
+        {
+
+            ModifyData("NVM", NVMListView, ref CNewVSRData.NVMList);           
+            PrintItemsToListBox();
+        }
+
+        private void ModifyData(string inType, ListView inListView,ref List<BaseData> outList)
+        {
+            int nSelectIndex = inListView.FocusedItem.Index;       
+
+            m_CTempData.strVendorName = outList[nSelectIndex].strVendorName;
+            m_CTempData.strBinaryValue = outList[nSelectIndex].strBinaryValue;
+            m_CTempData.strHexValue = outList[nSelectIndex].strHexValue;
+
+            ModifyForm Cmodify = new ModifyForm(inType, m_CTempData);
+            Cmodify.SendModifyResultEvent += new ModifyForm.SendModifyResult(GetModifyResult);
+
+            Cmodify.ShowDialog();
+
+            outList[nSelectIndex].strVendorName = m_CTempData.strVendorName;
+            outList[nSelectIndex].strBinaryValue = m_CTempData.strBinaryValue;
+            outList[nSelectIndex].strHexValue = m_CTempData.strHexValue;
+        }
+
+        private void LensListView_DoubleClick(object sender, EventArgs e)
+        {
+            ModifyData("Lens", LensListView, ref CNewVSRData.LensList);
+            PrintItemsToListBox();
+        }
+
+        private void SubstrateListView_DoubleClick(object sender, EventArgs e)
+        {
+            ModifyData("Substrate", SubstrateListView, ref CNewVSRData.SubstrateList);
+            PrintItemsToListBox();
+        }
+
+        private void CameraPrjListView_DoubleClick(object sender, EventArgs e)
+        {
+            ModifyData("CameraPrj", CameraPrjListView, ref CNewVSRData.CameraPrjList);
+            PrintItemsToListBox();
+        }
+
+        private void ProgramVariantListView_DoubleClick(object sender, EventArgs e)
+        {
+            ModifyData("ProgramVariant", ProgramVariantListView, ref CNewVSRData.ProgramVariantList);
+            PrintItemsToListBox();
+        }
+
+        private void IRCFListView_DoubleClick(object sender, EventArgs e)
+        {
+            ModifyData("IRCF", IRCFListView, ref CNewVSRData.IRCFList);
+            PrintItemsToListBox();
+        }
+
+        private void SensorListView_DoubleClick(object sender, EventArgs e)
+        {
+            ModifyData("Sensor", SensorListView, ref CNewVSRData.SensorList);
+            PrintItemsToListBox();
+        }
+
+        private void FlexListView_DoubleClick(object sender, EventArgs e)
+        {
+            ModifyData("Flex", FlexListView, ref CNewVSRData.FlexList);
+            PrintItemsToListBox();
+        }
+
+        private void StiffenerListView_DoubleClick(object sender, EventArgs e)
+        {
+            ModifyData("Stiffener", StiffenerListView, ref CNewVSRData.StiffenerList);
+            PrintItemsToListBox();
+        }
+
+        private void CameraListView_DoubleClick(object sender, EventArgs e)
+        {
+            ModifyData("Camera", CameraListView, ref CNewVSRData.CameraBuildList);
+            PrintItemsToListBox();
+        }
+
+        private void AlgorithmListView_DoubleClick(object sender, EventArgs e)
+        {
+            ModifyData("Algorithm", AlgorithmListView, ref CNewVSRData.AlgorithmList);
+            PrintItemsToListBox();
+        }
+
+        private void ColorShadingListView_DoubleClick(object sender, EventArgs e)
+        {
+            ModifyData("ColorShading", ColorShadingListView, ref CNewVSRData.ColorShadingList);
+            PrintItemsToListBox();
+        }
+
+        private void TraceabilityRevListView_DoubleClick(object sender, EventArgs e)
+        {
+            ModifyData("TraceabilityRev", TraceabilityRevListView, ref CNewVSRData.TraceabilityRevList);
+            PrintItemsToListBox();
+        }
     }
 }
