@@ -44,7 +44,7 @@
             this.closelButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.BuildConfigTextBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -229,16 +229,16 @@
             this.label7.TabIndex = 28;
             this.label7.Text = "Project";
             // 
-            // textBox2
+            // BuildConfigTextBox
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox2.Location = new System.Drawing.Point(15, 37);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(146, 22);
-            this.textBox2.TabIndex = 30;
-            this.textBox2.Text = "ex : C1010";
+            this.BuildConfigTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.BuildConfigTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.BuildConfigTextBox.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.BuildConfigTextBox.Location = new System.Drawing.Point(15, 37);
+            this.BuildConfigTextBox.Name = "BuildConfigTextBox";
+            this.BuildConfigTextBox.Size = new System.Drawing.Size(146, 22);
+            this.BuildConfigTextBox.TabIndex = 30;
+            this.BuildConfigTextBox.Text = "ex : C1010";
             // 
             // label9
             // 
@@ -258,6 +258,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(146, 22);
             this.textBox3.TabIndex = 32;
+            this.textBox3.Text = "ex : A or 10";
             // 
             // label12
             // 
@@ -321,7 +322,7 @@
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.textBox5);
             this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.BuildConfigTextBox);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.label4);
@@ -364,6 +365,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(146, 22);
             this.textBox5.TabIndex = 36;
+            this.textBox5.Text = "ex : 1";
             // 
             // label16
             // 
@@ -398,6 +400,7 @@
             this.ConfigListView.TabIndex = 44;
             this.ConfigListView.UseCompatibleStateImageBehavior = false;
             this.ConfigListView.View = System.Windows.Forms.View.Details;
+            this.ConfigListView.Click += new System.EventHandler(this.ConfigListView_Click);
             // 
             // IRCFListView
             // 
@@ -410,6 +413,7 @@
             this.IRCFListView.TabIndex = 45;
             this.IRCFListView.UseCompatibleStateImageBehavior = false;
             this.IRCFListView.View = System.Windows.Forms.View.Details;
+            this.IRCFListView.Click += new System.EventHandler(this.IRCFListView_Click);
             // 
             // LensListView
             // 
@@ -422,6 +426,7 @@
             this.LensListView.TabIndex = 46;
             this.LensListView.UseCompatibleStateImageBehavior = false;
             this.LensListView.View = System.Windows.Forms.View.Details;
+            this.LensListView.Click += new System.EventHandler(this.LensListView_Click);
             // 
             // StiffenerListView
             // 
@@ -434,6 +439,7 @@
             this.StiffenerListView.TabIndex = 47;
             this.StiffenerListView.UseCompatibleStateImageBehavior = false;
             this.StiffenerListView.View = System.Windows.Forms.View.Details;
+            this.StiffenerListView.Click += new System.EventHandler(this.StiffenerListView_Click);
             // 
             // SubstrateListView
             // 
@@ -446,6 +452,7 @@
             this.SubstrateListView.TabIndex = 48;
             this.SubstrateListView.UseCompatibleStateImageBehavior = false;
             this.SubstrateListView.View = System.Windows.Forms.View.Details;
+            this.SubstrateListView.Click += new System.EventHandler(this.SubstrateListView_Click);
             // 
             // FlexListView
             // 
@@ -458,6 +465,7 @@
             this.FlexListView.TabIndex = 49;
             this.FlexListView.UseCompatibleStateImageBehavior = false;
             this.FlexListView.View = System.Windows.Forms.View.Details;
+            this.FlexListView.Click += new System.EventHandler(this.FlexListView_Click);
             // 
             // CarrierListView
             // 
@@ -470,6 +478,7 @@
             this.CarrierListView.TabIndex = 50;
             this.CarrierListView.UseCompatibleStateImageBehavior = false;
             this.CarrierListView.View = System.Windows.Forms.View.Details;
+            this.CarrierListView.Click += new System.EventHandler(this.CarrierListView_Click);
             // 
             // BuildListView
             // 
@@ -715,7 +724,7 @@
         private System.Windows.Forms.Button closelButton;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox BuildConfigTextBox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label12;

@@ -82,6 +82,10 @@ namespace AutoReference
             ofd.ShowDialog();
             selected = ofd.SelectedPath;
 
+            int nSelect = -1;
+
+
+
             ReferenceData cRefData = new ReferenceData();
             PrintMidResultForm midDlg = new PrintMidResultForm(selected,ref cRefData);
 
@@ -95,19 +99,31 @@ namespace AutoReference
             Close();
         }
 
+        private void ClearTextBoxes()
+        {
+            PrjTextBox.Clear();
+            EEEETextBox.Clear();
+            IRCFTextBox.Clear();
+            LensTextBox.Clear();
+            StiffenerTextBox.Clear();
+            SubstrateTextBox.Clear();
+            FlexTextBox.Clear();
+            CarrierTextBox.Clear();
+        }
+
         private void PjrListBox_Click(object sender, EventArgs e)
         {
             int nSelectIndex = -1;
 
             nSelectIndex = PrjListBox.SelectedIndex;
-            string strTemp;
+            string strSelected;
 
             VSRData CSelectedData = new VSRData();
-
+            ClearTextBoxes();
             if (nSelectIndex != -1)
             {
-                strTemp = PrjListBox.SelectedItem.ToString();
-                CSelectedData.SetFileName(strTemp);
+                strSelected = PrjListBox.SelectedItem.ToString();
+                CSelectedData.SetFileName(strSelected);
                 CSelectedData = DataList[nSelectIndex];
                 PrintItemToListView(CSelectedData.SensorList,       SensorListView);
                 PrintItemToListView(CSelectedData.PartsList,        ConfigListView);
@@ -119,6 +135,10 @@ namespace AutoReference
                 PrintItemToListView(CSelectedData.CarrierList,      CarrierListView);
                 PrintItemToListView(CSelectedData.CameraBuildList,  BuildListView);
                 PrintEEEEToTextBox(CSelectedData);
+
+                int nIndex = strSelected.IndexOf('-');
+
+                PrjTextBox.Text = strSelected.Substring(nIndex+1);
             }
         }
 
@@ -284,7 +304,112 @@ namespace AutoReference
             int nSelecedIndex = -1;
 
             nSelecedIndex = SensorListView.FocusedItem.Index;
-            SensorListView.BeginUpdate();
+            string strSelectdItem;
+            strSelectdItem = SensorListView.FocusedItem.SubItems[1].Text.ToString();
+            MessageBox.Show(strSelectdItem);
+            int a = 0;
+        }
+
+       
+
+        private void ConfigListView_Click(object sender, EventArgs e)
+        {
+            int nSelecedIndex = -1;
+            nSelecedIndex = ConfigListView.FocusedItem.Index;
+            if (nSelecedIndex != -1)
+            {
+                string strSelectdItem;
+                strSelectdItem = ConfigListView.FocusedItem.SubItems[1].Text.ToString();
+
+                string[] strTemp;
+                strTemp = strSelectdItem.Split(',');
+
+                int nIndex = strTemp[0].Count();
+                string EeeeText = EEEETextBox.Text;
+                if (EeeeText.Length > 4)
+                {
+                    EeeeText = EeeeText.Remove(4);
+                }
+                EEEETextBox.Text = EeeeText + strTemp[0][nIndex - 1];
+            }           
+        }
+
+        private void IRCFListView_Click(object sender, EventArgs e)
+        {
+            int nSelecedIndex = -1;
+            nSelecedIndex = IRCFListView.FocusedItem.Index;
+            if (nSelecedIndex != -1)
+            {
+                string strSelectdItem;
+                strSelectdItem = IRCFListView.FocusedItem.SubItems[1].Text.ToString();
+
+                IRCFTextBox.Text = strSelectdItem[0].ToString();
+            }
+        }
+
+        private void LensListView_Click(object sender, EventArgs e)
+        {
+            int nSelecedIndex = -1;
+            nSelecedIndex = LensListView.FocusedItem.Index;
+            if (nSelecedIndex != -1)
+            {
+                string strSelectdItem;
+                strSelectdItem = LensListView.FocusedItem.SubItems[1].Text.ToString();
+
+                LensTextBox.Text = strSelectdItem[0].ToString();
+            }
+        }
+
+        private void StiffenerListView_Click(object sender, EventArgs e)
+        {
+            int nSelecedIndex = -1;
+            nSelecedIndex = StiffenerListView.FocusedItem.Index;
+            if (nSelecedIndex != -1)
+            {
+                string strSelectdItem;
+                strSelectdItem = StiffenerListView.FocusedItem.SubItems[1].Text.ToString();
+
+                StiffenerTextBox.Text = strSelectdItem[0].ToString();
+            }
+        }
+
+        private void SubstrateListView_Click(object sender, EventArgs e)
+        {
+            int nSelecedIndex = -1;
+            nSelecedIndex = SubstrateListView.FocusedItem.Index;
+            if (nSelecedIndex != -1)
+            {
+                string strSelectdItem;
+                strSelectdItem = SubstrateListView.FocusedItem.SubItems[1].Text.ToString();
+
+                SubstrateTextBox.Text = strSelectdItem[0].ToString();
+            }
+        }
+
+        private void FlexListView_Click(object sender, EventArgs e)
+        {
+            int nSelecedIndex = -1;
+            nSelecedIndex = FlexListView.FocusedItem.Index;
+            if (nSelecedIndex != -1)
+            {
+                string strSelectdItem;
+                strSelectdItem = FlexListView.FocusedItem.SubItems[1].Text.ToString();
+
+                FlexTextBox.Text = strSelectdItem[0].ToString();
+            }
+        }
+
+        private void CarrierListView_Click(object sender, EventArgs e)
+        {
+            int nSelecedIndex = -1;
+            nSelecedIndex = CarrierListView.FocusedItem.Index;
+            if (nSelecedIndex != -1)
+            {
+                string strSelectdItem;
+                strSelectdItem = CarrierListView.FocusedItem.SubItems[1].Text.ToString();
+
+                CarrierTextBox.Text = strSelectdItem[0].ToString();
+            }
         }
     }
 }
