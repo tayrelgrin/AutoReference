@@ -116,7 +116,7 @@
             this.prjDeleteButton.TabIndex = 2;
             this.prjDeleteButton.Text = "Delete";
             this.prjDeleteButton.UseVisualStyleBackColor = true;
-            this.prjDeleteButton.Click += new System.EventHandler(this.prjDeleteButton_Click);
+            this.prjDeleteButton.Click += new System.EventHandler(this.PrjDeleteButton_Click);
             // 
             // label1
             // 

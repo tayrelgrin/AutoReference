@@ -47,20 +47,18 @@ namespace AutoReference
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 string path = ofd.FileName;
-
                 AddPrjForm addDlg = new AddPrjForm(path);
                 addDlg.SendAddResultEvent += new AddPrjForm.SendAddResult(GetAddResult);
                 addDlg.ShowDialog();
             }
             if (m_bAddResult)
             {
-                DataList.Add(m_AddVSR);
-                
+                DataList.Add(m_AddVSR);                
                 PrintProjectToListBox();
             }
         }
 
-        private void prjDeleteButton_Click(object sender, EventArgs e)
+        private void PrjDeleteButton_Click(object sender, EventArgs e)
         {
             int nSelected = PrjListBox.SelectedIndex;
             string strFilePath = Application.StartupPath + "\\Data\\" +DataList[nSelected].m_strPrjName + DataList[nSelected].m_strVSRVersion + ".ini";
@@ -84,7 +82,8 @@ namespace AutoReference
             ofd.ShowDialog();
             selected = ofd.SelectedPath;
 
-            PrintMidResultForm midDlg = new PrintMidResultForm();
+            ReferenceData cRefData = new ReferenceData();
+            PrintMidResultForm midDlg = new PrintMidResultForm(selected,ref cRefData);
 
             this.Hide();
             midDlg.ShowDialog();
@@ -247,25 +246,6 @@ namespace AutoReference
             return true;
         }
 
-        private bool FileCopyToRefDir()
-        {
-            string path = @"xxxx.txt";
-            FileInfo file = new FileInfo(path);
-            if (file.Exists)
-            {
-                try
-                {
-                    file.CopyTo(@"xxx2.txt", false);
-                }
-                catch (FileLoadException fileNotFound)
-                {
-                    MessageBox.Show(fileNotFound.Message);
-                    return false;
-                }
-            }
-            return true;
-        }
-
         private void AutoRef_FormClosing(object sender, FormClosingEventArgs e)
         {
             DataFileSave();
@@ -304,24 +284,7 @@ namespace AutoReference
             int nSelecedIndex = -1;
 
             nSelecedIndex = SensorListView.FocusedItem.Index;
-           // string strSelecteIndex = SensorListView.FocusedItem.Index;
             SensorListView.BeginUpdate();
-            int nIndex = 0;
-            foreach (ListViewItem item in SensorListView.Items)
-            {
-                if (nIndex == nSelecedIndex)
-                {
-                    item.BackColor = Color.Aqua;
-                    item.Focused = true;
-                }
-                else
-                {
-                    item.BackColor = Color.White;
-                    item.Focused = false;
-                }
-                nIndex++;
-            }
-            SensorListView.EndUpdate();
         }
     }
 }

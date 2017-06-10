@@ -634,7 +634,6 @@ namespace AutoReference
 
         private void NVMListView_DoubleClick(object sender, EventArgs e)
         {
-
             ModifyData("NVM", NVMListView, ref CNewVSRData.NVMList);           
             PrintItemsToListBox();
         }
