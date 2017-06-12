@@ -30,16 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManualForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.AA_MachineTextBox = new System.Windows.Forms.TextBox();
+            this.Stiffener_ConfigTextBox = new System.Windows.Forms.TextBox();
+            this.IRCF_ConfigTextBox = new System.Windows.Forms.TextBox();
+            this.Substrate_ConfigTextBox = new System.Windows.Forms.TextBox();
+            this.Lens_ConfigTextBox = new System.Windows.Forms.TextBox();
+            this.Flex_ConfigTextBox = new System.Windows.Forms.TextBox();
+            this.Build_ConfigTextBox = new System.Windows.Forms.TextBox();
+            this.Build_numTextBox = new System.Windows.Forms.TextBox();
+            this.Vsr_verTextBox = new System.Windows.Forms.TextBox();
+            this.Ers_verTextBox = new System.Windows.Forms.TextBox();
             this.ItemVERSIONtextBox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -53,72 +53,72 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox36 = new System.Windows.Forms.TextBox();
+            this.CISMaskIDTextBox = new System.Windows.Forms.TextBox();
+            this.Traceability_VersionTextBox = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
-            this.textBox28 = new System.Windows.Forms.TextBox();
-            this.textBox29 = new System.Windows.Forms.TextBox();
-            this.textBox30 = new System.Windows.Forms.TextBox();
-            this.textBox31 = new System.Windows.Forms.TextBox();
-            this.textBox32 = new System.Windows.Forms.TextBox();
-            this.textBox33 = new System.Windows.Forms.TextBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.ColorShading_RevTextBox = new System.Windows.Forms.TextBox();
+            this.TestStation4TextBox = new System.Windows.Forms.TextBox();
+            this.LensComponent_R_MinorTextBox = new System.Windows.Forms.TextBox();
+            this.LensComponent_R_MajorTextBox = new System.Windows.Forms.TextBox();
+            this.TestStation5TextBox = new System.Windows.Forms.TextBox();
+            this.TestStation3TextBox = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
-            this.textBox34 = new System.Windows.Forms.TextBox();
-            this.textBox35 = new System.Windows.Forms.TextBox();
+            this.TestStation2TextBox = new System.Windows.Forms.TextBox();
+            this.TestStation1TextBox = new System.Windows.Forms.TextBox();
             this.label36 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
-            this.textBox22 = new System.Windows.Forms.TextBox();
-            this.textBox23 = new System.Windows.Forms.TextBox();
-            this.textBox24 = new System.Windows.Forms.TextBox();
-            this.textBox25 = new System.Windows.Forms.TextBox();
-            this.textBox26 = new System.Windows.Forms.TextBox();
-            this.textBox27 = new System.Windows.Forms.TextBox();
+            this.WaiverTextBox = new System.Windows.Forms.TextBox();
+            this.CarrierTextBox = new System.Windows.Forms.TextBox();
+            this.SotfwareTextBox = new System.Windows.Forms.TextBox();
+            this.Process_DOE_codeTextBox = new System.Windows.Forms.TextBox();
+            this.Process_ControlTextBox = new System.Windows.Forms.TextBox();
+            this.StiffenerTextBox = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.FlexTextBox = new System.Windows.Forms.TextBox();
+            this.IRCFTextBox = new System.Windows.Forms.TextBox();
+            this.LensTextBox = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.SensorTypeTextBox = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.SubstrateTextBox = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.ConfigTextBox = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.CameraBuildTextBox = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.IntegratorTextBox = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.Project_VersionTextBox = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.ProjectIDTextBox = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.NVMTextBox = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.button_Make = new System.Windows.Forms.Button();
             this.button_Cancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox37 = new System.Windows.Forms.TextBox();
-            this.label39 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox46 = new System.Windows.Forms.TextBox();
-            this.textBox47 = new System.Windows.Forms.TextBox();
-            this.textBox48 = new System.Windows.Forms.TextBox();
+            this.SERIAL_COUNTTextBox = new System.Windows.Forms.TextBox();
+            this.FIRST_STRINGTextBox = new System.Windows.Forms.TextBox();
+            this.LAST_STRINGTextBox = new System.Windows.Forms.TextBox();
             this.label48 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
-            this.textBox38 = new System.Windows.Forms.TextBox();
-            this.textBox39 = new System.Windows.Forms.TextBox();
+            this.ReferenceNameTextBox = new System.Windows.Forms.TextBox();
+            this.Reference_VersionTextBox = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
             this.button_ReferenceInput = new System.Windows.Forms.Button();
             this.VendorNamecheckBox = new System.Windows.Forms.CheckBox();
@@ -129,16 +129,16 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox10);
-            this.groupBox1.Controls.Add(this.textBox9);
-            this.groupBox1.Controls.Add(this.textBox8);
-            this.groupBox1.Controls.Add(this.textBox7);
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.AA_MachineTextBox);
+            this.groupBox1.Controls.Add(this.Stiffener_ConfigTextBox);
+            this.groupBox1.Controls.Add(this.IRCF_ConfigTextBox);
+            this.groupBox1.Controls.Add(this.Substrate_ConfigTextBox);
+            this.groupBox1.Controls.Add(this.Lens_ConfigTextBox);
+            this.groupBox1.Controls.Add(this.Flex_ConfigTextBox);
+            this.groupBox1.Controls.Add(this.Build_ConfigTextBox);
+            this.groupBox1.Controls.Add(this.Build_numTextBox);
+            this.groupBox1.Controls.Add(this.Vsr_verTextBox);
+            this.groupBox1.Controls.Add(this.Ers_verTextBox);
             this.groupBox1.Controls.Add(this.ItemVERSIONtextBox);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label11);
@@ -158,75 +158,85 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ItemVersion";
             // 
-            // textBox10
+            // AA_MachineTextBox
             // 
-            this.textBox10.Location = new System.Drawing.Point(123, 330);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(110, 21);
-            this.textBox10.TabIndex = 13;
+            this.AA_MachineTextBox.Location = new System.Drawing.Point(123, 330);
+            this.AA_MachineTextBox.Name = "AA_MachineTextBox";
+            this.AA_MachineTextBox.Size = new System.Drawing.Size(110, 21);
+            this.AA_MachineTextBox.TabIndex = 13;
+            this.AA_MachineTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox9
+            // Stiffener_ConfigTextBox
             // 
-            this.textBox9.Location = new System.Drawing.Point(123, 299);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(110, 21);
-            this.textBox9.TabIndex = 12;
+            this.Stiffener_ConfigTextBox.Location = new System.Drawing.Point(123, 299);
+            this.Stiffener_ConfigTextBox.Name = "Stiffener_ConfigTextBox";
+            this.Stiffener_ConfigTextBox.Size = new System.Drawing.Size(110, 21);
+            this.Stiffener_ConfigTextBox.TabIndex = 12;
+            this.Stiffener_ConfigTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox8
+            // IRCF_ConfigTextBox
             // 
-            this.textBox8.Location = new System.Drawing.Point(123, 268);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(110, 21);
-            this.textBox8.TabIndex = 11;
+            this.IRCF_ConfigTextBox.Location = new System.Drawing.Point(123, 268);
+            this.IRCF_ConfigTextBox.Name = "IRCF_ConfigTextBox";
+            this.IRCF_ConfigTextBox.Size = new System.Drawing.Size(110, 21);
+            this.IRCF_ConfigTextBox.TabIndex = 11;
+            this.IRCF_ConfigTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox7
+            // Substrate_ConfigTextBox
             // 
-            this.textBox7.Location = new System.Drawing.Point(123, 237);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(110, 21);
-            this.textBox7.TabIndex = 10;
+            this.Substrate_ConfigTextBox.Location = new System.Drawing.Point(123, 237);
+            this.Substrate_ConfigTextBox.Name = "Substrate_ConfigTextBox";
+            this.Substrate_ConfigTextBox.Size = new System.Drawing.Size(110, 21);
+            this.Substrate_ConfigTextBox.TabIndex = 10;
+            this.Substrate_ConfigTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox6
+            // Lens_ConfigTextBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(123, 206);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(110, 21);
-            this.textBox6.TabIndex = 9;
+            this.Lens_ConfigTextBox.Location = new System.Drawing.Point(123, 206);
+            this.Lens_ConfigTextBox.Name = "Lens_ConfigTextBox";
+            this.Lens_ConfigTextBox.Size = new System.Drawing.Size(110, 21);
+            this.Lens_ConfigTextBox.TabIndex = 9;
+            this.Lens_ConfigTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox5
+            // Flex_ConfigTextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(123, 175);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(110, 21);
-            this.textBox5.TabIndex = 8;
+            this.Flex_ConfigTextBox.Location = new System.Drawing.Point(123, 175);
+            this.Flex_ConfigTextBox.Name = "Flex_ConfigTextBox";
+            this.Flex_ConfigTextBox.Size = new System.Drawing.Size(110, 21);
+            this.Flex_ConfigTextBox.TabIndex = 8;
+            this.Flex_ConfigTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox4
+            // Build_ConfigTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(123, 144);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(110, 21);
-            this.textBox4.TabIndex = 7;
+            this.Build_ConfigTextBox.Location = new System.Drawing.Point(123, 144);
+            this.Build_ConfigTextBox.Name = "Build_ConfigTextBox";
+            this.Build_ConfigTextBox.Size = new System.Drawing.Size(110, 21);
+            this.Build_ConfigTextBox.TabIndex = 7;
+            this.Build_ConfigTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox3
+            // Build_numTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(123, 113);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(110, 21);
-            this.textBox3.TabIndex = 6;
+            this.Build_numTextBox.Location = new System.Drawing.Point(123, 113);
+            this.Build_numTextBox.Name = "Build_numTextBox";
+            this.Build_numTextBox.Size = new System.Drawing.Size(110, 21);
+            this.Build_numTextBox.TabIndex = 6;
+            this.Build_numTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox2
+            // Vsr_verTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(123, 82);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(110, 21);
-            this.textBox2.TabIndex = 5;
+            this.Vsr_verTextBox.Location = new System.Drawing.Point(123, 82);
+            this.Vsr_verTextBox.Name = "Vsr_verTextBox";
+            this.Vsr_verTextBox.Size = new System.Drawing.Size(110, 21);
+            this.Vsr_verTextBox.TabIndex = 5;
+            this.Vsr_verTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox1
+            // Ers_verTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(123, 51);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(110, 21);
-            this.textBox1.TabIndex = 4;
+            this.Ers_verTextBox.Location = new System.Drawing.Point(123, 51);
+            this.Ers_verTextBox.Name = "Ers_verTextBox";
+            this.Ers_verTextBox.Size = new System.Drawing.Size(110, 21);
+            this.Ers_verTextBox.TabIndex = 4;
+            this.Ers_verTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // ItemVERSIONtextBox
             // 
@@ -234,6 +244,7 @@
             this.ItemVERSIONtextBox.Name = "ItemVERSIONtextBox";
             this.ItemVERSIONtextBox.Size = new System.Drawing.Size(110, 21);
             this.ItemVERSIONtextBox.TabIndex = 3;
+            this.ItemVERSIONtextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label12
             // 
@@ -323,7 +334,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 12);
             this.label3.TabIndex = 6;
-            this.label3.Text = "ere_ver =";
+            this.label3.Text = "ers_ver =";
             // 
             // label2
             // 
@@ -336,58 +347,58 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox37);
-            this.groupBox2.Controls.Add(this.textBox36);
+            this.groupBox2.Controls.Add(this.CISMaskIDTextBox);
+            this.groupBox2.Controls.Add(this.Traceability_VersionTextBox);
             this.groupBox2.Controls.Add(this.label38);
             this.groupBox2.Controls.Add(this.label39);
-            this.groupBox2.Controls.Add(this.textBox28);
-            this.groupBox2.Controls.Add(this.textBox29);
-            this.groupBox2.Controls.Add(this.textBox30);
-            this.groupBox2.Controls.Add(this.textBox31);
-            this.groupBox2.Controls.Add(this.textBox32);
-            this.groupBox2.Controls.Add(this.textBox33);
+            this.groupBox2.Controls.Add(this.ColorShading_RevTextBox);
+            this.groupBox2.Controls.Add(this.TestStation4TextBox);
+            this.groupBox2.Controls.Add(this.LensComponent_R_MinorTextBox);
+            this.groupBox2.Controls.Add(this.LensComponent_R_MajorTextBox);
+            this.groupBox2.Controls.Add(this.TestStation5TextBox);
+            this.groupBox2.Controls.Add(this.TestStation3TextBox);
             this.groupBox2.Controls.Add(this.label30);
             this.groupBox2.Controls.Add(this.label31);
             this.groupBox2.Controls.Add(this.label32);
             this.groupBox2.Controls.Add(this.label33);
             this.groupBox2.Controls.Add(this.label34);
             this.groupBox2.Controls.Add(this.label35);
-            this.groupBox2.Controls.Add(this.textBox34);
-            this.groupBox2.Controls.Add(this.textBox35);
+            this.groupBox2.Controls.Add(this.TestStation2TextBox);
+            this.groupBox2.Controls.Add(this.TestStation1TextBox);
             this.groupBox2.Controls.Add(this.label36);
             this.groupBox2.Controls.Add(this.label37);
-            this.groupBox2.Controls.Add(this.textBox22);
-            this.groupBox2.Controls.Add(this.textBox23);
-            this.groupBox2.Controls.Add(this.textBox24);
-            this.groupBox2.Controls.Add(this.textBox25);
-            this.groupBox2.Controls.Add(this.textBox26);
-            this.groupBox2.Controls.Add(this.textBox27);
+            this.groupBox2.Controls.Add(this.WaiverTextBox);
+            this.groupBox2.Controls.Add(this.CarrierTextBox);
+            this.groupBox2.Controls.Add(this.SotfwareTextBox);
+            this.groupBox2.Controls.Add(this.Process_DOE_codeTextBox);
+            this.groupBox2.Controls.Add(this.Process_ControlTextBox);
+            this.groupBox2.Controls.Add(this.StiffenerTextBox);
             this.groupBox2.Controls.Add(this.label24);
             this.groupBox2.Controls.Add(this.label25);
             this.groupBox2.Controls.Add(this.label26);
             this.groupBox2.Controls.Add(this.label27);
             this.groupBox2.Controls.Add(this.label28);
             this.groupBox2.Controls.Add(this.label29);
-            this.groupBox2.Controls.Add(this.textBox11);
-            this.groupBox2.Controls.Add(this.textBox15);
-            this.groupBox2.Controls.Add(this.textBox12);
+            this.groupBox2.Controls.Add(this.FlexTextBox);
+            this.groupBox2.Controls.Add(this.IRCFTextBox);
+            this.groupBox2.Controls.Add(this.LensTextBox);
             this.groupBox2.Controls.Add(this.label23);
-            this.groupBox2.Controls.Add(this.textBox13);
+            this.groupBox2.Controls.Add(this.SensorTypeTextBox);
             this.groupBox2.Controls.Add(this.label22);
-            this.groupBox2.Controls.Add(this.textBox14);
+            this.groupBox2.Controls.Add(this.SubstrateTextBox);
             this.groupBox2.Controls.Add(this.label21);
             this.groupBox2.Controls.Add(this.label20);
-            this.groupBox2.Controls.Add(this.textBox16);
+            this.groupBox2.Controls.Add(this.ConfigTextBox);
             this.groupBox2.Controls.Add(this.label19);
-            this.groupBox2.Controls.Add(this.textBox17);
+            this.groupBox2.Controls.Add(this.CameraBuildTextBox);
             this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.textBox18);
+            this.groupBox2.Controls.Add(this.IntegratorTextBox);
             this.groupBox2.Controls.Add(this.label17);
-            this.groupBox2.Controls.Add(this.textBox19);
+            this.groupBox2.Controls.Add(this.Project_VersionTextBox);
             this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Controls.Add(this.textBox20);
+            this.groupBox2.Controls.Add(this.ProjectIDTextBox);
             this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.textBox21);
+            this.groupBox2.Controls.Add(this.NVMTextBox);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Location = new System.Drawing.Point(282, 53);
@@ -397,12 +408,21 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "[OTP_WRITE]";
             // 
-            // textBox36
+            // CISMaskIDTextBox
             // 
-            this.textBox36.Location = new System.Drawing.Point(214, 535);
-            this.textBox36.Name = "textBox36";
-            this.textBox36.Size = new System.Drawing.Size(110, 21);
-            this.textBox36.TabIndex = 39;
+            this.CISMaskIDTextBox.Location = new System.Drawing.Point(214, 556);
+            this.CISMaskIDTextBox.Name = "CISMaskIDTextBox";
+            this.CISMaskIDTextBox.Size = new System.Drawing.Size(110, 21);
+            this.CISMaskIDTextBox.TabIndex = 40;
+            this.CISMaskIDTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Traceability_VersionTextBox
+            // 
+            this.Traceability_VersionTextBox.Location = new System.Drawing.Point(214, 535);
+            this.Traceability_VersionTextBox.Name = "Traceability_VersionTextBox";
+            this.Traceability_VersionTextBox.Size = new System.Drawing.Size(110, 21);
+            this.Traceability_VersionTextBox.TabIndex = 39;
+            this.Traceability_VersionTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label38
             // 
@@ -413,50 +433,65 @@
             this.label38.TabIndex = 77;
             this.label38.Text = "Traceability_Version =";
             // 
-            // textBox28
+            // label39
             // 
-            this.textBox28.Location = new System.Drawing.Point(214, 514);
-            this.textBox28.Name = "textBox28";
-            this.textBox28.Size = new System.Drawing.Size(110, 21);
-            this.textBox28.TabIndex = 38;
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(131, 561);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(77, 12);
+            this.label39.TabIndex = 79;
+            this.label39.Text = "CISMaskID =";
             // 
-            // textBox29
+            // ColorShading_RevTextBox
             // 
-            this.textBox29.Location = new System.Drawing.Point(214, 430);
-            this.textBox29.Name = "textBox29";
-            this.textBox29.ReadOnly = true;
-            this.textBox29.Size = new System.Drawing.Size(110, 21);
-            this.textBox29.TabIndex = 34;
+            this.ColorShading_RevTextBox.Location = new System.Drawing.Point(214, 514);
+            this.ColorShading_RevTextBox.Name = "ColorShading_RevTextBox";
+            this.ColorShading_RevTextBox.Size = new System.Drawing.Size(110, 21);
+            this.ColorShading_RevTextBox.TabIndex = 38;
+            this.ColorShading_RevTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox30
+            // TestStation4TextBox
             // 
-            this.textBox30.Location = new System.Drawing.Point(214, 493);
-            this.textBox30.Name = "textBox30";
-            this.textBox30.Size = new System.Drawing.Size(110, 21);
-            this.textBox30.TabIndex = 37;
+            this.TestStation4TextBox.Location = new System.Drawing.Point(214, 430);
+            this.TestStation4TextBox.Name = "TestStation4TextBox";
+            this.TestStation4TextBox.ReadOnly = true;
+            this.TestStation4TextBox.Size = new System.Drawing.Size(110, 21);
+            this.TestStation4TextBox.TabIndex = 34;
+            this.TestStation4TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox31
+            // LensComponent_R_MinorTextBox
             // 
-            this.textBox31.Location = new System.Drawing.Point(214, 472);
-            this.textBox31.Name = "textBox31";
-            this.textBox31.Size = new System.Drawing.Size(110, 21);
-            this.textBox31.TabIndex = 36;
+            this.LensComponent_R_MinorTextBox.Location = new System.Drawing.Point(214, 493);
+            this.LensComponent_R_MinorTextBox.Name = "LensComponent_R_MinorTextBox";
+            this.LensComponent_R_MinorTextBox.Size = new System.Drawing.Size(110, 21);
+            this.LensComponent_R_MinorTextBox.TabIndex = 37;
+            this.LensComponent_R_MinorTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox32
+            // LensComponent_R_MajorTextBox
             // 
-            this.textBox32.Location = new System.Drawing.Point(214, 451);
-            this.textBox32.Name = "textBox32";
-            this.textBox32.ReadOnly = true;
-            this.textBox32.Size = new System.Drawing.Size(110, 21);
-            this.textBox32.TabIndex = 35;
+            this.LensComponent_R_MajorTextBox.Location = new System.Drawing.Point(214, 472);
+            this.LensComponent_R_MajorTextBox.Name = "LensComponent_R_MajorTextBox";
+            this.LensComponent_R_MajorTextBox.Size = new System.Drawing.Size(110, 21);
+            this.LensComponent_R_MajorTextBox.TabIndex = 36;
+            this.LensComponent_R_MajorTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox33
+            // TestStation5TextBox
             // 
-            this.textBox33.Location = new System.Drawing.Point(214, 409);
-            this.textBox33.Name = "textBox33";
-            this.textBox33.ReadOnly = true;
-            this.textBox33.Size = new System.Drawing.Size(110, 21);
-            this.textBox33.TabIndex = 33;
+            this.TestStation5TextBox.Location = new System.Drawing.Point(214, 451);
+            this.TestStation5TextBox.Name = "TestStation5TextBox";
+            this.TestStation5TextBox.ReadOnly = true;
+            this.TestStation5TextBox.Size = new System.Drawing.Size(110, 21);
+            this.TestStation5TextBox.TabIndex = 35;
+            this.TestStation5TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TestStation3TextBox
+            // 
+            this.TestStation3TextBox.Location = new System.Drawing.Point(214, 409);
+            this.TestStation3TextBox.Name = "TestStation3TextBox";
+            this.TestStation3TextBox.ReadOnly = true;
+            this.TestStation3TextBox.Size = new System.Drawing.Size(110, 21);
+            this.TestStation3TextBox.TabIndex = 33;
+            this.TestStation3TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label30
             // 
@@ -512,21 +547,23 @@
             this.label35.TabIndex = 70;
             this.label35.Text = "ColorShading_Revision =";
             // 
-            // textBox34
+            // TestStation2TextBox
             // 
-            this.textBox34.Location = new System.Drawing.Point(214, 388);
-            this.textBox34.Name = "textBox34";
-            this.textBox34.ReadOnly = true;
-            this.textBox34.Size = new System.Drawing.Size(110, 21);
-            this.textBox34.TabIndex = 32;
+            this.TestStation2TextBox.Location = new System.Drawing.Point(214, 388);
+            this.TestStation2TextBox.Name = "TestStation2TextBox";
+            this.TestStation2TextBox.ReadOnly = true;
+            this.TestStation2TextBox.Size = new System.Drawing.Size(110, 21);
+            this.TestStation2TextBox.TabIndex = 32;
+            this.TestStation2TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox35
+            // TestStation1TextBox
             // 
-            this.textBox35.Location = new System.Drawing.Point(214, 366);
-            this.textBox35.Name = "textBox35";
-            this.textBox35.ReadOnly = true;
-            this.textBox35.Size = new System.Drawing.Size(110, 21);
-            this.textBox35.TabIndex = 31;
+            this.TestStation1TextBox.Location = new System.Drawing.Point(214, 366);
+            this.TestStation1TextBox.Name = "TestStation1TextBox";
+            this.TestStation1TextBox.ReadOnly = true;
+            this.TestStation1TextBox.Size = new System.Drawing.Size(110, 21);
+            this.TestStation1TextBox.TabIndex = 31;
+            this.TestStation1TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label36
             // 
@@ -546,47 +583,53 @@
             this.label37.TabIndex = 62;
             this.label37.Text = "TestStation2 =";
             // 
-            // textBox22
+            // WaiverTextBox
             // 
-            this.textBox22.Location = new System.Drawing.Point(214, 346);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(110, 21);
-            this.textBox22.TabIndex = 30;
+            this.WaiverTextBox.Location = new System.Drawing.Point(214, 346);
+            this.WaiverTextBox.Name = "WaiverTextBox";
+            this.WaiverTextBox.Size = new System.Drawing.Size(110, 21);
+            this.WaiverTextBox.TabIndex = 30;
+            this.WaiverTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox23
+            // CarrierTextBox
             // 
-            this.textBox23.Location = new System.Drawing.Point(214, 262);
-            this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new System.Drawing.Size(110, 21);
-            this.textBox23.TabIndex = 26;
+            this.CarrierTextBox.Location = new System.Drawing.Point(214, 262);
+            this.CarrierTextBox.Name = "CarrierTextBox";
+            this.CarrierTextBox.Size = new System.Drawing.Size(110, 21);
+            this.CarrierTextBox.TabIndex = 26;
+            this.CarrierTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox24
+            // SotfwareTextBox
             // 
-            this.textBox24.Location = new System.Drawing.Point(214, 325);
-            this.textBox24.Name = "textBox24";
-            this.textBox24.Size = new System.Drawing.Size(110, 21);
-            this.textBox24.TabIndex = 29;
+            this.SotfwareTextBox.Location = new System.Drawing.Point(214, 325);
+            this.SotfwareTextBox.Name = "SotfwareTextBox";
+            this.SotfwareTextBox.Size = new System.Drawing.Size(110, 21);
+            this.SotfwareTextBox.TabIndex = 29;
+            this.SotfwareTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox25
+            // Process_DOE_codeTextBox
             // 
-            this.textBox25.Location = new System.Drawing.Point(214, 304);
-            this.textBox25.Name = "textBox25";
-            this.textBox25.Size = new System.Drawing.Size(110, 21);
-            this.textBox25.TabIndex = 28;
+            this.Process_DOE_codeTextBox.Location = new System.Drawing.Point(214, 304);
+            this.Process_DOE_codeTextBox.Name = "Process_DOE_codeTextBox";
+            this.Process_DOE_codeTextBox.Size = new System.Drawing.Size(110, 21);
+            this.Process_DOE_codeTextBox.TabIndex = 28;
+            this.Process_DOE_codeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox26
+            // Process_ControlTextBox
             // 
-            this.textBox26.Location = new System.Drawing.Point(214, 283);
-            this.textBox26.Name = "textBox26";
-            this.textBox26.Size = new System.Drawing.Size(110, 21);
-            this.textBox26.TabIndex = 27;
+            this.Process_ControlTextBox.Location = new System.Drawing.Point(214, 283);
+            this.Process_ControlTextBox.Name = "Process_ControlTextBox";
+            this.Process_ControlTextBox.Size = new System.Drawing.Size(110, 21);
+            this.Process_ControlTextBox.TabIndex = 27;
+            this.Process_ControlTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox27
+            // StiffenerTextBox
             // 
-            this.textBox27.Location = new System.Drawing.Point(214, 241);
-            this.textBox27.Name = "textBox27";
-            this.textBox27.Size = new System.Drawing.Size(110, 21);
-            this.textBox27.TabIndex = 25;
+            this.StiffenerTextBox.Location = new System.Drawing.Point(214, 241);
+            this.StiffenerTextBox.Name = "StiffenerTextBox";
+            this.StiffenerTextBox.Size = new System.Drawing.Size(110, 21);
+            this.StiffenerTextBox.TabIndex = 25;
+            this.StiffenerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label24
             // 
@@ -642,26 +685,29 @@
             this.label29.TabIndex = 54;
             this.label29.Text = "Waiver =";
             // 
-            // textBox11
+            // FlexTextBox
             // 
-            this.textBox11.Location = new System.Drawing.Point(214, 220);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(110, 21);
-            this.textBox11.TabIndex = 24;
+            this.FlexTextBox.Location = new System.Drawing.Point(214, 220);
+            this.FlexTextBox.Name = "FlexTextBox";
+            this.FlexTextBox.Size = new System.Drawing.Size(110, 21);
+            this.FlexTextBox.TabIndex = 24;
+            this.FlexTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox15
+            // IRCFTextBox
             // 
-            this.textBox15.Location = new System.Drawing.Point(214, 136);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(110, 21);
-            this.textBox15.TabIndex = 20;
+            this.IRCFTextBox.Location = new System.Drawing.Point(214, 136);
+            this.IRCFTextBox.Name = "IRCFTextBox";
+            this.IRCFTextBox.Size = new System.Drawing.Size(110, 21);
+            this.IRCFTextBox.TabIndex = 20;
+            this.IRCFTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox12
+            // LensTextBox
             // 
-            this.textBox12.Location = new System.Drawing.Point(214, 199);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(110, 21);
-            this.textBox12.TabIndex = 23;
+            this.LensTextBox.Location = new System.Drawing.Point(214, 199);
+            this.LensTextBox.Name = "LensTextBox";
+            this.LensTextBox.Size = new System.Drawing.Size(110, 21);
+            this.LensTextBox.TabIndex = 23;
+            this.LensTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label23
             // 
@@ -672,12 +718,13 @@
             this.label23.TabIndex = 27;
             this.label23.Text = "NVM =";
             // 
-            // textBox13
+            // SensorTypeTextBox
             // 
-            this.textBox13.Location = new System.Drawing.Point(214, 178);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(110, 21);
-            this.textBox13.TabIndex = 22;
+            this.SensorTypeTextBox.Location = new System.Drawing.Point(214, 178);
+            this.SensorTypeTextBox.Name = "SensorTypeTextBox";
+            this.SensorTypeTextBox.Size = new System.Drawing.Size(110, 21);
+            this.SensorTypeTextBox.TabIndex = 22;
+            this.SensorTypeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label22
             // 
@@ -688,12 +735,13 @@
             this.label22.TabIndex = 28;
             this.label22.Text = "ProjectID =";
             // 
-            // textBox14
+            // SubstrateTextBox
             // 
-            this.textBox14.Location = new System.Drawing.Point(214, 157);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(110, 21);
-            this.textBox14.TabIndex = 21;
+            this.SubstrateTextBox.Location = new System.Drawing.Point(214, 157);
+            this.SubstrateTextBox.Name = "SubstrateTextBox";
+            this.SubstrateTextBox.Size = new System.Drawing.Size(110, 21);
+            this.SubstrateTextBox.TabIndex = 21;
+            this.SubstrateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label21
             // 
@@ -713,12 +761,13 @@
             this.label20.TabIndex = 30;
             this.label20.Text = "Integrator =";
             // 
-            // textBox16
+            // ConfigTextBox
             // 
-            this.textBox16.Location = new System.Drawing.Point(214, 115);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(110, 21);
-            this.textBox16.TabIndex = 19;
+            this.ConfigTextBox.Location = new System.Drawing.Point(214, 115);
+            this.ConfigTextBox.Name = "ConfigTextBox";
+            this.ConfigTextBox.Size = new System.Drawing.Size(110, 21);
+            this.ConfigTextBox.TabIndex = 19;
+            this.ConfigTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label19
             // 
@@ -729,12 +778,13 @@
             this.label19.TabIndex = 31;
             this.label19.Text = "CameraBuild =";
             // 
-            // textBox17
+            // CameraBuildTextBox
             // 
-            this.textBox17.Location = new System.Drawing.Point(214, 94);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(110, 21);
-            this.textBox17.TabIndex = 18;
+            this.CameraBuildTextBox.Location = new System.Drawing.Point(214, 94);
+            this.CameraBuildTextBox.Name = "CameraBuildTextBox";
+            this.CameraBuildTextBox.Size = new System.Drawing.Size(110, 21);
+            this.CameraBuildTextBox.TabIndex = 18;
+            this.CameraBuildTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label18
             // 
@@ -745,12 +795,13 @@
             this.label18.TabIndex = 32;
             this.label18.Text = "Config =";
             // 
-            // textBox18
+            // IntegratorTextBox
             // 
-            this.textBox18.Location = new System.Drawing.Point(214, 73);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(110, 21);
-            this.textBox18.TabIndex = 17;
+            this.IntegratorTextBox.Location = new System.Drawing.Point(214, 73);
+            this.IntegratorTextBox.Name = "IntegratorTextBox";
+            this.IntegratorTextBox.Size = new System.Drawing.Size(110, 21);
+            this.IntegratorTextBox.TabIndex = 17;
+            this.IntegratorTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label17
             // 
@@ -761,12 +812,13 @@
             this.label17.TabIndex = 33;
             this.label17.Text = "IRCF =";
             // 
-            // textBox19
+            // Project_VersionTextBox
             // 
-            this.textBox19.Location = new System.Drawing.Point(214, 52);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(110, 21);
-            this.textBox19.TabIndex = 16;
+            this.Project_VersionTextBox.Location = new System.Drawing.Point(214, 52);
+            this.Project_VersionTextBox.Name = "Project_VersionTextBox";
+            this.Project_VersionTextBox.Size = new System.Drawing.Size(110, 21);
+            this.Project_VersionTextBox.TabIndex = 16;
+            this.Project_VersionTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label16
             // 
@@ -777,12 +829,13 @@
             this.label16.TabIndex = 34;
             this.label16.Text = "Substrate =";
             // 
-            // textBox20
+            // ProjectIDTextBox
             // 
-            this.textBox20.Location = new System.Drawing.Point(214, 31);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(110, 21);
-            this.textBox20.TabIndex = 15;
+            this.ProjectIDTextBox.Location = new System.Drawing.Point(214, 31);
+            this.ProjectIDTextBox.Name = "ProjectIDTextBox";
+            this.ProjectIDTextBox.Size = new System.Drawing.Size(110, 21);
+            this.ProjectIDTextBox.TabIndex = 15;
+            this.ProjectIDTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label15
             // 
@@ -793,12 +846,13 @@
             this.label15.TabIndex = 35;
             this.label15.Text = "SensorType =";
             // 
-            // textBox21
+            // NVMTextBox
             // 
-            this.textBox21.Location = new System.Drawing.Point(214, 10);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(110, 21);
-            this.textBox21.TabIndex = 14;
+            this.NVMTextBox.Location = new System.Drawing.Point(214, 10);
+            this.NVMTextBox.Name = "NVMTextBox";
+            this.NVMTextBox.Size = new System.Drawing.Size(110, 21);
+            this.NVMTextBox.TabIndex = 14;
+            this.NVMTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label14
             // 
@@ -826,6 +880,7 @@
             this.button_Make.TabIndex = 44;
             this.button_Make.Text = "Make";
             this.button_Make.UseVisualStyleBackColor = true;
+            this.button_Make.Click += new System.EventHandler(this.button_Make_Click);
             // 
             // button_Cancel
             // 
@@ -846,27 +901,11 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Reference Name :";
             // 
-            // textBox37
-            // 
-            this.textBox37.Location = new System.Drawing.Point(214, 556);
-            this.textBox37.Name = "textBox37";
-            this.textBox37.Size = new System.Drawing.Size(110, 21);
-            this.textBox37.TabIndex = 40;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(131, 561);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(77, 12);
-            this.label39.TabIndex = 79;
-            this.label39.Text = "CISMaskID =";
-            // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.textBox46);
-            this.groupBox3.Controls.Add(this.textBox47);
-            this.groupBox3.Controls.Add(this.textBox48);
+            this.groupBox3.Controls.Add(this.SERIAL_COUNTTextBox);
+            this.groupBox3.Controls.Add(this.FIRST_STRINGTextBox);
+            this.groupBox3.Controls.Add(this.LAST_STRINGTextBox);
             this.groupBox3.Controls.Add(this.label48);
             this.groupBox3.Controls.Add(this.label49);
             this.groupBox3.Controls.Add(this.label50);
@@ -877,26 +916,29 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "[LOG]";
             // 
-            // textBox46
+            // SERIAL_COUNTTextBox
             // 
-            this.textBox46.Location = new System.Drawing.Point(123, 82);
-            this.textBox46.Name = "textBox46";
-            this.textBox46.Size = new System.Drawing.Size(110, 21);
-            this.textBox46.TabIndex = 43;
+            this.SERIAL_COUNTTextBox.Location = new System.Drawing.Point(123, 82);
+            this.SERIAL_COUNTTextBox.Name = "SERIAL_COUNTTextBox";
+            this.SERIAL_COUNTTextBox.Size = new System.Drawing.Size(110, 21);
+            this.SERIAL_COUNTTextBox.TabIndex = 43;
+            this.SERIAL_COUNTTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox47
+            // FIRST_STRINGTextBox
             // 
-            this.textBox47.Location = new System.Drawing.Point(123, 51);
-            this.textBox47.Name = "textBox47";
-            this.textBox47.Size = new System.Drawing.Size(110, 21);
-            this.textBox47.TabIndex = 42;
+            this.FIRST_STRINGTextBox.Location = new System.Drawing.Point(123, 51);
+            this.FIRST_STRINGTextBox.Name = "FIRST_STRINGTextBox";
+            this.FIRST_STRINGTextBox.Size = new System.Drawing.Size(110, 21);
+            this.FIRST_STRINGTextBox.TabIndex = 42;
+            this.FIRST_STRINGTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox48
+            // LAST_STRINGTextBox
             // 
-            this.textBox48.Location = new System.Drawing.Point(123, 20);
-            this.textBox48.Name = "textBox48";
-            this.textBox48.Size = new System.Drawing.Size(110, 21);
-            this.textBox48.TabIndex = 41;
+            this.LAST_STRINGTextBox.Location = new System.Drawing.Point(123, 20);
+            this.LAST_STRINGTextBox.Name = "LAST_STRINGTextBox";
+            this.LAST_STRINGTextBox.Size = new System.Drawing.Size(110, 21);
+            this.LAST_STRINGTextBox.TabIndex = 41;
+            this.LAST_STRINGTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label48
             // 
@@ -925,19 +967,19 @@
             this.label50.TabIndex = 5;
             this.label50.Text = "LAST_STRING =";
             // 
-            // textBox38
+            // ReferenceNameTextBox
             // 
-            this.textBox38.Location = new System.Drawing.Point(136, 12);
-            this.textBox38.Name = "textBox38";
-            this.textBox38.Size = new System.Drawing.Size(234, 21);
-            this.textBox38.TabIndex = 1;
+            this.ReferenceNameTextBox.Location = new System.Drawing.Point(136, 12);
+            this.ReferenceNameTextBox.Name = "ReferenceNameTextBox";
+            this.ReferenceNameTextBox.Size = new System.Drawing.Size(234, 21);
+            this.ReferenceNameTextBox.TabIndex = 1;
             // 
-            // textBox39
+            // Reference_VersionTextBox
             // 
-            this.textBox39.Location = new System.Drawing.Point(424, 12);
-            this.textBox39.Name = "textBox39";
-            this.textBox39.Size = new System.Drawing.Size(110, 21);
-            this.textBox39.TabIndex = 2;
+            this.Reference_VersionTextBox.Location = new System.Drawing.Point(424, 12);
+            this.Reference_VersionTextBox.Name = "Reference_VersionTextBox";
+            this.Reference_VersionTextBox.Size = new System.Drawing.Size(110, 21);
+            this.Reference_VersionTextBox.TabIndex = 2;
             // 
             // label40
             // 
@@ -976,8 +1018,8 @@
             this.Controls.Add(this.VendorNamecheckBox);
             this.Controls.Add(this.button_ReferenceInput);
             this.Controls.Add(this.label40);
-            this.Controls.Add(this.textBox39);
-            this.Controls.Add(this.textBox38);
+            this.Controls.Add(this.Reference_VersionTextBox);
+            this.Controls.Add(this.ReferenceNameTextBox);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button_Cancel);
@@ -1004,16 +1046,16 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button_Make;
         private System.Windows.Forms.Button button_Cancel;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox AA_MachineTextBox;
+        private System.Windows.Forms.TextBox Stiffener_ConfigTextBox;
+        private System.Windows.Forms.TextBox IRCF_ConfigTextBox;
+        private System.Windows.Forms.TextBox Substrate_ConfigTextBox;
+        private System.Windows.Forms.TextBox Lens_ConfigTextBox;
+        private System.Windows.Forms.TextBox Flex_ConfigTextBox;
+        private System.Windows.Forms.TextBox Build_ConfigTextBox;
+        private System.Windows.Forms.TextBox Build_numTextBox;
+        private System.Windows.Forms.TextBox Vsr_verTextBox;
+        private System.Windows.Forms.TextBox Ers_verTextBox;
         private System.Windows.Forms.TextBox ItemVERSIONtextBox;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
@@ -1027,69 +1069,69 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox36;
+        private System.Windows.Forms.TextBox Traceability_VersionTextBox;
         private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.TextBox textBox28;
-        private System.Windows.Forms.TextBox textBox29;
-        private System.Windows.Forms.TextBox textBox30;
-        private System.Windows.Forms.TextBox textBox31;
-        private System.Windows.Forms.TextBox textBox32;
-        private System.Windows.Forms.TextBox textBox33;
+        private System.Windows.Forms.TextBox ColorShading_RevTextBox;
+        private System.Windows.Forms.TextBox TestStation4TextBox;
+        private System.Windows.Forms.TextBox LensComponent_R_MinorTextBox;
+        private System.Windows.Forms.TextBox LensComponent_R_MajorTextBox;
+        private System.Windows.Forms.TextBox TestStation5TextBox;
+        private System.Windows.Forms.TextBox TestStation3TextBox;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.TextBox textBox34;
-        private System.Windows.Forms.TextBox textBox35;
+        private System.Windows.Forms.TextBox TestStation2TextBox;
+        private System.Windows.Forms.TextBox TestStation1TextBox;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.TextBox textBox22;
-        private System.Windows.Forms.TextBox textBox23;
-        private System.Windows.Forms.TextBox textBox24;
-        private System.Windows.Forms.TextBox textBox25;
-        private System.Windows.Forms.TextBox textBox26;
-        private System.Windows.Forms.TextBox textBox27;
+        private System.Windows.Forms.TextBox WaiverTextBox;
+        private System.Windows.Forms.TextBox CarrierTextBox;
+        private System.Windows.Forms.TextBox SotfwareTextBox;
+        private System.Windows.Forms.TextBox Process_DOE_codeTextBox;
+        private System.Windows.Forms.TextBox Process_ControlTextBox;
+        private System.Windows.Forms.TextBox StiffenerTextBox;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox FlexTextBox;
+        private System.Windows.Forms.TextBox IRCFTextBox;
+        private System.Windows.Forms.TextBox LensTextBox;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox SensorTypeTextBox;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox SubstrateTextBox;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox ConfigTextBox;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox CameraBuildTextBox;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox IntegratorTextBox;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox Project_VersionTextBox;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox ProjectIDTextBox;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.TextBox NVMTextBox;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox37;
+        private System.Windows.Forms.TextBox CISMaskIDTextBox;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox textBox46;
-        private System.Windows.Forms.TextBox textBox47;
-        private System.Windows.Forms.TextBox textBox48;
+        private System.Windows.Forms.TextBox SERIAL_COUNTTextBox;
+        private System.Windows.Forms.TextBox FIRST_STRINGTextBox;
+        private System.Windows.Forms.TextBox LAST_STRINGTextBox;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.TextBox textBox38;
-        private System.Windows.Forms.TextBox textBox39;
+        private System.Windows.Forms.TextBox ReferenceNameTextBox;
+        private System.Windows.Forms.TextBox Reference_VersionTextBox;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Button button_ReferenceInput;
         private System.Windows.Forms.CheckBox VendorNamecheckBox;

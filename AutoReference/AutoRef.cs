@@ -17,7 +17,7 @@ namespace AutoReference
         VSRData m_AddVSR = new VSRData();
         private BaseData temp = new BaseData();
         private bool m_bAddResult;
-
+        private ReferenceData m_cRefData = new ReferenceData();
         public AutoRef()
         {
             InitializeComponent();
@@ -82,12 +82,7 @@ namespace AutoReference
             ofd.ShowDialog();
             selected = ofd.SelectedPath;
 
-            int nSelect = -1;
-
-
-
-            ReferenceData cRefData = new ReferenceData();
-            PrintMidResultForm midDlg = new PrintMidResultForm(selected,ref cRefData);
+            PrintMidResultForm midDlg = new PrintMidResultForm(selected,ref m_cRefData);
 
             this.Hide();
             midDlg.ShowDialog();
@@ -139,6 +134,8 @@ namespace AutoReference
                 int nIndex = strSelected.IndexOf('-');
 
                 PrjTextBox.Text = strSelected.Substring(nIndex+1);
+
+                m_cRefData.m_strPrjName = strSelected.Substring(nIndex + 1);
             }
         }
 
@@ -259,13 +256,6 @@ namespace AutoReference
             EEEETextBox.Clear();
         }
 
-        private bool MakeDirectory(string inStrPath)
-        {
-            System.IO.Directory.CreateDirectory(inStrPath);
-
-            return true;
-        }
-
         private void AutoRef_FormClosing(object sender, FormClosingEventArgs e)
         {
             DataFileSave();
@@ -302,15 +292,17 @@ namespace AutoReference
         private void SensorListView_MouseClick(object sender, MouseEventArgs e)
         {
             int nSelecedIndex = -1;
+            if (nSelecedIndex != -1)
+            {
+                nSelecedIndex = SensorListView.FocusedItem.Index;
+                string strSelectdItem;
+                strSelectdItem = SensorListView.FocusedItem.SubItems[1].Text.ToString();
 
-            nSelecedIndex = SensorListView.FocusedItem.Index;
-            string strSelectdItem;
-            strSelectdItem = SensorListView.FocusedItem.SubItems[1].Text.ToString();
-            MessageBox.Show(strSelectdItem);
-            int a = 0;
+                m_cRefData.Sensor.strVendorName = SensorListView.FocusedItem.SubItems[1].Text.ToString();
+                m_cRefData.Sensor.strBinaryValue = SensorListView.FocusedItem.SubItems[2].Text.ToString();
+                m_cRefData.Sensor.strHexValue = SensorListView.FocusedItem.SubItems[3].Text.ToString();
+            }           
         }
-
-       
 
         private void ConfigListView_Click(object sender, EventArgs e)
         {
@@ -344,6 +336,10 @@ namespace AutoReference
                 strSelectdItem = IRCFListView.FocusedItem.SubItems[1].Text.ToString();
 
                 IRCFTextBox.Text = strSelectdItem[0].ToString();
+
+                m_cRefData.IRCF.strVendorName   = IRCFListView.FocusedItem.SubItems[1].Text.ToString();
+                m_cRefData.IRCF.strBinaryValue  = IRCFListView.FocusedItem.SubItems[2].Text.ToString();
+                m_cRefData.IRCF.strHexValue     = IRCFListView.FocusedItem.SubItems[3].Text.ToString();
             }
         }
 
@@ -357,6 +353,10 @@ namespace AutoReference
                 strSelectdItem = LensListView.FocusedItem.SubItems[1].Text.ToString();
 
                 LensTextBox.Text = strSelectdItem[0].ToString();
+
+                m_cRefData.Lens.strVendorName   = LensListView.FocusedItem.SubItems[1].Text.ToString();
+                m_cRefData.Lens.strBinaryValue  = LensListView.FocusedItem.SubItems[2].Text.ToString();
+                m_cRefData.Lens.strHexValue     = LensListView.FocusedItem.SubItems[3].Text.ToString();
             }
         }
 
@@ -370,6 +370,10 @@ namespace AutoReference
                 strSelectdItem = StiffenerListView.FocusedItem.SubItems[1].Text.ToString();
 
                 StiffenerTextBox.Text = strSelectdItem[0].ToString();
+
+                m_cRefData.Stiffener.strVendorName  = StiffenerListView.FocusedItem.SubItems[1].Text.ToString();
+                m_cRefData.Stiffener.strBinaryValue = StiffenerListView.FocusedItem.SubItems[2].Text.ToString();
+                m_cRefData.Stiffener.strHexValue    = StiffenerListView.FocusedItem.SubItems[3].Text.ToString();
             }
         }
 
@@ -383,6 +387,10 @@ namespace AutoReference
                 strSelectdItem = SubstrateListView.FocusedItem.SubItems[1].Text.ToString();
 
                 SubstrateTextBox.Text = strSelectdItem[0].ToString();
+
+                m_cRefData.Substrate.strVendorName  = SubstrateListView.FocusedItem.SubItems[1].Text.ToString();
+                m_cRefData.Substrate.strBinaryValue = SubstrateListView.FocusedItem.SubItems[2].Text.ToString();
+                m_cRefData.Substrate.strHexValue    = SubstrateListView.FocusedItem.SubItems[3].Text.ToString();
             }
         }
 
@@ -396,6 +404,10 @@ namespace AutoReference
                 strSelectdItem = FlexListView.FocusedItem.SubItems[1].Text.ToString();
 
                 FlexTextBox.Text = strSelectdItem[0].ToString();
+
+                m_cRefData.Flex.strVendorName   = FlexListView.FocusedItem.SubItems[1].Text.ToString();
+                m_cRefData.Flex.strBinaryValue  = FlexListView.FocusedItem.SubItems[2].Text.ToString();
+                m_cRefData.Flex.strHexValue     = FlexListView.FocusedItem.SubItems[3].Text.ToString();
             }
         }
 
@@ -409,6 +421,10 @@ namespace AutoReference
                 strSelectdItem = CarrierListView.FocusedItem.SubItems[1].Text.ToString();
 
                 CarrierTextBox.Text = strSelectdItem[0].ToString();
+
+                m_cRefData.Carrier.strVendorName    = CarrierListView.FocusedItem.SubItems[1].Text.ToString();
+                m_cRefData.Carrier.strBinaryValue   = CarrierListView.FocusedItem.SubItems[2].Text.ToString();
+                m_cRefData.Carrier.strHexValue      = CarrierListView.FocusedItem.SubItems[3].Text.ToString();
             }
         }
     }
