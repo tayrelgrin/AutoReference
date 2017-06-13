@@ -38,7 +38,7 @@ namespace AutoReference
 
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                // Ref, register file unifomity 확인
+                // Ref, register file uniformity 확인
 
                 // Ref Dir 선택
                 m_strRefPath = ofd.SelectedPath.ToString();
@@ -249,21 +249,27 @@ namespace AutoReference
                     {
                         foreach (string subs in strSubDirArray)
                         {
-                            strFileName = subs.Replace(inSourcePath + "\\", "");
-                            string[] strTemp = strFileName.Split('\\');
+                            string[] strFiles = System.IO.Directory.GetFiles(subs);
 
-                            int nSizeDestDir = strTemp.Length;
-
-                            strDestDir = strFileName.Replace(strTemp[nSizeDestDir - 1], "");
-                            strDestDir = System.IO.Path.Combine(inTargetPath, strDestDir);
-
-                            if (!System.IO.Directory.Exists(strDestDir))
+                            foreach (string filename in strFiles)
                             {
-                                System.IO.Directory.CreateDirectory(strDestDir);
-                            }
+                           
+                                strFileName = filename.Replace(inSourcePath + "\\", "");
+                                string[] strTemp = strFileName.Split('\\');
 
-                            strDestFile = System.IO.Path.Combine(inTargetPath, strFileName);
-                            System.IO.File.Copy(subs, strDestFile, true);
+                                int nSizeDestDir = strTemp.Length;
+
+                                strDestDir = strFileName.Replace(strTemp[nSizeDestDir - 1], "");
+                                strDestDir = System.IO.Path.Combine(inTargetPath, strDestDir);
+
+                                if (!System.IO.Directory.Exists(strDestDir))
+                                {
+                                    System.IO.Directory.CreateDirectory(strDestDir);
+                                }
+
+                                strDestFile = System.IO.Path.Combine(inTargetPath, strFileName);
+                                System.IO.File.Copy(filename, strDestFile, true);
+                            }     
                         }
                     }
                     else
@@ -288,8 +294,8 @@ namespace AutoReference
 
                             strDestFile = System.IO.Path.Combine(inTargetPath, strFileName);
                             System.IO.File.Copy(filename, strDestFile, true);
-                        }                        
-                    }                    
+                        }
+                    }
                 }
             }
         }
@@ -301,13 +307,274 @@ namespace AutoReference
                 string strTemp = ReferenceNameTextBox.Text;
                 string[] strTempSplit = strTemp.Split('_');
 
-                string strNewDirName = System.IO.Directory.GetCurrentDirectory() + "\\Result\\" + strTempSplit[0] + "-"+ strTempSplit[4];
+                string strNewDirName = System.IO.Directory.GetCurrentDirectory() + "\\Result\\" + ReferenceNameTextBox.Text;
+                string strCheckExist = strNewDirName;
+
+                int nCount = 1;
+                while (true)
+                {
+                    if (System.IO.Directory.Exists(strCheckExist))
+                    {
+                        strCheckExist = strNewDirName + "(" + nCount.ToString() + ")";
+                        nCount++;
+                    }
+                    else
+                    {
+                        strNewDirName = strCheckExist;
+                        break;
+                    }
+                }
+                
 
                 if (m_strRefPath != null)
                 {
                     FileCopy(m_strRefPath, strNewDirName);
+                    
+                    // Dir Name Change
+                    DirFileNameChange(strNewDirName);
+
+                    InputDataToFile(strNewDirName);
                 }
             }            
+        }
+
+        private void DirFileNameChange(string inRootPath)
+        {
+            if (!System.IO.Directory.Exists(inRootPath))
+            {
+                return;
+            }
+
+            if (System.IO.Directory.Exists(inRootPath))
+            {
+                string[] strDirArray = System.IO.Directory.GetDirectories(inRootPath);
+
+                // Copy the files and overwrite destination files if they already exist.
+                foreach (string s in strDirArray)
+                {
+                    string[] strSubDirArray = System.IO.Directory.GetDirectories(s);
+
+                    if (strSubDirArray.Length > 0)
+                    {
+                        foreach (string subs in strSubDirArray)
+                        {
+                            string[] strSplit_s = subs.Split('\\');
+                            string strRefFileName = strSplit_s[strSplit_s.Length - 1] + ".ini";
+                            string strRegisterName = strSplit_s[strSplit_s.Length - 1] + "_Register.ini";
+                            string[] strTempArray = strSplit_s[strSplit_s.Length - 1].Split('_');
+                            string strTestName = strTempArray[5];
+                            string strNewRefFileName = ReferenceNameTextBox.Text + "_" + strTestName + "_" + Reference_VersionTextBox.Text + ".ini";
+                            string strNewRegisterName = ReferenceNameTextBox.Text + "_" + strTestName + "_" + Reference_VersionTextBox.Text + "_Register.ini";
+                            string strNewDirName = subs.Replace(strSplit_s[strSplit_s.Length - 1], ReferenceNameTextBox.Text + "_" + strTestName + "_" + Reference_VersionTextBox.Text);
+                            strRefFileName = System.IO.Path.Combine(subs, strRefFileName);
+                            strRegisterName = System.IO.Path.Combine(subs, strRegisterName);
+                            strNewRefFileName = System.IO.Path.Combine(subs, strNewRefFileName);
+                            strNewRegisterName = System.IO.Path.Combine(subs, strNewRegisterName);
+                            // ref 파일 
+                            System.IO.File.Move(strRefFileName, strNewRefFileName);
+                            System.IO.File.Move(strRegisterName, strNewRegisterName);
+
+                            System.IO.Directory.Move(subs,strNewDirName);
+                        }
+                    }
+                    else
+                    {
+                        string[] strSplit_s = s.Split('\\');
+                        string strRefFileName = strSplit_s[strSplit_s.Length - 1] + ".ini";
+                        string strRegisterName = strSplit_s[strSplit_s.Length - 1] + "_Register.ini";
+                        string[] strTempArray = strSplit_s[strSplit_s.Length - 1].Split('_');
+                        string strTestName = strTempArray[5];
+                        string strNewRefFileName = ReferenceNameTextBox.Text + "_" + strTestName + "_" + Reference_VersionTextBox.Text + ".ini";
+                        string strNewRegisterName = ReferenceNameTextBox.Text + "_" + strTestName + "_" + Reference_VersionTextBox.Text + "_Register.ini";
+                        string strNewDirName = s.Replace(strSplit_s[strSplit_s.Length - 1], ReferenceNameTextBox.Text + "_" + strTestName + "_" + Reference_VersionTextBox.Text);
+
+                        strRefFileName = System.IO.Path.Combine(s, strRefFileName);
+                        strRegisterName = System.IO.Path.Combine(s, strRegisterName);
+                        strNewRefFileName = System.IO.Path.Combine(s, strNewRefFileName);
+                        strNewRegisterName = System.IO.Path.Combine(s, strNewRegisterName);
+
+                        System.IO.File.Move(strRefFileName, strNewRefFileName);
+                        System.IO.File.Move(strRegisterName, strNewRegisterName);
+
+                        System.IO.Directory.Move(s, strNewDirName);
+                    }
+                }
+            }
+        }
+
+        private void InputDataToFile(string inRootPath)
+        {
+            if (!System.IO.Directory.Exists(inRootPath))
+            {
+                return;
+            }
+
+            if (System.IO.Directory.Exists(inRootPath))
+            {
+                string[] strDirArray = System.IO.Directory.GetDirectories(inRootPath);
+
+                // Copy the files and overwrite destination files if they already exist.
+                foreach (string s in strDirArray)
+                {
+                    string[] strSubDirArray = System.IO.Directory.GetDirectories(s);
+                    string[] strSplit_s = s.Split('\\');
+                    string strRefFileName = strSplit_s[strSplit_s.Length - 1] + ".ini";
+
+                    if (strSubDirArray.Length > 0)
+                    {
+                        foreach (string subs in strSubDirArray)
+                        {
+                            string[] strFiles = System.IO.Directory.GetFiles(subs);
+
+                            foreach (string filename in strFiles)
+                            {
+                                if (filename.IndexOf("ItemVersion.ini") != -1)
+                                {
+                                    InputItemVersionInfoToFile(filename);
+                                }
+                                // ref 파일 
+                                else if (filename.IndexOf(strRefFileName) != -1)
+                                {
+                                    InputNVMInfoToFile(filename);
+                                }
+                                
+                            }
+                        }
+                    }
+                    else
+                    {
+                        string[] strFiles = System.IO.Directory.GetFiles(s);
+                        // Use static Path methods to extract only the file name from the path.
+                        foreach (string filename in strFiles)
+                        {
+                            if (filename.IndexOf("ItemVersion.ini") != -1)
+                            {
+                                InputItemVersionInfoToFile(filename);
+                            }
+                            // ref 파일
+                            else if (filename.IndexOf(strRefFileName) != -1)
+                            {
+                                InputNVMInfoToFile(filename);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void InputItemVersionInfoToFile(string inFilePath)
+        {
+            string temp = ItemVERSIONtextBox.Text;
+            WritePrivateProfileString("LOG", "VERSION", temp, inFilePath);
+            
+            temp = Ers_verTextBox.Text;
+            WritePrivateProfileString("LOG", "ers_ver", temp, inFilePath);
+            
+            temp = Vsr_verTextBox.Text;
+            WritePrivateProfileString("LOG", "vsr_ver", temp, inFilePath);
+
+            temp = Build_numTextBox.Text;
+            WritePrivateProfileString("LOG", "build_num",temp, inFilePath);
+             
+            temp = Build_ConfigTextBox.Text;
+            WritePrivateProfileString("LOG", "Build_Config", temp,inFilePath);
+           
+            temp = Flex_ConfigTextBox.Text;
+            WritePrivateProfileString("LOG", "Flex_Config", temp, inFilePath);
+             
+            temp = Lens_ConfigTextBox.Text;
+            WritePrivateProfileString("LOG", "Lens_Config", temp, inFilePath);
+
+            temp = Substrate_ConfigTextBox.Text;
+            WritePrivateProfileString("LOG", "Substrate_Config", temp, inFilePath);
+
+            temp = IRCF_ConfigTextBox.Text;
+            WritePrivateProfileString("LOG", "IRCF_Config", temp, inFilePath);
+
+            temp = Stiffener_ConfigTextBox.Text;
+            WritePrivateProfileString("LOG", "Stiffener_Config", temp, inFilePath);
+            
+            temp = AA_MachineTextBox.Text;
+            WritePrivateProfileString("LOG", "AA_Machine", temp, inFilePath);
+            
+        }
+
+        private void InputNVMInfoToFile(string inFilePath)
+        {
+            string temp = NVMTextBox.Text;
+            WritePrivateProfileString("OTP_WRITE", "NVM", temp, inFilePath);
+
+            temp = ProjectIDTextBox.Text;
+            WritePrivateProfileString("OTP_WRITE", "ProjectID", temp, inFilePath);
+            
+            temp = Project_VersionTextBox.Text;
+            WritePrivateProfileString("OTP_WRITE", "Project_Version", temp, inFilePath);
+            
+            temp = IntegratorTextBox.Text;
+            WritePrivateProfileString("OTP_WRITE", "Integrator", temp, inFilePath);
+            
+            temp = CameraBuildTextBox.Text;
+            WritePrivateProfileString("OTP_WRITE", "CameraBuild", temp, inFilePath);
+            
+            temp = ConfigTextBox.Text;
+            WritePrivateProfileString("OTP_WRITE", "Config", temp, inFilePath);
+            
+            temp = IRCFTextBox.Text;
+            WritePrivateProfileString("OTP_WRITE", "IRCF", temp,inFilePath);
+            
+            temp = SubstrateTextBox.Text;
+            WritePrivateProfileString("OTP_WRITE", "Substrate",  temp,inFilePath);
+            
+            temp = SensorTypeTextBox.Text;
+            WritePrivateProfileString("OTP_WRITE", "SensorType", temp, inFilePath);
+            
+            temp = LensTextBox.Text;
+            WritePrivateProfileString("OTP_WRITE", "Lens", temp, inFilePath);
+            
+            temp = FlexTextBox.Text;
+            WritePrivateProfileString("OTP_WRITE", "Flex", temp, inFilePath);
+            
+            temp = StiffenerTextBox.Text;
+            WritePrivateProfileString("OTP_WRITE", "Stiffener", temp, inFilePath);
+            
+            temp = CarrierTextBox.Text;
+            WritePrivateProfileString("OTP_WRITE", "Carrier", temp, inFilePath);
+            
+            temp = Process_ControlTextBox.Text;
+            WritePrivateProfileString("OTP_WRITE", "Process_Control_Plan_Revision",temp, inFilePath);
+            
+            temp = Process_DOE_codeTextBox.Text;
+            WritePrivateProfileString("OTP_WRITE", "Process_DOE_code", temp, inFilePath);
+            
+            temp = SotfwareTextBox.Text;
+            WritePrivateProfileString("OTP_WRITE", "Sotfware", temp, inFilePath);
+            
+            temp = WaiverTextBox.Text;
+            WritePrivateProfileString("OTP_WRITE", "Waiver", temp, inFilePath);
+            
+            temp = LensComponent_R_MajorTextBox.Text;
+            WritePrivateProfileString("OTP_WRITE", "LensComponent_Revision_Major", temp, inFilePath);
+            
+            temp = LensComponent_R_MinorTextBox.Text;
+            WritePrivateProfileString("OTP_WRITE", "LensComponent_Revision_Minor", temp,  inFilePath);
+            
+            temp = ColorShading_RevTextBox.Text;
+            WritePrivateProfileString("OTP_WRITE", "ColorShading_Revision", temp, inFilePath);
+            
+            temp = Traceability_VersionTextBox.Text;
+            WritePrivateProfileString("OTP_WRITE", "Traceability_Version", temp, inFilePath);
+            
+            temp = CISMaskIDTextBox.Text;
+            WritePrivateProfileString("OTP_WRITE", "CISMaskID", temp, inFilePath);
+            
+            temp = LAST_STRINGTextBox.Text;
+            WritePrivateProfileString("LOG", "LAST_STRING",  temp, inFilePath);
+            
+            temp = FIRST_STRINGTextBox.Text;
+            WritePrivateProfileString("LOG", "FIRST_STRING", temp,  inFilePath);
+            
+            temp = SERIAL_COUNTTextBox.Text;
+            WritePrivateProfileString("LOG", "SERIAL_COUNT", temp, inFilePath);
         }
     }
 }
