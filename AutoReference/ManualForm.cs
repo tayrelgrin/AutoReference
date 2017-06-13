@@ -40,17 +40,31 @@ namespace AutoReference
             {
                 // Ref, register file unifomity 확인
 
+                // Ref Dir 선택
                 m_strRefPath = ofd.SelectedPath.ToString();
 
                 // Ref, register file path 
                 GetRefItemversionFilePath(m_strRefPath, ref strRefFilePath, ref strItemVersionPath);
-
+                GetReferenceNameAndPrint(m_strRefPath, strRefFilePath);
                 ReadAndPrintNVMInformation(strRefFilePath);
                 ReadAndPrintItemVersionINI(strItemVersionPath);
 
                 m_strRefPath = ofd.SelectedPath;
             }
+        }
 
+        private void GetReferenceNameAndPrint(string inRefRootPath, string inRefFilePath)
+        {
+            string strTemp = inRefFilePath.Replace(inRefRootPath+"\\", "");
+
+            string[] strTempSplit = strTemp.Split('\\');
+            string[] strRefSplit = strTempSplit[0].Split('_');
+            int nCount = strRefSplit.Length;
+
+            string strRefHead = strRefSplit[0] + "_" + strRefSplit[1] + "_" + strRefSplit[2] + "_" + strRefSplit[3] + "_" + strRefSplit[4];
+            ReferenceNameTextBox.Text = strRefHead;
+            string strRefTail = strTempSplit[0].Replace(strRefHead + "_" + strRefSplit[5] + "_", "");
+            Reference_VersionTextBox.Text = strRefTail;
         }
 
         private void GetRefItemversionFilePath(string inRootPath, ref string outRefFilePath, ref string outItemFilePath)
@@ -235,9 +249,19 @@ namespace AutoReference
                     {
                         foreach (string subs in strSubDirArray)
                         {
-                            string[] strFiles = System.IO.Directory.GetFiles(subs);
-                            // Use static Path methods to extract only the file name from the path.
-                            strFileName = System.IO.Path.GetFileName(subs);
+                            strFileName = subs.Replace(inSourcePath + "\\", "");
+                            string[] strTemp = strFileName.Split('\\');
+
+                            int nSizeDestDir = strTemp.Length;
+
+                            strDestDir = strFileName.Replace(strTemp[nSizeDestDir - 1], "");
+                            strDestDir = System.IO.Path.Combine(inTargetPath, strDestDir);
+
+                            if (!System.IO.Directory.Exists(strDestDir))
+                            {
+                                System.IO.Directory.CreateDirectory(strDestDir);
+                            }
+
                             strDestFile = System.IO.Path.Combine(inTargetPath, strFileName);
                             System.IO.File.Copy(subs, strDestFile, true);
                         }

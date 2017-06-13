@@ -60,7 +60,7 @@ namespace AutoReference
 
         private void PrjDeleteButton_Click(object sender, EventArgs e)
         {
-            int nSelected = PrjListBox.SelectedIndex;
+            int nSelected = PrjListView.FocusedItem.Index;
             string strFilePath = Application.StartupPath + "\\Data\\" +DataList[nSelected].m_strPrjName + DataList[nSelected].m_strVSRVersion + ".ini";
             string temp = "Delete Project " + DataList[nSelected].m_strVSRVersion + "-" + DataList[nSelected].m_strPrjName+"?";
             if (DialogResult.Yes == MessageBox.Show(temp,"Delete Project", MessageBoxButtons.YesNo))
@@ -106,41 +106,9 @@ namespace AutoReference
             CarrierTextBox.Clear();
         }
 
-        private void PjrListBox_Click(object sender, EventArgs e)
-        {
-            int nSelectIndex = -1;
-
-            nSelectIndex = PrjListBox.SelectedIndex;
-            string strSelected;
-
-            VSRData CSelectedData = new VSRData();
-            ClearTextBoxes();
-            if (nSelectIndex != -1)
-            {
-                strSelected = PrjListBox.SelectedItem.ToString();
-                CSelectedData.SetFileName(strSelected);
-                CSelectedData = DataList[nSelectIndex];
-                PrintItemToListView(CSelectedData.SensorList,       SensorListView);
-                PrintItemToListView(CSelectedData.PartsList,        ConfigListView);
-                PrintItemToListView(CSelectedData.IRCFList,         IRCFListView);
-                PrintItemToListView(CSelectedData.LensList,         LensListView);
-                PrintItemToListView(CSelectedData.StiffenerList,    StiffenerListView);
-                PrintItemToListView(CSelectedData.SubstrateList,    SubstrateListView);
-                PrintItemToListView(CSelectedData.FlexList,         FlexListView);
-                PrintItemToListView(CSelectedData.CarrierList,      CarrierListView);
-                PrintItemToListView(CSelectedData.CameraBuildList,  BuildListView);
-                PrintEEEEToTextBox(CSelectedData);
-
-                int nIndex = strSelected.IndexOf('-');
-
-                PrjTextBox.Text = strSelected.Substring(nIndex+1);
-
-                m_cRefData.m_strPrjName = strSelected.Substring(nIndex + 1);
-            }
-        }
-
         private void initAllListViews()
         {
+            InitPrjListView();
             InitListView(SensorListView);
             InitListView(ConfigListView);
             InitListView(IRCFListView);
@@ -150,6 +118,13 @@ namespace AutoReference
             InitListView(FlexListView);
             InitListView(CarrierListView);
             InitListView(BuildListView);
+        }
+
+        private void InitPrjListView()
+        {
+            PrjListView.FullRowSelect = true;
+            PrjListView.Columns.Add("VSR Ver.", 80);
+            PrjListView.Columns.Add("Project Name", 90);
         }
 
         private void InitListView(ListView inListView)
@@ -208,11 +183,13 @@ namespace AutoReference
 
         private void PrintProjectToListBox()
         {
-            PrjListBox.Items.Clear();
+            PrjListView.Items.Clear();
 
             foreach (var temp in DataList)
             {
-                PrjListBox.Items.Add(temp.m_strVSRVersion + "-" + temp.m_strPrjName);
+                ListViewItem lvi = new ListViewItem(temp.m_strVSRVersion);
+                lvi.SubItems.Add(temp.m_strPrjName);
+                PrjListView.Items.Add(lvi);
             }
         }
 
@@ -274,11 +251,11 @@ namespace AutoReference
 
         private void button_Modify_Click(object sender, EventArgs e)
         {
-            string strTemp = PrjListBox.SelectedItem.ToString();
+            string strTemp = PrjListView.FocusedItem.ToString();
             VSRData CSelectedData = new VSRData();
             CSelectedData.SetFileName(strTemp);
             int nSelectIndex = -1;
-            nSelectIndex = PrjListBox.SelectedIndex;
+            nSelectIndex = PrjListView.FocusedItem.Index;
 
             if (nSelectIndex != -1 && strTemp != "")
             {
@@ -292,9 +269,9 @@ namespace AutoReference
         private void SensorListView_MouseClick(object sender, MouseEventArgs e)
         {
             int nSelecedIndex = -1;
+            nSelecedIndex = SensorListView.FocusedItem.Index;
             if (nSelecedIndex != -1)
             {
-                nSelecedIndex = SensorListView.FocusedItem.Index;
                 string strSelectdItem;
                 strSelectdItem = SensorListView.FocusedItem.SubItems[1].Text.ToString();
 
@@ -425,6 +402,167 @@ namespace AutoReference
                 m_cRefData.Carrier.strVendorName    = CarrierListView.FocusedItem.SubItems[1].Text.ToString();
                 m_cRefData.Carrier.strBinaryValue   = CarrierListView.FocusedItem.SubItems[2].Text.ToString();
                 m_cRefData.Carrier.strHexValue      = CarrierListView.FocusedItem.SubItems[3].Text.ToString();
+            }
+        }
+
+        private void PrjListView_Click(object sender, EventArgs e)
+        {
+            int nSelectIndex = -1;
+
+            nSelectIndex = PrjListView.FocusedItem.Index;
+            string strSelected;
+
+            VSRData CSelectedData = new VSRData();
+            ClearTextBoxes();
+            if (nSelectIndex != -1)
+            {
+                strSelected = PrjListView.FocusedItem.ToString();
+                CSelectedData.SetFileName(strSelected);
+                CSelectedData = DataList[nSelectIndex];
+                PrintItemToListView(CSelectedData.SensorList, SensorListView);
+                PrintItemToListView(CSelectedData.PartsList, ConfigListView);
+                PrintItemToListView(CSelectedData.IRCFList, IRCFListView);
+                PrintItemToListView(CSelectedData.LensList, LensListView);
+                PrintItemToListView(CSelectedData.StiffenerList, StiffenerListView);
+                PrintItemToListView(CSelectedData.SubstrateList, SubstrateListView);
+                PrintItemToListView(CSelectedData.FlexList, FlexListView);
+                PrintItemToListView(CSelectedData.CarrierList, CarrierListView);
+                PrintItemToListView(CSelectedData.CameraBuildList, BuildListView);
+                PrintEEEEToTextBox(CSelectedData);
+
+                int nIndex = strSelected.IndexOf('-');
+
+                PrjTextBox.Text = strSelected.Substring(nIndex + 1);
+
+                m_cRefData.m_strPrjName = strSelected.Substring(nIndex + 1);
+            }
+        }
+
+        private void BuildConfigTextBox_Enter(object sender, EventArgs e)
+        {
+            if (BuildConfigTextBox.Text == "ex : C1010")
+            {
+                BuildConfigTextBox.Text = "";
+            }
+        }
+
+        private void BuildConfigTextBox_Leave(object sender, EventArgs e)
+        {
+            if (BuildConfigTextBox.Text == "")
+            {
+                BuildConfigTextBox.Text = "ex : C1010";
+            }
+        }
+
+        private void RefVersionTextBox_Enter(object sender, EventArgs e)
+        {
+            if (RefVersionTextBox.Text == "ex : E1")
+            {
+                RefVersionTextBox.Text = "";
+            }
+        }
+
+        private void RefVersionTextBox_Leave(object sender, EventArgs e)
+        {
+            if (RefVersionTextBox.Text == "")
+            {
+                RefVersionTextBox.Text = "ex : E1";
+            }
+        }
+
+        private void LenscomponentTextBox_Enter(object sender, EventArgs e)
+        {
+            if (LenscomponentTextBox.Text == "ex : 0x2A")
+            {
+                LenscomponentTextBox.Text = "";
+            }
+        }
+
+        private void LenscomponentTextBox_Leave(object sender, EventArgs e)
+        {
+            if (LenscomponentTextBox.Text == "")
+            {
+                LenscomponentTextBox.Text = "ex : 0x2A";
+            }
+        }
+
+        private void ERSVesionTextBox_Enter(object sender, EventArgs e)
+        {
+            if (ERSVesionTextBox.Text == "ex : A or 10")
+            {
+                ERSVesionTextBox.Text = "";
+            }
+        }
+
+        private void ERSVesionTextBox_Leave(object sender, EventArgs e)
+        {
+            if (ERSVesionTextBox.Text == "")
+            {
+                ERSVesionTextBox.Text = "ex : A or 10";
+            }
+        }
+
+        private void CISMaskTextBox_Enter(object sender, EventArgs e)
+        {
+            if (CISMaskTextBox.Text == "ex : 1")
+            {
+                CISMaskTextBox.Text = "";
+            }
+        }
+
+        private void CISMaskTextBox_Leave(object sender, EventArgs e)
+        {
+            if (CISMaskTextBox.Text == "")
+            {
+                CISMaskTextBox.Text = "ex : 1";
+            }
+        }
+
+        private void SWVersionTextBox_Enter(object sender, EventArgs e)
+        {
+            if (SWVersionTextBox.Text == "ex : ME 4.0.0.0")
+            {
+                SWVersionTextBox.Text = "";
+            }
+        }
+
+        private void SWVersionTextBox_Leave(object sender, EventArgs e)
+        {
+            if (SWVersionTextBox.Text == "")
+            {
+                SWVersionTextBox.Text = "ex : ME 4.0.0.0";
+            }
+        }
+
+        private void BuildConfig2TextBox_Enter(object sender, EventArgs e)
+        {
+            if (BuildConfig2TextBox.Text == "ex : C1010")
+            {
+                BuildConfig2TextBox.Text = "";
+            }
+        }
+
+        private void BuildConfig2TextBox_Leave(object sender, EventArgs e)
+        {
+            if (BuildConfig2TextBox.Text == "")
+            {
+                BuildConfig2TextBox.Text = "ex : C1010";
+            }
+        }
+
+        private void RefVersion2TextBox_Enter(object sender, EventArgs e)
+        {
+            if (RefVersion2TextBox.Text == "ex : E1")
+            {
+                RefVersion2TextBox.Text = "";
+            }
+        }
+
+        private void RefVersion2TextBox_Leave(object sender, EventArgs e)
+        {
+            if (RefVersion2TextBox.Text == "")
+            {
+                RefVersion2TextBox.Text = "ex : E1";
             }
         }
     }

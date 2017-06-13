@@ -45,8 +45,6 @@ namespace AutoReference
             WritePrivateProfileString(strSection, "VenderName"+strKey,  strVendorName,  strFilePath);
             WritePrivateProfileString(strSection, "Binary" + strKey,    strBinaryValue, strFilePath);
             WritePrivateProfileString(strSection, "Hex" + strKey,       strHexValue,    strFilePath);
-           // WritePrivateProfileString(strSection, strKey, strApplePN, strFilePath);
-           // WritePrivateProfileString(strSection, strKey, nDecValue.ToString(), strFilePath);
         }
 
         public void ReadInfoFromFile(string strFilePath, string strSection, string strKey)

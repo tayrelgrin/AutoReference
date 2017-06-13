@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AutoRef));
-            this.PrjListBox = new System.Windows.Forms.ListBox();
             this.prjAddButton = new System.Windows.Forms.Button();
             this.prjDeleteButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,21 +41,21 @@
             this.label11 = new System.Windows.Forms.Label();
             this.nextButton = new System.Windows.Forms.Button();
             this.closelButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.RefVersionTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.BuildConfigTextBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.ERSVesionTextBox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.LenscomponentTextBox = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.prjModifyButton = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.SWVersionTextBox = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.CISMaskTextBox = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.SensorListView = new System.Windows.Forms.ListView();
             this.ConfigListView = new System.Windows.Forms.ListView();
@@ -68,7 +67,7 @@
             this.CarrierListView = new System.Windows.Forms.ListView();
             this.BuildListView = new System.Windows.Forms.ListView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.ManualBuildConfigTextBox = new System.Windows.Forms.TextBox();
             this.InputRefCheckBox = new System.Windows.Forms.CheckBox();
             this.EEEETextBox = new System.Windows.Forms.TextBox();
             this.PrjTextBox = new System.Windows.Forms.TextBox();
@@ -79,24 +78,15 @@
             this.StiffenerTextBox = new System.Windows.Forms.TextBox();
             this.IRCFTextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.BuildConfig2TextBox = new System.Windows.Forms.TextBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.RefVersion2TextBox = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.PrjListView = new System.Windows.Forms.ListView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // PrjListBox
-            // 
-            this.PrjListBox.FormattingEnabled = true;
-            this.PrjListBox.ItemHeight = 12;
-            this.PrjListBox.Location = new System.Drawing.Point(29, 26);
-            this.PrjListBox.Name = "PrjListBox";
-            this.PrjListBox.Size = new System.Drawing.Size(172, 172);
-            this.PrjListBox.TabIndex = 0;
-            this.PrjListBox.Click += new System.EventHandler(this.PjrListBox_Click);
             // 
             // prjAddButton
             // 
@@ -210,15 +200,18 @@
             this.closelButton.UseVisualStyleBackColor = true;
             this.closelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // textBox1
+            // RefVersionTextBox
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox1.Location = new System.Drawing.Point(15, 77);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(146, 22);
-            this.textBox1.TabIndex = 26;
+            this.RefVersionTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.RefVersionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.RefVersionTextBox.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.RefVersionTextBox.Location = new System.Drawing.Point(15, 77);
+            this.RefVersionTextBox.Name = "RefVersionTextBox";
+            this.RefVersionTextBox.Size = new System.Drawing.Size(146, 22);
+            this.RefVersionTextBox.TabIndex = 26;
+            this.RefVersionTextBox.Text = "ex : E1";
+            this.RefVersionTextBox.Enter += new System.EventHandler(this.RefVersionTextBox_Enter);
+            this.RefVersionTextBox.Leave += new System.EventHandler(this.RefVersionTextBox_Leave);
             // 
             // label7
             // 
@@ -239,6 +232,8 @@
             this.BuildConfigTextBox.Size = new System.Drawing.Size(146, 22);
             this.BuildConfigTextBox.TabIndex = 30;
             this.BuildConfigTextBox.Text = "ex : C1010";
+            this.BuildConfigTextBox.Enter += new System.EventHandler(this.BuildConfigTextBox_Enter);
+            this.BuildConfigTextBox.Leave += new System.EventHandler(this.BuildConfigTextBox_Leave);
             // 
             // label9
             // 
@@ -249,16 +244,18 @@
             this.label9.TabIndex = 29;
             this.label9.Text = "Build Config";
             // 
-            // textBox3
+            // ERSVesionTextBox
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox3.Location = new System.Drawing.Point(15, 160);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(146, 22);
-            this.textBox3.TabIndex = 32;
-            this.textBox3.Text = "ex : A or 10";
+            this.ERSVesionTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.ERSVesionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ERSVesionTextBox.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.ERSVesionTextBox.Location = new System.Drawing.Point(15, 160);
+            this.ERSVesionTextBox.Name = "ERSVesionTextBox";
+            this.ERSVesionTextBox.Size = new System.Drawing.Size(146, 22);
+            this.ERSVesionTextBox.TabIndex = 32;
+            this.ERSVesionTextBox.Text = "ex : A or 10";
+            this.ERSVesionTextBox.Enter += new System.EventHandler(this.ERSVesionTextBox_Enter);
+            this.ERSVesionTextBox.Leave += new System.EventHandler(this.ERSVesionTextBox_Leave);
             // 
             // label12
             // 
@@ -269,15 +266,18 @@
             this.label12.TabIndex = 31;
             this.label12.Text = "ERS Version";
             // 
-            // textBox4
+            // LenscomponentTextBox
             // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox4.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox4.Location = new System.Drawing.Point(15, 119);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(146, 22);
-            this.textBox4.TabIndex = 33;
+            this.LenscomponentTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.LenscomponentTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LenscomponentTextBox.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LenscomponentTextBox.Location = new System.Drawing.Point(15, 119);
+            this.LenscomponentTextBox.Name = "LenscomponentTextBox";
+            this.LenscomponentTextBox.Size = new System.Drawing.Size(146, 22);
+            this.LenscomponentTextBox.TabIndex = 33;
+            this.LenscomponentTextBox.Text = "ex : 0x2A";
+            this.LenscomponentTextBox.Enter += new System.EventHandler(this.LenscomponentTextBox_Enter);
+            this.LenscomponentTextBox.Leave += new System.EventHandler(this.LenscomponentTextBox_Leave);
             // 
             // label13
             // 
@@ -318,17 +318,17 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.SWVersionTextBox);
             this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.CISMaskTextBox);
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.BuildConfigTextBox);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.LenscomponentTextBox);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.RefVersionTextBox);
+            this.groupBox1.Controls.Add(this.ERSVesionTextBox);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Location = new System.Drawing.Point(692, 57);
             this.groupBox1.Name = "groupBox1";
@@ -337,15 +337,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Input Data";
             // 
-            // textBox6
+            // SWVersionTextBox
             // 
-            this.textBox6.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox6.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox6.Location = new System.Drawing.Point(15, 243);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(146, 22);
-            this.textBox6.TabIndex = 38;
+            this.SWVersionTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.SWVersionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SWVersionTextBox.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SWVersionTextBox.Location = new System.Drawing.Point(15, 243);
+            this.SWVersionTextBox.Name = "SWVersionTextBox";
+            this.SWVersionTextBox.Size = new System.Drawing.Size(146, 22);
+            this.SWVersionTextBox.TabIndex = 38;
+            this.SWVersionTextBox.Text = "ex : ME 4.0.0.0";
+            this.SWVersionTextBox.Enter += new System.EventHandler(this.SWVersionTextBox_Enter);
+            this.SWVersionTextBox.Leave += new System.EventHandler(this.SWVersionTextBox_Leave);
             // 
             // label17
             // 
@@ -356,16 +359,18 @@
             this.label17.TabIndex = 37;
             this.label17.Text = "SW Version";
             // 
-            // textBox5
+            // CISMaskTextBox
             // 
-            this.textBox5.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox5.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox5.Location = new System.Drawing.Point(15, 203);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(146, 22);
-            this.textBox5.TabIndex = 36;
-            this.textBox5.Text = "ex : 1";
+            this.CISMaskTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.CISMaskTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CISMaskTextBox.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.CISMaskTextBox.Location = new System.Drawing.Point(15, 203);
+            this.CISMaskTextBox.Name = "CISMaskTextBox";
+            this.CISMaskTextBox.Size = new System.Drawing.Size(146, 22);
+            this.CISMaskTextBox.TabIndex = 36;
+            this.CISMaskTextBox.Text = "ex : 1";
+            this.CISMaskTextBox.Enter += new System.EventHandler(this.CISMaskTextBox_Enter);
+            this.CISMaskTextBox.Leave += new System.EventHandler(this.CISMaskTextBox_Leave);
             // 
             // label16
             // 
@@ -494,7 +499,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox7);
+            this.groupBox2.Controls.Add(this.ManualBuildConfigTextBox);
             this.groupBox2.Controls.Add(this.InputRefCheckBox);
             this.groupBox2.Font = new System.Drawing.Font("굴림", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox2.Location = new System.Drawing.Point(693, 369);
@@ -504,16 +509,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Build Config(ItemVersion.ini)";
             // 
-            // textBox7
+            // ManualBuildConfigTextBox
             // 
-            this.textBox7.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox7.Enabled = false;
-            this.textBox7.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox7.Location = new System.Drawing.Point(14, 40);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(146, 22);
-            this.textBox7.TabIndex = 39;
+            this.ManualBuildConfigTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.ManualBuildConfigTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ManualBuildConfigTextBox.Enabled = false;
+            this.ManualBuildConfigTextBox.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.ManualBuildConfigTextBox.Location = new System.Drawing.Point(14, 40);
+            this.ManualBuildConfigTextBox.Name = "ManualBuildConfigTextBox";
+            this.ManualBuildConfigTextBox.Size = new System.Drawing.Size(146, 22);
+            this.ManualBuildConfigTextBox.TabIndex = 39;
             // 
             // InputRefCheckBox
             // 
@@ -601,16 +606,18 @@
             this.label8.TabIndex = 60;
             this.label8.Text = "EEEER";
             // 
-            // textBox14
+            // BuildConfig2TextBox
             // 
-            this.textBox14.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox14.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox14.Location = new System.Drawing.Point(506, 633);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(77, 22);
-            this.textBox14.TabIndex = 61;
-            this.textBox14.Text = "ex : C1010";
+            this.BuildConfig2TextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.BuildConfig2TextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.BuildConfig2TextBox.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.BuildConfig2TextBox.Location = new System.Drawing.Point(506, 633);
+            this.BuildConfig2TextBox.Name = "BuildConfig2TextBox";
+            this.BuildConfig2TextBox.Size = new System.Drawing.Size(77, 22);
+            this.BuildConfig2TextBox.TabIndex = 61;
+            this.BuildConfig2TextBox.Text = "ex : C1010";
+            this.BuildConfig2TextBox.Enter += new System.EventHandler(this.BuildConfig2TextBox_Enter);
+            this.BuildConfig2TextBox.Leave += new System.EventHandler(this.BuildConfig2TextBox_Leave);
             // 
             // textBox15
             // 
@@ -620,15 +627,18 @@
             this.textBox15.Size = new System.Drawing.Size(53, 21);
             this.textBox15.TabIndex = 62;
             // 
-            // textBox16
+            // RefVersion2TextBox
             // 
-            this.textBox16.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox16.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox16.Location = new System.Drawing.Point(648, 633);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(81, 22);
-            this.textBox16.TabIndex = 63;
+            this.RefVersion2TextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.RefVersion2TextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.RefVersion2TextBox.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.RefVersion2TextBox.Location = new System.Drawing.Point(648, 633);
+            this.RefVersion2TextBox.Name = "RefVersion2TextBox";
+            this.RefVersion2TextBox.Size = new System.Drawing.Size(81, 22);
+            this.RefVersion2TextBox.TabIndex = 63;
+            this.RefVersion2TextBox.Text = "ex : E1";
+            this.RefVersion2TextBox.Enter += new System.EventHandler(this.RefVersion2TextBox_Enter);
+            this.RefVersion2TextBox.Leave += new System.EventHandler(this.RefVersion2TextBox_Leave);
             // 
             // label18
             // 
@@ -648,16 +658,27 @@
             this.label19.TabIndex = 65;
             this.label19.Text = "Ref Version";
             // 
+            // PrjListView
+            // 
+            this.PrjListView.Location = new System.Drawing.Point(29, 26);
+            this.PrjListView.Name = "PrjListView";
+            this.PrjListView.Size = new System.Drawing.Size(174, 172);
+            this.PrjListView.TabIndex = 66;
+            this.PrjListView.UseCompatibleStateImageBehavior = false;
+            this.PrjListView.View = System.Windows.Forms.View.Details;
+            this.PrjListView.Click += new System.EventHandler(this.PrjListView_Click);
+            // 
             // AutoRef
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(878, 663);
+            this.Controls.Add(this.PrjListView);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
-            this.Controls.Add(this.textBox16);
+            this.Controls.Add(this.RefVersion2TextBox);
             this.Controls.Add(this.textBox15);
-            this.Controls.Add(this.textBox14);
+            this.Controls.Add(this.BuildConfig2TextBox);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.CarrierTextBox);
             this.Controls.Add(this.StiffenerTextBox);
@@ -692,7 +713,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.prjDeleteButton);
             this.Controls.Add(this.prjAddButton);
-            this.Controls.Add(this.PrjListBox);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AutoRef";
@@ -709,7 +729,6 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox PrjListBox;
         private System.Windows.Forms.Button prjAddButton;
         private System.Windows.Forms.Button prjDeleteButton;
         private System.Windows.Forms.Label label1;
@@ -722,13 +741,13 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button nextButton;
         private System.Windows.Forms.Button closelButton;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox RefVersionTextBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox BuildConfigTextBox;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox ERSVesionTextBox;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox LenscomponentTextBox;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button prjModifyButton;
         private System.Windows.Forms.Label label14;
@@ -743,12 +762,12 @@
         private System.Windows.Forms.ListView FlexListView;
         private System.Windows.Forms.ListView CarrierListView;
         private System.Windows.Forms.ListView BuildListView;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox SWVersionTextBox;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox CISMaskTextBox;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox ManualBuildConfigTextBox;
         private System.Windows.Forms.CheckBox InputRefCheckBox;
         private System.Windows.Forms.TextBox EEEETextBox;
         private System.Windows.Forms.TextBox PrjTextBox;
@@ -759,11 +778,12 @@
         private System.Windows.Forms.TextBox StiffenerTextBox;
         private System.Windows.Forms.TextBox IRCFTextBox;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox BuildConfig2TextBox;
         private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox RefVersion2TextBox;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.ListView PrjListView;
     }
 }
 

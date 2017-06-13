@@ -30,10 +30,10 @@ namespace AutoReference
         private void InitListView()
         {
             NVMValuesListView.FullRowSelect = true;
-            NVMValuesListView.Columns.Add("Type", 130);
-            NVMValuesListView.Columns.Add("Item", 130);
-            NVMValuesListView.Columns.Add("Binary", 150);
-            NVMValuesListView.Columns.Add("Hex", 150);
+            NVMValuesListView.Columns.Add("Type", 140);
+            NVMValuesListView.Columns.Add("Item", 200);
+            NVMValuesListView.Columns.Add("Binary", 110);
+            NVMValuesListView.Columns.Add("Hex", 110);
             NVMValuesListView.Columns.Add("Dec", 70);
 
             ItemversionListView.FullRowSelect = true;
@@ -80,8 +80,11 @@ namespace AutoReference
                 lvi.SubItems.Add(inData.strBinaryValue);
                 string strHexValue = inData.strHexValue;
                 lvi.SubItems.Add(strHexValue);
-//                 if (strHexValue != "" && strHexValue != null)
-//                     lvi.SubItems.Add(inData.stringHexToDec(strHexValue).ToString());
+                if (inData.strBinaryValue != null)
+                {
+                    string strBinary = inData.strBinaryValue.Replace(" ","");
+                    lvi.SubItems.Add(Convert.ToInt32(strBinary,2).ToString());
+                }
             }
             
             NVMValuesListView.Items.Add(lvi);
