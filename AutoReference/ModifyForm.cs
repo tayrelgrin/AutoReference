@@ -46,6 +46,17 @@ namespace AutoReference
                 ApplePNTextBox.Visible = false;
             }
 
+            if (inTargetName == "EEEE")
+            {
+                TargetTextBox.Visible = false;
+                label_Vendor.Visible = false;
+                label_Binary.Text = "EEEE";
+                label2.Visible = false;
+                label3.Visible = false;
+                HexTextBox.Visible = false;
+                ApplePNTextBox.Visible = false;
+            }
+
             TargetTextBox.Text  = inTargetData.strVendorName;
             BinaryTextBox.Text  = inTargetData.strBinaryValue;
             HexTextBox.Text     = inTargetData.strHexValue;

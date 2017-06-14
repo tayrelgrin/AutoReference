@@ -17,7 +17,7 @@ namespace AutoReference
         VSRData m_AddVSR = new VSRData();
         private BaseData temp = new BaseData();
         private bool m_bAddResult;
-        private ReferenceData m_cRefData = new ReferenceData();
+        private ReferenceData m_cRefData = new ReferenceData(); // Ref 만들 때 넘길 객체
 
         private VSRData m_cSelectedData = new VSRData();
 
@@ -63,17 +63,20 @@ namespace AutoReference
 
         private void PrjDeleteButton_Click(object sender, EventArgs e)
         {
-            int nSelected = PrjListView.FocusedItem.Index;
-            string strFilePath = Application.StartupPath + "\\Data\\" +DataList[nSelected].m_strPrjName + DataList[nSelected].m_strVSRVersion + ".ini";
-            string temp = "Delete Project " + DataList[nSelected].m_strVSRVersion + "-" + DataList[nSelected].m_strPrjName+"?";
-            if (DialogResult.Yes == MessageBox.Show(temp,"Delete Project", MessageBoxButtons.YesNo))
+            if (PrjListView.SelectedItems.Count > 0)
             {
-                DataList.Remove(DataList[nSelected]);
-            }
+                int nSelected = PrjListView.FocusedItem.Index;
+                string strFilePath = Application.StartupPath + "\\Data\\" + DataList[nSelected].m_strPrjName + DataList[nSelected].m_strVSRVersion + ".ini";
+                string temp = "Delete Project " + DataList[nSelected].m_strVSRVersion + "-" + DataList[nSelected].m_strPrjName + "?";
+                if (DialogResult.Yes == MessageBox.Show(temp, "Delete Project", MessageBoxButtons.YesNo))
+                {
+                    DataList.Remove(DataList[nSelected]);
+                }
 
-            FileDelete(strFilePath);
-            PrintProjectToListBox();
-            CleanListBoxes();
+                FileDelete(strFilePath);
+                PrintProjectToListBox();
+                CleanListBoxes();
+            }
         }
 
         private void NextButton_Click(object sender, EventArgs e)
@@ -348,18 +351,20 @@ namespace AutoReference
 
         private void button_Modify_Click(object sender, EventArgs e)
         {
-            string strTemp = PrjListView.FocusedItem.ToString();
-            VSRData m_cSelectedData = new VSRData();
-            m_cSelectedData.SetFileName(strTemp);
-            int nSelectIndex = -1;
-            nSelectIndex = PrjListView.FocusedItem.Index;
-
-            if (nSelectIndex != -1 && strTemp != "")
+            if (PrjListView.SelectedItems.Count > 0)
             {
-                m_cSelectedData = DataList[nSelectIndex];
-                AddPrjForm addDlg = new AddPrjForm(m_cSelectedData);
-                addDlg.SendAddResultEvent += new AddPrjForm.SendAddResult(GetAddResult);
-                addDlg.ShowDialog();
+                string strTemp = PrjListView.FocusedItem.ToString();
+                VSRData m_cSelectedData = new VSRData();
+                m_cSelectedData.SetFileName(strTemp);
+                int nSelectIndex = -1;
+                nSelectIndex = PrjListView.FocusedItem.Index;
+                if (nSelectIndex != -1 && strTemp != "")
+                {
+                    m_cSelectedData = DataList[nSelectIndex];
+                    AddPrjForm addDlg = new AddPrjForm(m_cSelectedData);
+                    addDlg.SendAddResultEvent += new AddPrjForm.SendAddResult(GetAddResult);
+                    addDlg.ShowDialog();
+                }
             }
         }
 
@@ -718,6 +723,25 @@ namespace AutoReference
             if (ManualBuildConfigTextBox.Text != "")
             {
                 m_cRefData.m_strDOEBuild_Config = ManualBuildConfigTextBox.Text;
+            }
+        }
+
+        private void PrjListView_DoubleClick(object sender, EventArgs e)
+        {
+            int nSelectIndex = PrjListView.FocusedItem.Index;
+
+            if (nSelectIndex != -1)
+            {
+                string strTemp = PrjListView.FocusedItem.ToString();
+                VSRData m_cSelectedData = new VSRData();
+                m_cSelectedData.SetFileName(strTemp);
+                if (strTemp != "")
+                {
+                    m_cSelectedData = DataList[nSelectIndex];
+                    AddPrjForm addDlg = new AddPrjForm(m_cSelectedData);
+                    addDlg.SendAddResultEvent += new AddPrjForm.SendAddResult(GetAddResult);
+                    addDlg.ShowDialog();
+                }
             }
         }
     }

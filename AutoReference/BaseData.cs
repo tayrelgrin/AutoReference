@@ -65,7 +65,7 @@ namespace AutoReference
             inHex.Trim();   // 공백 제거
 
             if (inHex.Length % 2 == 1)
-                throw new Exception("The binary key cannot have an odd number of digits");
+                throw new Exception("The Hex key cannot have an odd number of digits");
 
             int nDecValue = 0;
 

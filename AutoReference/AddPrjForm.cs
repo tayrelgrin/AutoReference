@@ -24,6 +24,7 @@ namespace AutoReference
         private ContextMenu CMenu = new ContextMenu();
 
         public delegate void SendAddResult(bool bResult, VSRData CVSRData);
+
         public event SendAddResult SendAddResultEvent;
 
         public AddPrjForm(string strPath)
@@ -496,15 +497,59 @@ namespace AutoReference
             {
                 foreach (var printData in inList)
                 {
-                    ListViewItem lvi = new ListViewItem("");
+                    ListViewItem lvi = new ListViewItem("");                    
                     lvi.SubItems.Add(printData.strVendorName);
                     lvi.SubItems.Add(printData.strBinaryValue);
                     lvi.SubItems.Add(printData.strHexValue);
+                    if (CheckBinaryHex(printData.strBinaryValue, printData.strHexValue) == false)
+                    {
+                        lvi.BackColor = Color.Red;
+                    }
                     inTargetListView.Items.Add(lvi);
                 }
             }
         }
 
+        private bool CheckBinaryHex(string inBinary, string inHex)
+        {
+            bool bResult = true;
+            string strConvert = "";
+            string[] strBinarySplit = inBinary.Split(' ');
+            string[] strHexSplit = inHex.Split(' ');
+            string strHexTarget = "";
+
+            if (strBinarySplit.Length > strHexSplit.Length)
+            {
+                string temp = inBinary.Replace(" ", "");
+                inBinary = temp;
+                strBinarySplit = inBinary.Split(' ');
+            }
+            int nCount = 0;
+            foreach (string strBi in strBinarySplit)
+            {
+                try
+                {
+                    strHexTarget = strHexSplit[nCount++].Replace("0x","");
+                    strConvert = Convert.ToInt32(strBi, 2).ToString("X");
+                    if (strConvert.Length != strHexTarget.Length)
+                    {
+                        strConvert = "0" + strConvert;
+                    }
+
+                    if (strConvert != strHexTarget)
+                    {
+                        bResult = false;
+                    }
+                }
+                catch
+                {
+                    bResult = false;
+                }
+            }
+
+
+            return bResult;
+        }
 
         private bool ParcingData(string inString, ref List<BaseData> inList)
         {
@@ -598,11 +643,11 @@ namespace AutoReference
                 CMenu.Show(PrjListBox, new System.Drawing.Point(e.X, e.Y));
         }        
 
-        private void SensorListBox_MouseDown(object sender, MouseEventArgs e)
+        private void SensorListView_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
                 CMenu.Show(SensorListView, new System.Drawing.Point(e.X, e.Y));
-        }     
+        }
         
         private void EEEEListBox_MouseDown(object sender, MouseEventArgs e)
         {
@@ -779,5 +824,127 @@ namespace AutoReference
             CNewVSRData.m_strVSRVersion = m_CTempData.strBinaryValue;
             PrintItemsToListBox();
         }
+
+        private void IRCFListView_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                CMenu.Show(IRCFListView, new System.Drawing.Point(e.X, e.Y));
+        }
+
+        private void VersionListBox_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                CMenu.Show(VersionListBox, new System.Drawing.Point(e.X, e.Y));
+        }
+
+        private void PartsListView_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                CMenu.Show(PartsListView, new System.Drawing.Point(e.X, e.Y));
+        }
+
+        private void NVMListView_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                CMenu.Show(NVMListView, new System.Drawing.Point(e.X, e.Y));
+        }
+
+        private void LensListView_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                CMenu.Show(LensListView, new System.Drawing.Point(e.X, e.Y));
+        }
+
+        private void SubstrateListView_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                CMenu.Show(SubstrateListView, new System.Drawing.Point(e.X, e.Y));
+        }
+
+        private void CameraPrjListView_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                CMenu.Show(CameraPrjListView, new System.Drawing.Point(e.X, e.Y));
+        }
+
+        private void ProgramVariantListView_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                CMenu.Show(ProgramVariantListView, new System.Drawing.Point(e.X, e.Y));
+        }
+
+        private void IntegratorListView_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                CMenu.Show(IntegratorListView, new System.Drawing.Point(e.X, e.Y));
+        }
+
+        private void IRCFListView_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                CMenu.Show(IRCFListView, new System.Drawing.Point(e.X, e.Y));
+        }
+
+        private void SensorListView_MouseDown_1(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                CMenu.Show(SensorListView, new System.Drawing.Point(e.X, e.Y));
+        }
+
+        private void FlexListView_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                CMenu.Show(FlexListView, new System.Drawing.Point(e.X, e.Y));
+        }
+
+        private void StiffenerListView_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                CMenu.Show(StiffenerListView, new System.Drawing.Point(e.X, e.Y));
+        }
+
+        private void CameraListView_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                CMenu.Show(CameraListView, new System.Drawing.Point(e.X, e.Y));
+        }
+
+        private void AlgorithmListView_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                CMenu.Show(AlgorithmListView, new System.Drawing.Point(e.X, e.Y));
+        }
+
+        private void ColorShadingListView_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                CMenu.Show(ColorShadingListView, new System.Drawing.Point(e.X, e.Y));
+        }
+
+        private void TraceabilityRevListView_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                CMenu.Show(TraceabilityRevListView, new System.Drawing.Point(e.X, e.Y));
+        }
+
+        private void EEEEListBox_MouseDown_1(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                CMenu.Show(EEEEListBox, new System.Drawing.Point(e.X, e.Y));
+        }
+
+        private void EEEEListBox_DoubleClick(object sender, EventArgs e)
+        {
+            int nSelectIndex = EEEEListBox.SelectedIndex;
+            m_CTempData.strBinaryValue = CNewVSRData.m_strEEEE;
+
+            ModifyForm Cmodify = new ModifyForm("EEEE", m_CTempData);
+            Cmodify.SendModifyResultEvent += new ModifyForm.SendModifyResult(GetModifyResult);
+
+            Cmodify.ShowDialog();
+
+            CNewVSRData.m_strEEEE = m_CTempData.strBinaryValue;
+            PrintItemsToListBox();
+        }      
     }
 }

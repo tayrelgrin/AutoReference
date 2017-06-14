@@ -682,6 +682,7 @@
             this.PrjListView.UseCompatibleStateImageBehavior = false;
             this.PrjListView.View = System.Windows.Forms.View.Details;
             this.PrjListView.Click += new System.EventHandler(this.PrjListView_Click);
+            this.PrjListView.DoubleClick += new System.EventHandler(this.PrjListView_DoubleClick);
             // 
             // AutoRef
             // 

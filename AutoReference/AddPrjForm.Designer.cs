@@ -75,7 +75,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 33);
+            this.label1.Location = new System.Drawing.Point(25, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 12);
             this.label1.TabIndex = 28;
@@ -84,7 +84,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 200);
+            this.label2.Location = new System.Drawing.Point(24, 200);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 30;
@@ -93,7 +93,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 241);
+            this.label3.Location = new System.Drawing.Point(24, 241);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 32;
@@ -102,7 +102,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(-1, 483);
+            this.label5.Location = new System.Drawing.Point(-4, 483);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 12);
             this.label5.TabIndex = 36;
@@ -111,7 +111,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 383);
+            this.label6.Location = new System.Drawing.Point(11, 383);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(66, 12);
             this.label6.TabIndex = 38;
@@ -131,7 +131,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(460, 116);
+            this.label10.Location = new System.Drawing.Point(464, 116);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 12);
             this.label10.TabIndex = 46;
@@ -140,7 +140,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(460, 29);
+            this.label11.Location = new System.Drawing.Point(477, 29);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(40, 12);
             this.label11.TabIndex = 45;
@@ -178,7 +178,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(23, 529);
+            this.label9.Location = new System.Drawing.Point(21, 529);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(56, 12);
             this.label9.TabIndex = 55;
@@ -187,7 +187,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(17, 513);
+            this.label12.Location = new System.Drawing.Point(24, 513);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(53, 12);
             this.label12.TabIndex = 56;
@@ -205,7 +205,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(458, 294);
+            this.label14.Location = new System.Drawing.Point(459, 294);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(58, 12);
             this.label14.TabIndex = 59;
@@ -214,7 +214,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(458, 223);
+            this.label15.Location = new System.Drawing.Point(480, 223);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(37, 12);
             this.label15.TabIndex = 61;
@@ -223,7 +223,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(459, 383);
+            this.label16.Location = new System.Drawing.Point(476, 383);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(41, 12);
             this.label16.TabIndex = 64;
@@ -232,7 +232,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(458, 365);
+            this.label17.Location = new System.Drawing.Point(467, 365);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(50, 12);
             this.label17.TabIndex = 65;
@@ -241,7 +241,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(457, 427);
+            this.label18.Location = new System.Drawing.Point(451, 427);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(66, 12);
             this.label18.TabIndex = 66;
@@ -250,7 +250,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(457, 457);
+            this.label20.Location = new System.Drawing.Point(478, 457);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(39, 12);
             this.label20.TabIndex = 70;
@@ -268,7 +268,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(458, 507);
+            this.label22.Location = new System.Drawing.Point(456, 507);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(61, 12);
             this.label22.TabIndex = 73;
@@ -277,7 +277,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(442, 495);
+            this.label23.Location = new System.Drawing.Point(446, 495);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(71, 12);
             this.label23.TabIndex = 72;
@@ -301,6 +301,7 @@
             this.VersionListBox.Size = new System.Drawing.Size(115, 28);
             this.VersionListBox.TabIndex = 77;
             this.VersionListBox.DoubleClick += new System.EventHandler(this.VersionListBox_DoubleClick);
+            this.VersionListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.VersionListBox_MouseDown);
             // 
             // label4
             // 
@@ -323,6 +324,7 @@
             this.PartsListView.UseCompatibleStateImageBehavior = false;
             this.PartsListView.View = System.Windows.Forms.View.Details;
             this.PartsListView.DoubleClick += new System.EventHandler(this.PartsListView_DoubleClick);
+            this.PartsListView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PartsListView_MouseDown);
             // 
             // NVMListView
             // 
@@ -336,6 +338,7 @@
             this.NVMListView.UseCompatibleStateImageBehavior = false;
             this.NVMListView.View = System.Windows.Forms.View.Details;
             this.NVMListView.DoubleClick += new System.EventHandler(this.NVMListView_DoubleClick);
+            this.NVMListView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.NVMListView_MouseDown);
             // 
             // LensListView
             // 
@@ -349,6 +352,7 @@
             this.LensListView.UseCompatibleStateImageBehavior = false;
             this.LensListView.View = System.Windows.Forms.View.Details;
             this.LensListView.DoubleClick += new System.EventHandler(this.LensListView_DoubleClick);
+            this.LensListView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LensListView_MouseDown);
             // 
             // SubstrateListView
             // 
@@ -362,6 +366,7 @@
             this.SubstrateListView.UseCompatibleStateImageBehavior = false;
             this.SubstrateListView.View = System.Windows.Forms.View.Details;
             this.SubstrateListView.DoubleClick += new System.EventHandler(this.SubstrateListView_DoubleClick);
+            this.SubstrateListView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SubstrateListView_MouseDown);
             // 
             // CameraPrjListView
             // 
@@ -375,6 +380,7 @@
             this.CameraPrjListView.UseCompatibleStateImageBehavior = false;
             this.CameraPrjListView.View = System.Windows.Forms.View.Details;
             this.CameraPrjListView.DoubleClick += new System.EventHandler(this.CameraPrjListView_DoubleClick);
+            this.CameraPrjListView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CameraPrjListView_MouseDown);
             // 
             // ProgramVariantListView
             // 
@@ -388,6 +394,7 @@
             this.ProgramVariantListView.UseCompatibleStateImageBehavior = false;
             this.ProgramVariantListView.View = System.Windows.Forms.View.Details;
             this.ProgramVariantListView.DoubleClick += new System.EventHandler(this.ProgramVariantListView_DoubleClick);
+            this.ProgramVariantListView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ProgramVariantListView_MouseDown);
             // 
             // IntegratorListView
             // 
@@ -400,6 +407,7 @@
             this.IntegratorListView.TabIndex = 85;
             this.IntegratorListView.UseCompatibleStateImageBehavior = false;
             this.IntegratorListView.View = System.Windows.Forms.View.Details;
+            this.IntegratorListView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.IntegratorListView_MouseDown);
             // 
             // IRCFListView
             // 
@@ -413,6 +421,8 @@
             this.IRCFListView.UseCompatibleStateImageBehavior = false;
             this.IRCFListView.View = System.Windows.Forms.View.Details;
             this.IRCFListView.DoubleClick += new System.EventHandler(this.IRCFListView_DoubleClick);
+            this.IRCFListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.IRCFListView_MouseClick);
+            this.IRCFListView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.IRCFListView_MouseDown);
             // 
             // SensorListView
             // 
@@ -426,6 +436,7 @@
             this.SensorListView.UseCompatibleStateImageBehavior = false;
             this.SensorListView.View = System.Windows.Forms.View.Details;
             this.SensorListView.DoubleClick += new System.EventHandler(this.SensorListView_DoubleClick);
+            this.SensorListView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SensorListView_MouseDown_1);
             // 
             // FlexListView
             // 
@@ -439,6 +450,7 @@
             this.FlexListView.UseCompatibleStateImageBehavior = false;
             this.FlexListView.View = System.Windows.Forms.View.Details;
             this.FlexListView.DoubleClick += new System.EventHandler(this.FlexListView_DoubleClick);
+            this.FlexListView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FlexListView_MouseDown);
             // 
             // StiffenerListView
             // 
@@ -452,6 +464,7 @@
             this.StiffenerListView.UseCompatibleStateImageBehavior = false;
             this.StiffenerListView.View = System.Windows.Forms.View.Details;
             this.StiffenerListView.DoubleClick += new System.EventHandler(this.StiffenerListView_DoubleClick);
+            this.StiffenerListView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.StiffenerListView_MouseDown);
             // 
             // CameraListView
             // 
@@ -465,6 +478,7 @@
             this.CameraListView.UseCompatibleStateImageBehavior = false;
             this.CameraListView.View = System.Windows.Forms.View.Details;
             this.CameraListView.DoubleClick += new System.EventHandler(this.CameraListView_DoubleClick);
+            this.CameraListView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CameraListView_MouseDown);
             // 
             // AlgorithmListView
             // 
@@ -478,6 +492,7 @@
             this.AlgorithmListView.UseCompatibleStateImageBehavior = false;
             this.AlgorithmListView.View = System.Windows.Forms.View.Details;
             this.AlgorithmListView.DoubleClick += new System.EventHandler(this.AlgorithmListView_DoubleClick);
+            this.AlgorithmListView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlgorithmListView_MouseDown);
             // 
             // ColorShadingListView
             // 
@@ -491,6 +506,7 @@
             this.ColorShadingListView.UseCompatibleStateImageBehavior = false;
             this.ColorShadingListView.View = System.Windows.Forms.View.Details;
             this.ColorShadingListView.DoubleClick += new System.EventHandler(this.ColorShadingListView_DoubleClick);
+            this.ColorShadingListView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ColorShadingListView_MouseDown);
             // 
             // TraceabilityRevListView
             // 
@@ -504,6 +520,7 @@
             this.TraceabilityRevListView.UseCompatibleStateImageBehavior = false;
             this.TraceabilityRevListView.View = System.Windows.Forms.View.Details;
             this.TraceabilityRevListView.DoubleClick += new System.EventHandler(this.TraceabilityRevListView_DoubleClick);
+            this.TraceabilityRevListView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TraceabilityRevListView_MouseDown);
             // 
             // EEEEListBox
             // 
@@ -513,6 +530,8 @@
             this.EEEEListBox.Name = "EEEEListBox";
             this.EEEEListBox.Size = new System.Drawing.Size(329, 28);
             this.EEEEListBox.TabIndex = 94;
+            this.EEEEListBox.DoubleClick += new System.EventHandler(this.EEEEListBox_DoubleClick);
+            this.EEEEListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EEEEListBox_MouseDown_1);
             // 
             // AddPrjForm
             // 
