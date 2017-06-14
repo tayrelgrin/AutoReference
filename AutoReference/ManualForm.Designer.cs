@@ -969,6 +969,7 @@
             // 
             // ReferenceNameTextBox
             // 
+            this.ReferenceNameTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.ReferenceNameTextBox.Location = new System.Drawing.Point(136, 12);
             this.ReferenceNameTextBox.Name = "ReferenceNameTextBox";
             this.ReferenceNameTextBox.Size = new System.Drawing.Size(234, 21);
@@ -976,6 +977,7 @@
             // 
             // Reference_VersionTextBox
             // 
+            this.Reference_VersionTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.Reference_VersionTextBox.Location = new System.Drawing.Point(424, 12);
             this.Reference_VersionTextBox.Name = "Reference_VersionTextBox";
             this.Reference_VersionTextBox.Size = new System.Drawing.Size(110, 21);

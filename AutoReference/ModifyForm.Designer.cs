@@ -43,7 +43,7 @@
             // 
             // ModiOKButton
             // 
-            this.ModiOKButton.Location = new System.Drawing.Point(171, 248);
+            this.ModiOKButton.Location = new System.Drawing.Point(171, 198);
             this.ModiOKButton.Name = "ModiOKButton";
             this.ModiOKButton.Size = new System.Drawing.Size(86, 33);
             this.ModiOKButton.TabIndex = 0;
@@ -53,7 +53,7 @@
             // 
             // ModiCancelButton
             // 
-            this.ModiCancelButton.Location = new System.Drawing.Point(263, 248);
+            this.ModiCancelButton.Location = new System.Drawing.Point(263, 198);
             this.ModiCancelButton.Name = "ModiCancelButton";
             this.ModiCancelButton.Size = new System.Drawing.Size(86, 33);
             this.ModiCancelButton.TabIndex = 1;
@@ -138,7 +138,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(374, 310);
+            this.ClientSize = new System.Drawing.Size(364, 240);
             this.Controls.Add(this.label_Vendor);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ApplePNTextBox);

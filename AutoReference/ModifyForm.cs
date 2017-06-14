@@ -26,8 +26,24 @@ namespace AutoReference
                 TempPoint.X = 135;
                 TempPoint.Y = 64;
                 label_Binary.Location = TempPoint;
-                HexTextBox.Enabled = false;
-                ApplePNTextBox.Enabled = false;
+                label2.Visible = false;
+                label3.Visible = false;
+                HexTextBox.Visible = false;
+                ApplePNTextBox.Visible = false;
+            }
+
+            if ( inTargetName == "Project")
+            {
+                label_Vendor.Text = "Project Name";
+                label_Binary.Text = "VSR Version";
+                Point TempPoint = new Point();
+                TempPoint.X = 135;
+                TempPoint.Y = 64;
+                label2.Visible = false;
+                label3.Visible = false;
+                label_Binary.Location = TempPoint;
+                HexTextBox.Visible = false;
+                ApplePNTextBox.Visible = false;
             }
 
             TargetTextBox.Text  = inTargetData.strVendorName;
@@ -52,7 +68,5 @@ namespace AutoReference
         {
             Close();
         }
-
-       
     }
 }

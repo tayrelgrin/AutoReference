@@ -15,9 +15,9 @@ namespace AutoReference
         public BaseData CameraPrj = new BaseData();
         public BaseData ProgramVariant = new BaseData();
         public BaseData Intergrator = new BaseData();
-        public BaseData LensComponent = new BaseData();
         public BaseData IRCF = new BaseData();
         public BaseData Sensor = new BaseData();
+        public BaseData LensComponent = new BaseData();
         public BaseData Stiffener = new BaseData();
         public BaseData Flex = new BaseData();
         public BaseData CameraBuild = new BaseData();
@@ -41,6 +41,13 @@ namespace AutoReference
         public string m_strSubstrate_Config;
         public string m_strIRCF_Config;
         public string m_strStiffener_Config;
+        
+        // Ref Naming
+        public string m_strSWVersion;
+        public string m_strLensComponent;
+        public string m_strRefVersion;
+        public string m_strDOEBuild_Config;
+        public string m_strLensConfig;
 
         public string m_strEEEE;
         public string m_strPrjName;

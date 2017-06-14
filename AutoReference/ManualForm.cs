@@ -302,40 +302,59 @@ namespace AutoReference
 
         private void button_Make_Click(object sender, EventArgs e)
         {
-            if (ReferenceNameTextBox.Text != "")
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            string strMessage = "Make Reference?";
+
+            if (MessageBox.Show(strMessage, "", buttons) == System.Windows.Forms.DialogResult.Yes)
             {
-                string strTemp = ReferenceNameTextBox.Text;
-                string[] strTempSplit = strTemp.Split('_');
-
-                string strNewDirName = System.IO.Directory.GetCurrentDirectory() + "\\Result\\" + ReferenceNameTextBox.Text;
-                string strCheckExist = strNewDirName;
-
-                int nCount = 1;
-                while (true)
+                // Data 확인 추가
+                // CheckDataExist()
+                if (ReferenceNameTextBox.Text != "")
                 {
-                    if (System.IO.Directory.Exists(strCheckExist))
+                    string strTemp = ReferenceNameTextBox.Text;
+                    string[] strTempSplit = strTemp.Split('_');
+
+                    string strNewDirName = System.IO.Directory.GetCurrentDirectory() + "\\Result\\" + ReferenceNameTextBox.Text;
+                    string strCheckExist = strNewDirName;
+
+                    int nCount = 1;
+                    while (true)
                     {
-                        strCheckExist = strNewDirName + "(" + nCount.ToString() + ")";
-                        nCount++;
+                        if (System.IO.Directory.Exists(strCheckExist))
+                        {
+                            strCheckExist = strNewDirName + "(" + nCount.ToString() + ")";
+                            nCount++;
+                        }
+                        else
+                        {
+                            strNewDirName = strCheckExist;
+                            break;
+                        }
                     }
-                    else
+
+
+                    if (m_strRefPath != null)
                     {
-                        strNewDirName = strCheckExist;
-                        break;
+                        // ref copy
+                        FileCopy(m_strRefPath, strNewDirName);
+
+                        // Dir Name Change
+                        DirFileNameChange(strNewDirName);
+
+                        InputDataToFile(strNewDirName);
+                    }
+
+                    strMessage = "Complete Reference Make.\n Open the Result folder?";
+                    if (MessageBox.Show(strMessage, "", buttons) == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        System.Diagnostics.Process.Start(strNewDirName + "\\");
                     }
                 }
-                
-
-                if (m_strRefPath != null)
+                else
                 {
-                    FileCopy(m_strRefPath, strNewDirName);
-                    
-                    // Dir Name Change
-                    DirFileNameChange(strNewDirName);
-
-                    InputDataToFile(strNewDirName);
+                    MessageBox.Show("Reference Name is Empty");
                 }
-            }            
+            }
         }
 
         private void DirFileNameChange(string inRootPath)

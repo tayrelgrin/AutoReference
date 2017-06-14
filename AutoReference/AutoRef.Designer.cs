@@ -204,12 +204,14 @@
             // 
             this.RefVersionTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.RefVersionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.RefVersionTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.RefVersionTextBox.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.RefVersionTextBox.Location = new System.Drawing.Point(15, 77);
             this.RefVersionTextBox.Name = "RefVersionTextBox";
             this.RefVersionTextBox.Size = new System.Drawing.Size(146, 22);
             this.RefVersionTextBox.TabIndex = 26;
-            this.RefVersionTextBox.Text = "ex : E1";
+            this.RefVersionTextBox.Text = "EX : E1";
+            this.RefVersionTextBox.TextChanged += new System.EventHandler(this.RefVersionTextBox_TextChanged);
             this.RefVersionTextBox.Enter += new System.EventHandler(this.RefVersionTextBox_Enter);
             this.RefVersionTextBox.Leave += new System.EventHandler(this.RefVersionTextBox_Leave);
             // 
@@ -226,12 +228,14 @@
             // 
             this.BuildConfigTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.BuildConfigTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.BuildConfigTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.BuildConfigTextBox.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.BuildConfigTextBox.Location = new System.Drawing.Point(15, 37);
             this.BuildConfigTextBox.Name = "BuildConfigTextBox";
             this.BuildConfigTextBox.Size = new System.Drawing.Size(146, 22);
             this.BuildConfigTextBox.TabIndex = 30;
-            this.BuildConfigTextBox.Text = "ex : C1010";
+            this.BuildConfigTextBox.Text = "EX : C1010";
+            this.BuildConfigTextBox.TextChanged += new System.EventHandler(this.BuildConfigTextBox_TextChanged);
             this.BuildConfigTextBox.Enter += new System.EventHandler(this.BuildConfigTextBox_Enter);
             this.BuildConfigTextBox.Leave += new System.EventHandler(this.BuildConfigTextBox_Leave);
             // 
@@ -248,12 +252,13 @@
             // 
             this.ERSVesionTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.ERSVesionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ERSVesionTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.ERSVesionTextBox.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.ERSVesionTextBox.Location = new System.Drawing.Point(15, 160);
             this.ERSVesionTextBox.Name = "ERSVesionTextBox";
             this.ERSVesionTextBox.Size = new System.Drawing.Size(146, 22);
             this.ERSVesionTextBox.TabIndex = 32;
-            this.ERSVesionTextBox.Text = "ex : A or 10";
+            this.ERSVesionTextBox.Text = "EX : A OR 10";
             this.ERSVesionTextBox.Enter += new System.EventHandler(this.ERSVesionTextBox_Enter);
             this.ERSVesionTextBox.Leave += new System.EventHandler(this.ERSVesionTextBox_Leave);
             // 
@@ -270,12 +275,13 @@
             // 
             this.LenscomponentTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.LenscomponentTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LenscomponentTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.LenscomponentTextBox.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.LenscomponentTextBox.Location = new System.Drawing.Point(15, 119);
             this.LenscomponentTextBox.Name = "LenscomponentTextBox";
             this.LenscomponentTextBox.Size = new System.Drawing.Size(146, 22);
             this.LenscomponentTextBox.TabIndex = 33;
-            this.LenscomponentTextBox.Text = "ex : 0x2A";
+            this.LenscomponentTextBox.Text = "EX : 0X2A";
             this.LenscomponentTextBox.Enter += new System.EventHandler(this.LenscomponentTextBox_Enter);
             this.LenscomponentTextBox.Leave += new System.EventHandler(this.LenscomponentTextBox_Leave);
             // 
@@ -341,12 +347,13 @@
             // 
             this.SWVersionTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.SWVersionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SWVersionTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.SWVersionTextBox.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.SWVersionTextBox.Location = new System.Drawing.Point(15, 243);
             this.SWVersionTextBox.Name = "SWVersionTextBox";
             this.SWVersionTextBox.Size = new System.Drawing.Size(146, 22);
             this.SWVersionTextBox.TabIndex = 38;
-            this.SWVersionTextBox.Text = "ex : ME 4.0.0.0";
+            this.SWVersionTextBox.Text = "EX : ME 4.0.0.0";
             this.SWVersionTextBox.Enter += new System.EventHandler(this.SWVersionTextBox_Enter);
             this.SWVersionTextBox.Leave += new System.EventHandler(this.SWVersionTextBox_Leave);
             // 
@@ -363,12 +370,13 @@
             // 
             this.CISMaskTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.CISMaskTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CISMaskTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.CISMaskTextBox.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.CISMaskTextBox.Location = new System.Drawing.Point(15, 203);
             this.CISMaskTextBox.Name = "CISMaskTextBox";
             this.CISMaskTextBox.Size = new System.Drawing.Size(146, 22);
             this.CISMaskTextBox.TabIndex = 36;
-            this.CISMaskTextBox.Text = "ex : 1";
+            this.CISMaskTextBox.Text = "EX : 1";
             this.CISMaskTextBox.Enter += new System.EventHandler(this.CISMaskTextBox_Enter);
             this.CISMaskTextBox.Leave += new System.EventHandler(this.CISMaskTextBox_Leave);
             // 
@@ -513,12 +521,14 @@
             // 
             this.ManualBuildConfigTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.ManualBuildConfigTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ManualBuildConfigTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.ManualBuildConfigTextBox.Enabled = false;
             this.ManualBuildConfigTextBox.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.ManualBuildConfigTextBox.Location = new System.Drawing.Point(14, 40);
             this.ManualBuildConfigTextBox.Name = "ManualBuildConfigTextBox";
             this.ManualBuildConfigTextBox.Size = new System.Drawing.Size(146, 22);
             this.ManualBuildConfigTextBox.TabIndex = 39;
+            this.ManualBuildConfigTextBox.Leave += new System.EventHandler(this.ManualBuildConfigTextBox_Leave);
             // 
             // InputRefCheckBox
             // 
@@ -529,6 +539,7 @@
             this.InputRefCheckBox.TabIndex = 0;
             this.InputRefCheckBox.Text = "Manual Input (DOE)";
             this.InputRefCheckBox.UseVisualStyleBackColor = true;
+            this.InputRefCheckBox.CheckedChanged += new System.EventHandler(this.InputRefCheckBox_CheckedChanged);
             // 
             // EEEETextBox
             // 
@@ -610,12 +621,14 @@
             // 
             this.BuildConfig2TextBox.BackColor = System.Drawing.SystemColors.Window;
             this.BuildConfig2TextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.BuildConfig2TextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.BuildConfig2TextBox.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.BuildConfig2TextBox.Location = new System.Drawing.Point(506, 633);
             this.BuildConfig2TextBox.Name = "BuildConfig2TextBox";
             this.BuildConfig2TextBox.Size = new System.Drawing.Size(77, 22);
             this.BuildConfig2TextBox.TabIndex = 61;
-            this.BuildConfig2TextBox.Text = "ex : C1010";
+            this.BuildConfig2TextBox.Text = "EX : C1010";
+            this.BuildConfig2TextBox.TextChanged += new System.EventHandler(this.BuildConfig2TextBox_TextChanged);
             this.BuildConfig2TextBox.Enter += new System.EventHandler(this.BuildConfig2TextBox_Enter);
             this.BuildConfig2TextBox.Leave += new System.EventHandler(this.BuildConfig2TextBox_Leave);
             // 
@@ -631,12 +644,14 @@
             // 
             this.RefVersion2TextBox.BackColor = System.Drawing.SystemColors.Window;
             this.RefVersion2TextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.RefVersion2TextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.RefVersion2TextBox.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.RefVersion2TextBox.Location = new System.Drawing.Point(648, 633);
             this.RefVersion2TextBox.Name = "RefVersion2TextBox";
             this.RefVersion2TextBox.Size = new System.Drawing.Size(81, 22);
             this.RefVersion2TextBox.TabIndex = 63;
-            this.RefVersion2TextBox.Text = "ex : E1";
+            this.RefVersion2TextBox.Text = "EX : E1";
+            this.RefVersion2TextBox.TextChanged += new System.EventHandler(this.RefVersion2TextBox_TextChanged);
             this.RefVersion2TextBox.Enter += new System.EventHandler(this.RefVersion2TextBox_Enter);
             this.RefVersion2TextBox.Leave += new System.EventHandler(this.RefVersion2TextBox_Leave);
             // 

@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Bytescout.PDFExtractor;
 
+
 namespace AutoReference
 {
     public partial class AddPrjForm : Form
@@ -40,8 +41,19 @@ namespace AutoReference
 
             ExtractPDFtoText(strPDFPath, ref strTXTPath);
             DataTXTFileLoad(strTXTPath);
-            ExtractPrjName(strTXTPath);
-            DataParcingAndPrint();
+
+            if (CheckVSRDoc())
+            {
+                ExtractPrjName(strTXTPath);
+                DataParcingAndPrint();
+            }
+            else
+            {
+                MessageBox.Show("Input File isn't VSR");
+            }
+            System.IO.FileInfo fileDel = new System.IO.FileInfo(strTXTPath);
+            fileDel.Delete();
+
             // Set cursor as default arrow
             Cursor.Current = Cursors.Default;
         }
@@ -56,6 +68,22 @@ namespace AutoReference
             
             InitAllListViews();
             PrintItemsToListBox();
+        }
+
+        private bool CheckVSRDoc()
+        {
+            bool bResult = false;
+
+            foreach (string strLine in strList)
+            {
+                if (strLine.IndexOf("Title: VSR,") != -1)
+                {
+                    bResult = true;
+                    break;
+                }
+            }
+
+            return bResult;
         }
 
         private void SetRightClickMenu()
@@ -181,7 +209,15 @@ namespace AutoReference
             {
                 strProjectName += strFileName[i + 1];
             }
-            CNewVSRData.m_strPrjName = strProjectName;
+            if (strProjectName != null)
+            {
+                CNewVSRData.m_strPrjName = strProjectName;
+            }
+            else
+            {
+                MessageBox.Show("VSR File Name isn't follow the naming rule");
+                CNewVSRData.m_strPrjName = "";
+            }
         }
 
         private void PrintItemsToListBox()
@@ -725,6 +761,22 @@ namespace AutoReference
         private void TraceabilityRevListView_DoubleClick(object sender, EventArgs e)
         {
             ModifyData("TraceabilityRev", TraceabilityRevListView, ref CNewVSRData.TraceabilityRevList);
+            PrintItemsToListBox();
+        }
+
+        private void VersionListBox_DoubleClick(object sender, EventArgs e)
+        {
+            int nSelectIndex = PrjListBox.SelectedIndex;
+            m_CTempData.strVendorName = CNewVSRData.m_strPrjName;
+            m_CTempData.strBinaryValue = CNewVSRData.m_strVSRVersion;
+
+            ModifyForm Cmodify = new ModifyForm("Project", m_CTempData);
+            Cmodify.SendModifyResultEvent += new ModifyForm.SendModifyResult(GetModifyResult);
+
+            Cmodify.ShowDialog();
+
+            CNewVSRData.m_strPrjName = m_CTempData.strVendorName;
+            CNewVSRData.m_strVSRVersion = m_CTempData.strBinaryValue;
             PrintItemsToListBox();
         }
     }

@@ -300,6 +300,7 @@
             this.VersionListBox.Name = "VersionListBox";
             this.VersionListBox.Size = new System.Drawing.Size(115, 28);
             this.VersionListBox.TabIndex = 77;
+            this.VersionListBox.DoubleClick += new System.EventHandler(this.VersionListBox_DoubleClick);
             // 
             // label4
             // 

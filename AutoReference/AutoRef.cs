@@ -18,6 +18,9 @@ namespace AutoReference
         private BaseData temp = new BaseData();
         private bool m_bAddResult;
         private ReferenceData m_cRefData = new ReferenceData();
+
+        private VSRData m_cSelectedData = new VSRData();
+
         public AutoRef()
         {
             InitializeComponent();
@@ -76,17 +79,111 @@ namespace AutoReference
         private void NextButton_Click(object sender, EventArgs e)
         {
             string selected = null;
+            if (CheckAllDataSelect() == true)
+            {
+                FolderBrowserDialog ofd = new FolderBrowserDialog();
 
-            FolderBrowserDialog ofd = new FolderBrowserDialog();
+                if(ofd.ShowDialog() == DialogResult.OK)
+                {
+                    selected = ofd.SelectedPath;
 
-            ofd.ShowDialog();
-            selected = ofd.SelectedPath;
+                    PrintMidResultForm midDlg = new PrintMidResultForm(selected, ref m_cRefData);
 
-            PrintMidResultForm midDlg = new PrintMidResultForm(selected,ref m_cRefData);
+                    this.Hide();
+                    midDlg.ShowDialog();
+                    this.Show();
+                }                
+            }            
+        }
 
-            this.Hide();
-            midDlg.ShowDialog();
-            this.Show();
+        private bool CheckAllDataSelect()
+        {
+            bool bResult = true;
+
+            if (SensorListView.SelectedItems.Count == 0)
+            {
+                bResult = false;
+                MessageBox.Show("Sensor isn't inputed");
+            }
+            if(ConfigListView.SelectedItems.Count == 0)
+            {
+                bResult = false;
+                MessageBox.Show("Config isn't inputed");
+            }
+            if (IRCFListView.SelectedItems.Count == 0)
+            {
+                bResult = false;
+                MessageBox.Show("IRCF isn't inputed");
+            }
+            if (LensListView.SelectedItems.Count == 0)
+            {
+                bResult = false;
+                MessageBox.Show("Lens isn't inputed");
+            }
+            if (StiffenerListView.SelectedItems.Count == 0)
+            {
+                bResult = false;
+                MessageBox.Show("Stiffener isn't inputed");
+            }
+            if (SubstrateListView.SelectedItems.Count == 0)
+            {
+                bResult = false;
+                MessageBox.Show("Substrate isn't inputed");
+            }
+            if (FlexListView.SelectedItems.Count == 0)
+            {
+                bResult = false;
+                MessageBox.Show("Flex isn't inputed");
+            }
+            if (CarrierListView.SelectedItems.Count == 0 && m_cSelectedData.CarrierList.Count != 0)
+            {
+                bResult = false;
+                MessageBox.Show("Carrier isn't inputed");
+            }
+            if (BuildListView.SelectedItems.Count == 0)
+            {
+                bResult = false;
+                MessageBox.Show("Build isn't inputed");
+            }
+
+
+            if (BuildConfigTextBox.Text == "EX : C1010")
+            {
+                bResult = false;
+                MessageBox.Show("Build_Config isn't inputed");
+            }
+            if (RefVersionTextBox.Text == "EX : E1")
+            {
+                bResult = false;
+                MessageBox.Show("RefVersion isn't inputed");
+            }
+            if (LenscomponentTextBox.Text == "EX : 0X2A")
+            {
+                bResult = false;
+                MessageBox.Show("Lens component isn't inputed");
+            }
+            if (ERSVesionTextBox.Text == "EX : A OR 10")
+            {
+                bResult = false;
+                MessageBox.Show("ERS Version isn't inputed");
+            }
+            if (CISMaskTextBox.Text == "EX : 1")
+            {
+                bResult = false;
+                MessageBox.Show("CIS Mask isn't inputed");
+            }
+            if (SWVersionTextBox.Text == "EX : ME 4.0.0.0")
+            {
+                bResult = false;
+                MessageBox.Show("SW Version isn't inputed");
+            }
+
+            if (ManualBuildConfigTextBox.Text == "" && InputRefCheckBox.Checked)
+            {
+                bResult = false;
+                MessageBox.Show("DOE Build_Config isn't inputed");
+            }
+            return bResult;
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -252,15 +349,15 @@ namespace AutoReference
         private void button_Modify_Click(object sender, EventArgs e)
         {
             string strTemp = PrjListView.FocusedItem.ToString();
-            VSRData CSelectedData = new VSRData();
-            CSelectedData.SetFileName(strTemp);
+            VSRData m_cSelectedData = new VSRData();
+            m_cSelectedData.SetFileName(strTemp);
             int nSelectIndex = -1;
             nSelectIndex = PrjListView.FocusedItem.Index;
 
             if (nSelectIndex != -1 && strTemp != "")
             {
-                CSelectedData = DataList[nSelectIndex];
-                AddPrjForm addDlg = new AddPrjForm(CSelectedData);
+                m_cSelectedData = DataList[nSelectIndex];
+                AddPrjForm addDlg = new AddPrjForm(m_cSelectedData);
                 addDlg.SendAddResultEvent += new AddPrjForm.SendAddResult(GetAddResult);
                 addDlg.ShowDialog();
             }
@@ -412,51 +509,52 @@ namespace AutoReference
             nSelectIndex = PrjListView.FocusedItem.Index;
             string strSelected;
 
-            VSRData CSelectedData = new VSRData();
+            
             ClearTextBoxes();
             if (nSelectIndex != -1)
             {
                 strSelected = PrjListView.FocusedItem.ToString();
-                CSelectedData.SetFileName(strSelected);
-                CSelectedData = DataList[nSelectIndex];
-                PrintItemToListView(CSelectedData.SensorList, SensorListView);
-                PrintItemToListView(CSelectedData.PartsList, ConfigListView);
-                PrintItemToListView(CSelectedData.IRCFList, IRCFListView);
-                PrintItemToListView(CSelectedData.LensList, LensListView);
-                PrintItemToListView(CSelectedData.StiffenerList, StiffenerListView);
-                PrintItemToListView(CSelectedData.SubstrateList, SubstrateListView);
-                PrintItemToListView(CSelectedData.FlexList, FlexListView);
-                PrintItemToListView(CSelectedData.CarrierList, CarrierListView);
-                PrintItemToListView(CSelectedData.CameraBuildList, BuildListView);
-                PrintEEEEToTextBox(CSelectedData);
+                m_cSelectedData.SetFileName(strSelected);
+                m_cSelectedData = DataList[nSelectIndex];
+                PrintItemToListView(m_cSelectedData.SensorList, SensorListView);
+                PrintItemToListView(m_cSelectedData.PartsList, ConfigListView);
+                PrintItemToListView(m_cSelectedData.IRCFList, IRCFListView);
+                PrintItemToListView(m_cSelectedData.LensList, LensListView);
+                PrintItemToListView(m_cSelectedData.StiffenerList, StiffenerListView);
+                PrintItemToListView(m_cSelectedData.SubstrateList, SubstrateListView);
+                PrintItemToListView(m_cSelectedData.FlexList, FlexListView);
+                PrintItemToListView(m_cSelectedData.CarrierList, CarrierListView);
+                PrintItemToListView(m_cSelectedData.CameraBuildList, BuildListView);
+                PrintEEEEToTextBox(m_cSelectedData);
 
-                int nIndex = strSelected.IndexOf('-');
-
-                PrjTextBox.Text = strSelected.Substring(nIndex + 1);
-
-                m_cRefData.m_strPrjName = strSelected.Substring(nIndex + 1);
+                PrjTextBox.Text = PrjListView.FocusedItem.SubItems[1].Text;
+                m_cRefData.m_strPrjName = PrjListView.FocusedItem.SubItems[1].Text;
             }
         }
 
         private void BuildConfigTextBox_Enter(object sender, EventArgs e)
         {
-            if (BuildConfigTextBox.Text == "ex : C1010")
+            if (BuildConfigTextBox.Text == "EX : C1010")
             {
-                BuildConfigTextBox.Text = "";
+                BuildConfigTextBox.Text = "C";
             }
         }
 
         private void BuildConfigTextBox_Leave(object sender, EventArgs e)
         {
-            if (BuildConfigTextBox.Text == "")
+            if (BuildConfigTextBox.Text == "C" || BuildConfigTextBox.Text == "")
             {
-                BuildConfigTextBox.Text = "ex : C1010";
+                BuildConfigTextBox.Text = "EX : C1010";
+            }
+            else
+            {
+                m_cRefData.m_strBuild_Config = BuildConfigTextBox.Text;
             }
         }
 
         private void RefVersionTextBox_Enter(object sender, EventArgs e)
         {
-            if (RefVersionTextBox.Text == "ex : E1")
+            if (RefVersionTextBox.Text == "EX : E1")
             {
                 RefVersionTextBox.Text = "";
             }
@@ -466,29 +564,37 @@ namespace AutoReference
         {
             if (RefVersionTextBox.Text == "")
             {
-                RefVersionTextBox.Text = "ex : E1";
+                RefVersionTextBox.Text = "EX : E1";
+            }
+            else
+            {
+                m_cRefData.m_strRefVersion = RefVersionTextBox.Text;
             }
         }
 
         private void LenscomponentTextBox_Enter(object sender, EventArgs e)
         {
-            if (LenscomponentTextBox.Text == "ex : 0x2A")
+            if (LenscomponentTextBox.Text == "EX : 0X2A")
             {
-                LenscomponentTextBox.Text = "";
+                LenscomponentTextBox.Text = "0X";
             }
         }
 
         private void LenscomponentTextBox_Leave(object sender, EventArgs e)
         {
-            if (LenscomponentTextBox.Text == "")
+            if (LenscomponentTextBox.Text == "0X" || LenscomponentTextBox.Text == "" || LenscomponentTextBox.Text == "0")
             {
-                LenscomponentTextBox.Text = "ex : 0x2A";
+                LenscomponentTextBox.Text = "EX : 0X2A";
+            }
+            else
+            {
+                m_cRefData.m_strLensConfig = LenscomponentTextBox.Text;
             }
         }
 
         private void ERSVesionTextBox_Enter(object sender, EventArgs e)
         {
-            if (ERSVesionTextBox.Text == "ex : A or 10")
+            if (ERSVesionTextBox.Text == "EX : A OR 10")
             {
                 ERSVesionTextBox.Text = "";
             }
@@ -498,13 +604,13 @@ namespace AutoReference
         {
             if (ERSVesionTextBox.Text == "")
             {
-                ERSVesionTextBox.Text = "ex : A or 10";
+                ERSVesionTextBox.Text = "EX : A OR 10";
             }
         }
 
         private void CISMaskTextBox_Enter(object sender, EventArgs e)
         {
-            if (CISMaskTextBox.Text == "ex : 1")
+            if (CISMaskTextBox.Text == "EX : 1")
             {
                 CISMaskTextBox.Text = "";
             }
@@ -514,13 +620,13 @@ namespace AutoReference
         {
             if (CISMaskTextBox.Text == "")
             {
-                CISMaskTextBox.Text = "ex : 1";
+                CISMaskTextBox.Text = "EX : 1";
             }
         }
 
         private void SWVersionTextBox_Enter(object sender, EventArgs e)
         {
-            if (SWVersionTextBox.Text == "ex : ME 4.0.0.0")
+            if (SWVersionTextBox.Text == "EX : ME 4.0.0.0")
             {
                 SWVersionTextBox.Text = "";
             }
@@ -530,14 +636,15 @@ namespace AutoReference
         {
             if (SWVersionTextBox.Text == "")
             {
-                SWVersionTextBox.Text = "ex : ME 4.0.0.0";
+                SWVersionTextBox.Text = "EX : ME 4.0.0.0";
             }
         }
 
         private void BuildConfig2TextBox_Enter(object sender, EventArgs e)
         {
-            if (BuildConfig2TextBox.Text == "ex : C1010")
+            if (BuildConfig2TextBox.Text == "EX : C1010")
             {
+                BuildConfigTextBox.Text = "";
                 BuildConfig2TextBox.Text = "";
             }
         }
@@ -546,14 +653,16 @@ namespace AutoReference
         {
             if (BuildConfig2TextBox.Text == "")
             {
-                BuildConfig2TextBox.Text = "ex : C1010";
+                BuildConfig2TextBox.Text = "EX : C1010";
+                BuildConfigTextBox.Text = "EX : C1010";
             }
         }
 
         private void RefVersion2TextBox_Enter(object sender, EventArgs e)
         {
-            if (RefVersion2TextBox.Text == "ex : E1")
+            if (RefVersion2TextBox.Text == "EX : E1")
             {
+                RefVersionTextBox.Text = "";
                 RefVersion2TextBox.Text = "";
             }
         }
@@ -562,7 +671,53 @@ namespace AutoReference
         {
             if (RefVersion2TextBox.Text == "")
             {
-                RefVersion2TextBox.Text = "ex : E1";
+                RefVersion2TextBox.Text = "EX : E1";
+                RefVersionTextBox.Text = "EX : E1";
+            }
+            else
+            {
+                m_cRefData.m_strRefVersion = RefVersionTextBox.Text;
+            }
+        }
+
+        private void RefVersion2TextBox_TextChanged(object sender, EventArgs e)
+        {
+            RefVersionTextBox.Text = RefVersion2TextBox.Text;
+        }
+
+        private void BuildConfigTextBox_TextChanged(object sender, EventArgs e)
+        {
+            BuildConfig2TextBox.Text = BuildConfigTextBox.Text;
+        }
+
+        private void RefVersionTextBox_TextChanged(object sender, EventArgs e)
+        {
+            RefVersion2TextBox.Text = RefVersionTextBox.Text;
+        }
+
+        private void BuildConfig2TextBox_TextChanged(object sender, EventArgs e)
+        {
+            BuildConfigTextBox.Text = BuildConfig2TextBox.Text;
+        }
+
+        private void InputRefCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (InputRefCheckBox.Checked)
+            {
+                ManualBuildConfigTextBox.Enabled = true;
+            }
+            else
+            {
+                ManualBuildConfigTextBox.Text = "";
+                ManualBuildConfigTextBox.Enabled = false;
+            }
+        }
+
+        private void ManualBuildConfigTextBox_Leave(object sender, EventArgs e)
+        {
+            if (ManualBuildConfigTextBox.Text != "")
+            {
+                m_cRefData.m_strDOEBuild_Config = ManualBuildConfigTextBox.Text;
             }
         }
     }
