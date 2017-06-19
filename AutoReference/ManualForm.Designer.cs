@@ -122,6 +122,7 @@
             this.label40 = new System.Windows.Forms.Label();
             this.button_ReferenceInput = new System.Windows.Forms.Button();
             this.VendorNamecheckBox = new System.Windows.Forms.CheckBox();
+            this.ShowVendorButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -165,6 +166,8 @@
             this.AA_MachineTextBox.Size = new System.Drawing.Size(110, 21);
             this.AA_MachineTextBox.TabIndex = 13;
             this.AA_MachineTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.AA_MachineTextBox.Enter += new System.EventHandler(this.AA_MachineTextBox_Enter);
+            this.AA_MachineTextBox.Leave += new System.EventHandler(this.AA_MachineTextBox_Leave);
             // 
             // Stiffener_ConfigTextBox
             // 
@@ -173,6 +176,8 @@
             this.Stiffener_ConfigTextBox.Size = new System.Drawing.Size(110, 21);
             this.Stiffener_ConfigTextBox.TabIndex = 12;
             this.Stiffener_ConfigTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Stiffener_ConfigTextBox.Enter += new System.EventHandler(this.Stiffener_ConfigTextBox_Enter);
+            this.Stiffener_ConfigTextBox.Leave += new System.EventHandler(this.Stiffener_ConfigTextBox_Leave);
             // 
             // IRCF_ConfigTextBox
             // 
@@ -181,6 +186,8 @@
             this.IRCF_ConfigTextBox.Size = new System.Drawing.Size(110, 21);
             this.IRCF_ConfigTextBox.TabIndex = 11;
             this.IRCF_ConfigTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.IRCF_ConfigTextBox.Enter += new System.EventHandler(this.IRCF_ConfigTextBox_Enter);
+            this.IRCF_ConfigTextBox.Leave += new System.EventHandler(this.IRCF_ConfigTextBox_Leave);
             // 
             // Substrate_ConfigTextBox
             // 
@@ -189,6 +196,8 @@
             this.Substrate_ConfigTextBox.Size = new System.Drawing.Size(110, 21);
             this.Substrate_ConfigTextBox.TabIndex = 10;
             this.Substrate_ConfigTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Substrate_ConfigTextBox.Enter += new System.EventHandler(this.Substrate_ConfigTextBox_Enter);
+            this.Substrate_ConfigTextBox.Leave += new System.EventHandler(this.Substrate_ConfigTextBox_Leave);
             // 
             // Lens_ConfigTextBox
             // 
@@ -197,6 +206,8 @@
             this.Lens_ConfigTextBox.Size = new System.Drawing.Size(110, 21);
             this.Lens_ConfigTextBox.TabIndex = 9;
             this.Lens_ConfigTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Lens_ConfigTextBox.Enter += new System.EventHandler(this.Lens_ConfigTextBox_Enter);
+            this.Lens_ConfigTextBox.Leave += new System.EventHandler(this.Lens_ConfigTextBox_Leave);
             // 
             // Flex_ConfigTextBox
             // 
@@ -205,6 +216,8 @@
             this.Flex_ConfigTextBox.Size = new System.Drawing.Size(110, 21);
             this.Flex_ConfigTextBox.TabIndex = 8;
             this.Flex_ConfigTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Flex_ConfigTextBox.Enter += new System.EventHandler(this.Flex_ConfigTextBox_Enter);
+            this.Flex_ConfigTextBox.Leave += new System.EventHandler(this.Flex_ConfigTextBox_Leave);
             // 
             // Build_ConfigTextBox
             // 
@@ -213,6 +226,8 @@
             this.Build_ConfigTextBox.Size = new System.Drawing.Size(110, 21);
             this.Build_ConfigTextBox.TabIndex = 7;
             this.Build_ConfigTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Build_ConfigTextBox.Enter += new System.EventHandler(this.Build_ConfigTextBox_Enter);
+            this.Build_ConfigTextBox.Leave += new System.EventHandler(this.Build_ConfigTextBox_Leave);
             // 
             // Build_numTextBox
             // 
@@ -221,6 +236,8 @@
             this.Build_numTextBox.Size = new System.Drawing.Size(110, 21);
             this.Build_numTextBox.TabIndex = 6;
             this.Build_numTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Build_numTextBox.Enter += new System.EventHandler(this.Build_numTextBox_Enter);
+            this.Build_numTextBox.Leave += new System.EventHandler(this.Build_numTextBox_Leave);
             // 
             // Vsr_verTextBox
             // 
@@ -229,6 +246,8 @@
             this.Vsr_verTextBox.Size = new System.Drawing.Size(110, 21);
             this.Vsr_verTextBox.TabIndex = 5;
             this.Vsr_verTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Vsr_verTextBox.Enter += new System.EventHandler(this.Vsr_verTextBox_Enter);
+            this.Vsr_verTextBox.Leave += new System.EventHandler(this.Vsr_verTextBox_Leave);
             // 
             // Ers_verTextBox
             // 
@@ -237,6 +256,8 @@
             this.Ers_verTextBox.Size = new System.Drawing.Size(110, 21);
             this.Ers_verTextBox.TabIndex = 4;
             this.Ers_verTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Ers_verTextBox.Enter += new System.EventHandler(this.Ers_verTextBox_Enter);
+            this.Ers_verTextBox.Leave += new System.EventHandler(this.Ers_verTextBox_Leave);
             // 
             // ItemVERSIONtextBox
             // 
@@ -245,6 +266,8 @@
             this.ItemVERSIONtextBox.Size = new System.Drawing.Size(110, 21);
             this.ItemVERSIONtextBox.TabIndex = 3;
             this.ItemVERSIONtextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ItemVERSIONtextBox.Enter += new System.EventHandler(this.ItemVERSIONtextBox_Enter);
+            this.ItemVERSIONtextBox.Leave += new System.EventHandler(this.ItemVERSIONtextBox_Leave);
             // 
             // label12
             // 
@@ -415,6 +438,8 @@
             this.CISMaskIDTextBox.Size = new System.Drawing.Size(110, 21);
             this.CISMaskIDTextBox.TabIndex = 40;
             this.CISMaskIDTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.CISMaskIDTextBox.Enter += new System.EventHandler(this.CISMaskIDTextBox_Enter);
+            this.CISMaskIDTextBox.Leave += new System.EventHandler(this.CISMaskIDTextBox_Leave);
             // 
             // Traceability_VersionTextBox
             // 
@@ -423,6 +448,8 @@
             this.Traceability_VersionTextBox.Size = new System.Drawing.Size(110, 21);
             this.Traceability_VersionTextBox.TabIndex = 39;
             this.Traceability_VersionTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Traceability_VersionTextBox.Enter += new System.EventHandler(this.Traceability_VersionTextBox_Enter);
+            this.Traceability_VersionTextBox.Leave += new System.EventHandler(this.Traceability_VersionTextBox_Leave);
             // 
             // label38
             // 
@@ -449,6 +476,8 @@
             this.ColorShading_RevTextBox.Size = new System.Drawing.Size(110, 21);
             this.ColorShading_RevTextBox.TabIndex = 38;
             this.ColorShading_RevTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ColorShading_RevTextBox.Enter += new System.EventHandler(this.ColorShading_RevTextBox_Enter);
+            this.ColorShading_RevTextBox.Leave += new System.EventHandler(this.ColorShading_RevTextBox_Leave);
             // 
             // TestStation4TextBox
             // 
@@ -466,6 +495,8 @@
             this.LensComponent_R_MinorTextBox.Size = new System.Drawing.Size(110, 21);
             this.LensComponent_R_MinorTextBox.TabIndex = 37;
             this.LensComponent_R_MinorTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.LensComponent_R_MinorTextBox.Enter += new System.EventHandler(this.LensComponent_R_MinorTextBox_Enter);
+            this.LensComponent_R_MinorTextBox.Leave += new System.EventHandler(this.LensComponent_R_MinorTextBox_Leave);
             // 
             // LensComponent_R_MajorTextBox
             // 
@@ -474,6 +505,8 @@
             this.LensComponent_R_MajorTextBox.Size = new System.Drawing.Size(110, 21);
             this.LensComponent_R_MajorTextBox.TabIndex = 36;
             this.LensComponent_R_MajorTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.LensComponent_R_MajorTextBox.Enter += new System.EventHandler(this.LensComponent_R_MajorTextBox_Enter);
+            this.LensComponent_R_MajorTextBox.Leave += new System.EventHandler(this.LensComponent_R_MajorTextBox_Leave);
             // 
             // TestStation5TextBox
             // 
@@ -590,6 +623,8 @@
             this.WaiverTextBox.Size = new System.Drawing.Size(110, 21);
             this.WaiverTextBox.TabIndex = 30;
             this.WaiverTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.WaiverTextBox.Enter += new System.EventHandler(this.WaiverTextBox_Enter);
+            this.WaiverTextBox.Leave += new System.EventHandler(this.WaiverTextBox_Leave);
             // 
             // CarrierTextBox
             // 
@@ -598,6 +633,8 @@
             this.CarrierTextBox.Size = new System.Drawing.Size(110, 21);
             this.CarrierTextBox.TabIndex = 26;
             this.CarrierTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.CarrierTextBox.Enter += new System.EventHandler(this.CarrierTextBox_Enter);
+            this.CarrierTextBox.Leave += new System.EventHandler(this.CarrierTextBox_Leave);
             // 
             // SotfwareTextBox
             // 
@@ -606,6 +643,8 @@
             this.SotfwareTextBox.Size = new System.Drawing.Size(110, 21);
             this.SotfwareTextBox.TabIndex = 29;
             this.SotfwareTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.SotfwareTextBox.Enter += new System.EventHandler(this.SotfwareTextBox_Enter);
+            this.SotfwareTextBox.Leave += new System.EventHandler(this.SotfwareTextBox_Leave);
             // 
             // Process_DOE_codeTextBox
             // 
@@ -614,6 +653,8 @@
             this.Process_DOE_codeTextBox.Size = new System.Drawing.Size(110, 21);
             this.Process_DOE_codeTextBox.TabIndex = 28;
             this.Process_DOE_codeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Process_DOE_codeTextBox.Enter += new System.EventHandler(this.Process_DOE_codeTextBox_Enter);
+            this.Process_DOE_codeTextBox.Leave += new System.EventHandler(this.Process_DOE_codeTextBox_Leave);
             // 
             // Process_ControlTextBox
             // 
@@ -622,6 +663,8 @@
             this.Process_ControlTextBox.Size = new System.Drawing.Size(110, 21);
             this.Process_ControlTextBox.TabIndex = 27;
             this.Process_ControlTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Process_ControlTextBox.Enter += new System.EventHandler(this.Process_ControlTextBox_Enter);
+            this.Process_ControlTextBox.Leave += new System.EventHandler(this.Process_ControlTextBox_Leave);
             // 
             // StiffenerTextBox
             // 
@@ -630,6 +673,8 @@
             this.StiffenerTextBox.Size = new System.Drawing.Size(110, 21);
             this.StiffenerTextBox.TabIndex = 25;
             this.StiffenerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.StiffenerTextBox.Enter += new System.EventHandler(this.StiffenerTextBox_Enter);
+            this.StiffenerTextBox.Leave += new System.EventHandler(this.StiffenerTextBox_Leave);
             // 
             // label24
             // 
@@ -692,6 +737,8 @@
             this.FlexTextBox.Size = new System.Drawing.Size(110, 21);
             this.FlexTextBox.TabIndex = 24;
             this.FlexTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.FlexTextBox.Enter += new System.EventHandler(this.FlexTextBox_Enter);
+            this.FlexTextBox.Leave += new System.EventHandler(this.FlexTextBox_Leave);
             // 
             // IRCFTextBox
             // 
@@ -700,6 +747,8 @@
             this.IRCFTextBox.Size = new System.Drawing.Size(110, 21);
             this.IRCFTextBox.TabIndex = 20;
             this.IRCFTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.IRCFTextBox.Enter += new System.EventHandler(this.IRCFTextBox_Enter);
+            this.IRCFTextBox.Leave += new System.EventHandler(this.IRCFTextBox_Leave);
             // 
             // LensTextBox
             // 
@@ -708,6 +757,8 @@
             this.LensTextBox.Size = new System.Drawing.Size(110, 21);
             this.LensTextBox.TabIndex = 23;
             this.LensTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.LensTextBox.Enter += new System.EventHandler(this.LensTextBox_Enter);
+            this.LensTextBox.Leave += new System.EventHandler(this.LensTextBox_Leave);
             // 
             // label23
             // 
@@ -725,6 +776,8 @@
             this.SensorTypeTextBox.Size = new System.Drawing.Size(110, 21);
             this.SensorTypeTextBox.TabIndex = 22;
             this.SensorTypeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.SensorTypeTextBox.Enter += new System.EventHandler(this.SensorTypeTextBox_Enter);
+            this.SensorTypeTextBox.Leave += new System.EventHandler(this.SensorTypeTextBox_Leave);
             // 
             // label22
             // 
@@ -742,6 +795,8 @@
             this.SubstrateTextBox.Size = new System.Drawing.Size(110, 21);
             this.SubstrateTextBox.TabIndex = 21;
             this.SubstrateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.SubstrateTextBox.Enter += new System.EventHandler(this.SubstrateTextBox_Enter);
+            this.SubstrateTextBox.Leave += new System.EventHandler(this.SubstrateTextBox_Leave);
             // 
             // label21
             // 
@@ -768,6 +823,8 @@
             this.ConfigTextBox.Size = new System.Drawing.Size(110, 21);
             this.ConfigTextBox.TabIndex = 19;
             this.ConfigTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ConfigTextBox.Enter += new System.EventHandler(this.ConfigTextBox_Enter);
+            this.ConfigTextBox.Leave += new System.EventHandler(this.ConfigTextBox_Leave);
             // 
             // label19
             // 
@@ -785,6 +842,8 @@
             this.CameraBuildTextBox.Size = new System.Drawing.Size(110, 21);
             this.CameraBuildTextBox.TabIndex = 18;
             this.CameraBuildTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.CameraBuildTextBox.Enter += new System.EventHandler(this.CameraBuildTextBox_Enter);
+            this.CameraBuildTextBox.Leave += new System.EventHandler(this.CameraBuildTextBox_Leave);
             // 
             // label18
             // 
@@ -802,6 +861,8 @@
             this.IntegratorTextBox.Size = new System.Drawing.Size(110, 21);
             this.IntegratorTextBox.TabIndex = 17;
             this.IntegratorTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.IntegratorTextBox.Enter += new System.EventHandler(this.IntegratorTextBox_Enter);
+            this.IntegratorTextBox.Leave += new System.EventHandler(this.IntegratorTextBox_Leave);
             // 
             // label17
             // 
@@ -819,6 +880,8 @@
             this.Project_VersionTextBox.Size = new System.Drawing.Size(110, 21);
             this.Project_VersionTextBox.TabIndex = 16;
             this.Project_VersionTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Project_VersionTextBox.Enter += new System.EventHandler(this.Project_VersionTextBox_Enter);
+            this.Project_VersionTextBox.Leave += new System.EventHandler(this.Project_VersionTextBox_Leave);
             // 
             // label16
             // 
@@ -836,6 +899,8 @@
             this.ProjectIDTextBox.Size = new System.Drawing.Size(110, 21);
             this.ProjectIDTextBox.TabIndex = 15;
             this.ProjectIDTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ProjectIDTextBox.Enter += new System.EventHandler(this.ProjectIDTextBox_Enter);
+            this.ProjectIDTextBox.Leave += new System.EventHandler(this.ProjectIDTextBox_Leave);
             // 
             // label15
             // 
@@ -853,6 +918,8 @@
             this.NVMTextBox.Size = new System.Drawing.Size(110, 21);
             this.NVMTextBox.TabIndex = 14;
             this.NVMTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.NVMTextBox.Enter += new System.EventHandler(this.NVMTextBox_Enter);
+            this.NVMTextBox.Leave += new System.EventHandler(this.NVMTextBox_Leave);
             // 
             // label14
             // 
@@ -923,6 +990,8 @@
             this.SERIAL_COUNTTextBox.Size = new System.Drawing.Size(110, 21);
             this.SERIAL_COUNTTextBox.TabIndex = 43;
             this.SERIAL_COUNTTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.SERIAL_COUNTTextBox.Enter += new System.EventHandler(this.SERIAL_COUNTTextBox_Enter);
+            this.SERIAL_COUNTTextBox.Leave += new System.EventHandler(this.SERIAL_COUNTTextBox_Leave);
             // 
             // FIRST_STRINGTextBox
             // 
@@ -931,6 +1000,8 @@
             this.FIRST_STRINGTextBox.Size = new System.Drawing.Size(110, 21);
             this.FIRST_STRINGTextBox.TabIndex = 42;
             this.FIRST_STRINGTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.FIRST_STRINGTextBox.Enter += new System.EventHandler(this.FIRST_STRINGTextBox_Enter);
+            this.FIRST_STRINGTextBox.Leave += new System.EventHandler(this.FIRST_STRINGTextBox_Leave);
             // 
             // LAST_STRINGTextBox
             // 
@@ -939,6 +1010,8 @@
             this.LAST_STRINGTextBox.Size = new System.Drawing.Size(110, 21);
             this.LAST_STRINGTextBox.TabIndex = 41;
             this.LAST_STRINGTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.LAST_STRINGTextBox.Enter += new System.EventHandler(this.LAST_STRINGTextBox_Enter);
+            this.LAST_STRINGTextBox.Leave += new System.EventHandler(this.LAST_STRINGTextBox_Leave);
             // 
             // label48
             // 
@@ -986,7 +1059,7 @@
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(376, 21);
+            this.label40.Location = new System.Drawing.Point(376, 15);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(49, 12);
             this.label40.TabIndex = 81;
@@ -1011,12 +1084,24 @@
             this.VendorNamecheckBox.TabIndex = 83;
             this.VendorNamecheckBox.Text = "Check Vendor Name";
             this.VendorNamecheckBox.UseVisualStyleBackColor = true;
+            this.VendorNamecheckBox.CheckedChanged += new System.EventHandler(this.VendorNamecheckBox_CheckedChanged);
+            // 
+            // ShowVendorButton
+            // 
+            this.ShowVendorButton.Location = new System.Drawing.Point(24, 474);
+            this.ShowVendorButton.Name = "ShowVendorButton";
+            this.ShowVendorButton.Size = new System.Drawing.Size(86, 42);
+            this.ShowVendorButton.TabIndex = 84;
+            this.ShowVendorButton.Text = "Show Vendors";
+            this.ShowVendorButton.UseVisualStyleBackColor = true;
+            this.ShowVendorButton.Click += new System.EventHandler(this.ShowVendorButton_Click);
             // 
             // ManualForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(911, 643);
+            this.Controls.Add(this.ShowVendorButton);
             this.Controls.Add(this.VendorNamecheckBox);
             this.Controls.Add(this.button_ReferenceInput);
             this.Controls.Add(this.label40);
@@ -1137,5 +1222,6 @@
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Button button_ReferenceInput;
         private System.Windows.Forms.CheckBox VendorNamecheckBox;
+        private System.Windows.Forms.Button ShowVendorButton;
     }
 }

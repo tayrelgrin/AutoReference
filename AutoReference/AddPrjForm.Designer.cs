@@ -436,7 +436,7 @@
             this.SensorListView.UseCompatibleStateImageBehavior = false;
             this.SensorListView.View = System.Windows.Forms.View.Details;
             this.SensorListView.DoubleClick += new System.EventHandler(this.SensorListView_DoubleClick);
-            this.SensorListView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SensorListView_MouseDown_1);
+            this.SensorListView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SensorListView_MouseDown);
             // 
             // FlexListView
             // 
@@ -531,7 +531,7 @@
             this.EEEEListBox.Size = new System.Drawing.Size(329, 28);
             this.EEEEListBox.TabIndex = 94;
             this.EEEEListBox.DoubleClick += new System.EventHandler(this.EEEEListBox_DoubleClick);
-            this.EEEEListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EEEEListBox_MouseDown_1);
+            this.EEEEListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EEEEListBox_MouseDown);
             // 
             // AddPrjForm
             // 

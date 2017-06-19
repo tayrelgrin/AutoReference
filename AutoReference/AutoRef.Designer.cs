@@ -185,7 +185,7 @@
             this.nextButton.Location = new System.Drawing.Point(717, 467);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(128, 48);
-            this.nextButton.TabIndex = 22;
+            this.nextButton.TabIndex = 19;
             this.nextButton.Text = "Next";
             this.nextButton.UseVisualStyleBackColor = true;
             this.nextButton.Click += new System.EventHandler(this.NextButton_Click);
@@ -195,7 +195,7 @@
             this.closelButton.Location = new System.Drawing.Point(717, 530);
             this.closelButton.Name = "closelButton";
             this.closelButton.Size = new System.Drawing.Size(128, 48);
-            this.closelButton.TabIndex = 23;
+            this.closelButton.TabIndex = 20;
             this.closelButton.Text = "Close";
             this.closelButton.UseVisualStyleBackColor = true;
             this.closelButton.Click += new System.EventHandler(this.CancelButton_Click);
@@ -209,7 +209,7 @@
             this.RefVersionTextBox.Location = new System.Drawing.Point(15, 77);
             this.RefVersionTextBox.Name = "RefVersionTextBox";
             this.RefVersionTextBox.Size = new System.Drawing.Size(146, 22);
-            this.RefVersionTextBox.TabIndex = 26;
+            this.RefVersionTextBox.TabIndex = 12;
             this.RefVersionTextBox.Text = "EX : E1";
             this.RefVersionTextBox.TextChanged += new System.EventHandler(this.RefVersionTextBox_TextChanged);
             this.RefVersionTextBox.Enter += new System.EventHandler(this.RefVersionTextBox_Enter);
@@ -233,7 +233,7 @@
             this.BuildConfigTextBox.Location = new System.Drawing.Point(15, 37);
             this.BuildConfigTextBox.Name = "BuildConfigTextBox";
             this.BuildConfigTextBox.Size = new System.Drawing.Size(146, 22);
-            this.BuildConfigTextBox.TabIndex = 30;
+            this.BuildConfigTextBox.TabIndex = 11;
             this.BuildConfigTextBox.Text = "EX : C1010";
             this.BuildConfigTextBox.TextChanged += new System.EventHandler(this.BuildConfigTextBox_TextChanged);
             this.BuildConfigTextBox.Enter += new System.EventHandler(this.BuildConfigTextBox_Enter);
@@ -257,7 +257,7 @@
             this.ERSVesionTextBox.Location = new System.Drawing.Point(15, 160);
             this.ERSVesionTextBox.Name = "ERSVesionTextBox";
             this.ERSVesionTextBox.Size = new System.Drawing.Size(146, 22);
-            this.ERSVesionTextBox.TabIndex = 32;
+            this.ERSVesionTextBox.TabIndex = 14;
             this.ERSVesionTextBox.Text = "EX : A OR 10";
             this.ERSVesionTextBox.Enter += new System.EventHandler(this.ERSVesionTextBox_Enter);
             this.ERSVesionTextBox.Leave += new System.EventHandler(this.ERSVesionTextBox_Leave);
@@ -280,7 +280,7 @@
             this.LenscomponentTextBox.Location = new System.Drawing.Point(15, 119);
             this.LenscomponentTextBox.Name = "LenscomponentTextBox";
             this.LenscomponentTextBox.Size = new System.Drawing.Size(146, 22);
-            this.LenscomponentTextBox.TabIndex = 33;
+            this.LenscomponentTextBox.TabIndex = 13;
             this.LenscomponentTextBox.Text = "EX : 0X2A";
             this.LenscomponentTextBox.Enter += new System.EventHandler(this.LenscomponentTextBox_Enter);
             this.LenscomponentTextBox.Leave += new System.EventHandler(this.LenscomponentTextBox_Leave);
@@ -352,7 +352,7 @@
             this.SWVersionTextBox.Location = new System.Drawing.Point(15, 243);
             this.SWVersionTextBox.Name = "SWVersionTextBox";
             this.SWVersionTextBox.Size = new System.Drawing.Size(146, 22);
-            this.SWVersionTextBox.TabIndex = 38;
+            this.SWVersionTextBox.TabIndex = 16;
             this.SWVersionTextBox.Text = "EX : ME 4.0.0.0";
             this.SWVersionTextBox.Enter += new System.EventHandler(this.SWVersionTextBox_Enter);
             this.SWVersionTextBox.Leave += new System.EventHandler(this.SWVersionTextBox_Leave);
@@ -375,7 +375,7 @@
             this.CISMaskTextBox.Location = new System.Drawing.Point(15, 203);
             this.CISMaskTextBox.Name = "CISMaskTextBox";
             this.CISMaskTextBox.Size = new System.Drawing.Size(146, 22);
-            this.CISMaskTextBox.TabIndex = 36;
+            this.CISMaskTextBox.TabIndex = 15;
             this.CISMaskTextBox.Text = "EX : 1";
             this.CISMaskTextBox.Enter += new System.EventHandler(this.CISMaskTextBox_Enter);
             this.CISMaskTextBox.Leave += new System.EventHandler(this.CISMaskTextBox_Leave);
@@ -397,7 +397,7 @@
             this.SensorListView.Location = new System.Drawing.Point(276, 26);
             this.SensorListView.Name = "SensorListView";
             this.SensorListView.Size = new System.Drawing.Size(410, 122);
-            this.SensorListView.TabIndex = 43;
+            this.SensorListView.TabIndex = 2;
             this.SensorListView.UseCompatibleStateImageBehavior = false;
             this.SensorListView.View = System.Windows.Forms.View.Details;
             this.SensorListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SensorListView_MouseClick);
@@ -410,7 +410,7 @@
             this.ConfigListView.Location = new System.Drawing.Point(276, 154);
             this.ConfigListView.Name = "ConfigListView";
             this.ConfigListView.Size = new System.Drawing.Size(410, 85);
-            this.ConfigListView.TabIndex = 44;
+            this.ConfigListView.TabIndex = 3;
             this.ConfigListView.UseCompatibleStateImageBehavior = false;
             this.ConfigListView.View = System.Windows.Forms.View.Details;
             this.ConfigListView.Click += new System.EventHandler(this.ConfigListView_Click);
@@ -423,7 +423,7 @@
             this.IRCFListView.Location = new System.Drawing.Point(276, 245);
             this.IRCFListView.Name = "IRCFListView";
             this.IRCFListView.Size = new System.Drawing.Size(410, 45);
-            this.IRCFListView.TabIndex = 45;
+            this.IRCFListView.TabIndex = 4;
             this.IRCFListView.UseCompatibleStateImageBehavior = false;
             this.IRCFListView.View = System.Windows.Forms.View.Details;
             this.IRCFListView.Click += new System.EventHandler(this.IRCFListView_Click);
@@ -436,7 +436,7 @@
             this.LensListView.Location = new System.Drawing.Point(276, 296);
             this.LensListView.Name = "LensListView";
             this.LensListView.Size = new System.Drawing.Size(410, 57);
-            this.LensListView.TabIndex = 46;
+            this.LensListView.TabIndex = 5;
             this.LensListView.UseCompatibleStateImageBehavior = false;
             this.LensListView.View = System.Windows.Forms.View.Details;
             this.LensListView.Click += new System.EventHandler(this.LensListView_Click);
@@ -449,7 +449,7 @@
             this.StiffenerListView.Location = new System.Drawing.Point(276, 359);
             this.StiffenerListView.Name = "StiffenerListView";
             this.StiffenerListView.Size = new System.Drawing.Size(410, 57);
-            this.StiffenerListView.TabIndex = 47;
+            this.StiffenerListView.TabIndex = 6;
             this.StiffenerListView.UseCompatibleStateImageBehavior = false;
             this.StiffenerListView.View = System.Windows.Forms.View.Details;
             this.StiffenerListView.Click += new System.EventHandler(this.StiffenerListView_Click);
@@ -462,7 +462,7 @@
             this.SubstrateListView.Location = new System.Drawing.Point(276, 422);
             this.SubstrateListView.Name = "SubstrateListView";
             this.SubstrateListView.Size = new System.Drawing.Size(410, 53);
-            this.SubstrateListView.TabIndex = 48;
+            this.SubstrateListView.TabIndex = 7;
             this.SubstrateListView.UseCompatibleStateImageBehavior = false;
             this.SubstrateListView.View = System.Windows.Forms.View.Details;
             this.SubstrateListView.Click += new System.EventHandler(this.SubstrateListView_Click);
@@ -475,7 +475,7 @@
             this.FlexListView.Location = new System.Drawing.Point(276, 481);
             this.FlexListView.Name = "FlexListView";
             this.FlexListView.Size = new System.Drawing.Size(410, 46);
-            this.FlexListView.TabIndex = 49;
+            this.FlexListView.TabIndex = 8;
             this.FlexListView.UseCompatibleStateImageBehavior = false;
             this.FlexListView.View = System.Windows.Forms.View.Details;
             this.FlexListView.Click += new System.EventHandler(this.FlexListView_Click);
@@ -488,7 +488,7 @@
             this.CarrierListView.Location = new System.Drawing.Point(276, 533);
             this.CarrierListView.Name = "CarrierListView";
             this.CarrierListView.Size = new System.Drawing.Size(410, 36);
-            this.CarrierListView.TabIndex = 50;
+            this.CarrierListView.TabIndex = 9;
             this.CarrierListView.UseCompatibleStateImageBehavior = false;
             this.CarrierListView.View = System.Windows.Forms.View.Details;
             this.CarrierListView.Click += new System.EventHandler(this.CarrierListView_Click);
@@ -501,9 +501,10 @@
             this.BuildListView.Location = new System.Drawing.Point(276, 574);
             this.BuildListView.Name = "BuildListView";
             this.BuildListView.Size = new System.Drawing.Size(410, 36);
-            this.BuildListView.TabIndex = 51;
+            this.BuildListView.TabIndex = 10;
             this.BuildListView.UseCompatibleStateImageBehavior = false;
             this.BuildListView.View = System.Windows.Forms.View.Details;
+            this.BuildListView.Click += new System.EventHandler(this.BuildListView_Click);
             // 
             // groupBox2
             // 
@@ -527,7 +528,7 @@
             this.ManualBuildConfigTextBox.Location = new System.Drawing.Point(14, 40);
             this.ManualBuildConfigTextBox.Name = "ManualBuildConfigTextBox";
             this.ManualBuildConfigTextBox.Size = new System.Drawing.Size(146, 22);
-            this.ManualBuildConfigTextBox.TabIndex = 39;
+            this.ManualBuildConfigTextBox.TabIndex = 18;
             this.ManualBuildConfigTextBox.Leave += new System.EventHandler(this.ManualBuildConfigTextBox_Leave);
             // 
             // InputRefCheckBox
@@ -536,7 +537,7 @@
             this.InputRefCheckBox.Location = new System.Drawing.Point(20, 19);
             this.InputRefCheckBox.Name = "InputRefCheckBox";
             this.InputRefCheckBox.Size = new System.Drawing.Size(132, 15);
-            this.InputRefCheckBox.TabIndex = 0;
+            this.InputRefCheckBox.TabIndex = 17;
             this.InputRefCheckBox.Text = "Manual Input (DOE)";
             this.InputRefCheckBox.UseVisualStyleBackColor = true;
             this.InputRefCheckBox.CheckedChanged += new System.EventHandler(this.InputRefCheckBox_CheckedChanged);
@@ -678,7 +679,7 @@
             this.PrjListView.Location = new System.Drawing.Point(29, 26);
             this.PrjListView.Name = "PrjListView";
             this.PrjListView.Size = new System.Drawing.Size(174, 172);
-            this.PrjListView.TabIndex = 66;
+            this.PrjListView.TabIndex = 1;
             this.PrjListView.UseCompatibleStateImageBehavior = false;
             this.PrjListView.View = System.Windows.Forms.View.Details;
             this.PrjListView.Click += new System.EventHandler(this.PrjListView_Click);

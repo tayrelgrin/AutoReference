@@ -56,7 +56,8 @@ namespace AutoReference
             }
             if (m_bAddResult)
             {
-                DataList.Add(m_AddVSR);                
+                DataList.Add(m_AddVSR);
+                DataFileSave();
                 PrintProjectToListBox();
             }
         }
@@ -66,7 +67,7 @@ namespace AutoReference
             if (PrjListView.SelectedItems.Count > 0)
             {
                 int nSelected = PrjListView.FocusedItem.Index;
-                string strFilePath = Application.StartupPath + "\\Data\\" + DataList[nSelected].m_strPrjName + DataList[nSelected].m_strVSRVersion + ".ini";
+                string strFilePath = DataList[nSelected].m_strFileName;
                 string temp = "Delete Project " + DataList[nSelected].m_strVSRVersion + "-" + DataList[nSelected].m_strPrjName + "?";
                 if (DialogResult.Yes == MessageBox.Show(temp, "Delete Project", MessageBoxButtons.YesNo))
                 {
@@ -86,6 +87,30 @@ namespace AutoReference
             {
                 FolderBrowserDialog ofd = new FolderBrowserDialog();
 
+                m_cRefData.m_strBuild_Config = BuildConfigTextBox.Text;
+                m_cRefData.m_strBuild_num = RefVersionTextBox.Text;
+
+                string strTemp = LenscomponentTextBox.Text;
+                m_cRefData.LensComponent_Major.strVendorName = "LensComponent_Major";
+                m_cRefData.LensComponent_Major.strHexValue = "0X" + strTemp[2].ToString();
+                m_cRefData.LensComponent_Major.strBinaryValue = Convert.ToString(Convert.ToInt32(strTemp[2].ToString(), 16), 2);
+                m_cRefData.LensComponent_Minor.strVendorName = "LensComponent_Minor";
+                m_cRefData.LensComponent_Minor.strHexValue = "0X" + strTemp[3].ToString();
+                m_cRefData.LensComponent_Minor.strBinaryValue = Convert.ToString(Convert.ToInt32(strTemp[3].ToString(), 16), 2);
+
+                strTemp = BuildConfigTextBox.Text;
+                m_cRefData.Config.strHexValue = strTemp[3] + strTemp[4].ToString();
+                m_cRefData.Config.strBinaryValue = Convert.ToString(Convert.ToInt32(m_cRefData.Config.strHexValue, 16), 2);
+
+                m_cRefData.m_strErs_ver = "ers_ver " + ERSVesionTextBox.Text;
+                m_cRefData.m_strCISMask = CISMaskTextBox.Text;
+                m_cRefData.m_strSWVersion = SWVersionTextBox.Text;
+                int nIndex = PrjListView.FocusedItem.Index;
+                m_cRefData.m_strVsr_ver = "vsr_ver " + PrjListView.Items[nIndex].SubItems[0].Text;
+                if (InputRefCheckBox.Checked)
+                    m_cRefData.m_strDOEBuild_Config = ManualBuildConfigTextBox.Text;
+
+
                 if(ofd.ShowDialog() == DialogResult.OK)
                 {
                     selected = ofd.SelectedPath;
@@ -95,8 +120,8 @@ namespace AutoReference
                     this.Hide();
                     midDlg.ShowDialog();
                     this.Show();
-                }                
-            }            
+                }
+            }
         }
 
         private bool CheckAllDataSelect()
@@ -229,6 +254,8 @@ namespace AutoReference
 
         private void InitListView(ListView inListView)
         {
+            inListView.Items.Clear();
+            inListView.Columns.Clear();
             inListView.FullRowSelect = true;
             inListView.Columns.Add("", 0);
             
@@ -364,6 +391,7 @@ namespace AutoReference
                     AddPrjForm addDlg = new AddPrjForm(m_cSelectedData);
                     addDlg.SendAddResultEvent += new AddPrjForm.SendAddResult(GetAddResult);
                     addDlg.ShowDialog();
+                    DataFileSave();
                 }
             }
         }
@@ -402,6 +430,7 @@ namespace AutoReference
                     EeeeText = EeeeText.Remove(4);
                 }
                 EEEETextBox.Text = EeeeText + strTemp[0][nIndex - 1];
+                m_cRefData.Config.strVendorName = m_cSelectedData.PartsList[nSelecedIndex].strVendorName;
             }           
         }
 
@@ -534,6 +563,13 @@ namespace AutoReference
 
                 PrjTextBox.Text = PrjListView.FocusedItem.SubItems[1].Text;
                 m_cRefData.m_strPrjName = PrjListView.FocusedItem.SubItems[1].Text;
+                m_cRefData.NVM = m_cSelectedData.NVMList[0];
+                m_cRefData.CameraPrj = m_cSelectedData.CameraPrjList[0];
+                m_cRefData.ProgramVariant = m_cSelectedData.ProgramVariantList[0];
+                m_cRefData.Intergrator = m_cSelectedData.IntegratorList[0];
+                m_cRefData.SoftWare = m_cSelectedData.AlgorithmList[0];
+                m_cRefData.ColorShading = m_cSelectedData.ColorShadingList[0];
+                m_cRefData.Traceability = m_cSelectedData.TraceabilityRevList[0];
             }
         }
 
@@ -741,7 +777,19 @@ namespace AutoReference
                     AddPrjForm addDlg = new AddPrjForm(m_cSelectedData);
                     addDlg.SendAddResultEvent += new AddPrjForm.SendAddResult(GetAddResult);
                     addDlg.ShowDialog();
+                    DataFileSave();
                 }
+                initAllListViews();
+            }
+        }
+
+        private void BuildListView_Click(object sender, EventArgs e)
+        {
+            int nSelecedIndex = -1;
+            nSelecedIndex = BuildListView.FocusedItem.Index;
+            if (nSelecedIndex != -1)
+            {
+                m_cRefData.CameraBuild = m_cSelectedData.CameraBuildList[nSelecedIndex];
             }
         }
     }

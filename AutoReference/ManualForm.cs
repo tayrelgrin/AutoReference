@@ -18,11 +18,19 @@ namespace AutoReference
         private static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
         
         private string m_strRefPath;
+        private string m_strPreText;
+        private bool m_bReadFlag;
+        private List<string> m_FlexVendorList = new List<string>();
+        private List<string> m_LensVendorList = new List<string>();
+        private List<string> m_SubstrateVendorList = new List<string>();
+        private List<string> m_IRCFVendorList = new List<string>();
+        private List<string> m_StiffenerVendorList = new List<string>();
 
         public ManualForm()
         {
             InitializeComponent();
             m_strRefPath = null;
+            m_bReadFlag = false;
         }
 
         private void button_Cancel_Click(object sender, EventArgs e)
@@ -307,8 +315,6 @@ namespace AutoReference
 
             if (MessageBox.Show(strMessage, "", buttons) == System.Windows.Forms.DialogResult.Yes)
             {
-                // Data 확인 추가
-                // CheckDataExist()
                 if (ReferenceNameTextBox.Text != "")
                 {
                     string strTemp = ReferenceNameTextBox.Text;
@@ -342,12 +348,12 @@ namespace AutoReference
                         DirFileNameChange(strNewDirName);
 
                         InputDataToFile(strNewDirName);
-                    }
 
-                    strMessage = "Complete Reference Make.\n Open the Result folder?";
-                    if (MessageBox.Show(strMessage, "", buttons) == System.Windows.Forms.DialogResult.Yes)
-                    {
-                        System.Diagnostics.Process.Start(strNewDirName + "\\");
+                        strMessage = "Complete Reference Make.\n Open the Result folder?";
+                        if (MessageBox.Show(strMessage, "", buttons) == System.Windows.Forms.DialogResult.Yes)
+                        {
+                            System.Diagnostics.Process.Start(strNewDirName + "\\");
+                        }
                     }
                 }
                 else
@@ -496,6 +502,10 @@ namespace AutoReference
             WritePrivateProfileString("LOG", "build_num",temp, inFilePath);
              
             temp = Build_ConfigTextBox.Text;
+            if (inFilePath.IndexOf("NO-SPEC") != -1)
+                temp += "_NO-SPEC";
+            if (inFilePath.IndexOf("REL") != -1)
+                temp += "_POST-REL";
             WritePrivateProfileString("LOG", "Build_Config", temp,inFilePath);
            
             temp = Flex_ConfigTextBox.Text;
@@ -594,6 +604,540 @@ namespace AutoReference
             
             temp = SERIAL_COUNTTextBox.Text;
             WritePrivateProfileString("LOG", "SERIAL_COUNT", temp, inFilePath);
+        }
+
+        private void NVMTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = NVMTextBox.Text;
+        }
+
+        private void NVMTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != NVMTextBox.Text)
+                NVMTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void ItemVERSIONtextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = ItemVERSIONtextBox.Text;
+        }
+
+        private void ItemVERSIONtextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != ItemVERSIONtextBox.Text)
+                ItemVERSIONtextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void Ers_verTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = Ers_verTextBox.Text;
+        }
+
+        private void Ers_verTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != Ers_verTextBox.Text)
+                Ers_verTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void Vsr_verTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = Vsr_verTextBox.Text;
+        }
+
+        private void Vsr_verTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != Vsr_verTextBox.Text)
+                Vsr_verTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void Build_numTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = Build_numTextBox.Text;
+        }
+
+        private void Build_numTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != Build_numTextBox.Text)
+                Build_numTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void Build_ConfigTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = Build_ConfigTextBox.Text;
+        }
+
+        private void Build_ConfigTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != Build_ConfigTextBox.Text)
+                Build_ConfigTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void Flex_ConfigTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = Flex_ConfigTextBox.Text;
+        }
+
+        private void Flex_ConfigTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != Flex_ConfigTextBox.Text)
+                Flex_ConfigTextBox.BackColor = Color.BurlyWood;
+
+            if (VendorNamecheckBox.Checked)
+            {
+                bool bResult = false;
+                foreach (string strCompareData in m_FlexVendorList)
+                {
+                    if (strCompareData == Flex_ConfigTextBox.Text)
+                    {
+                        bResult = true;
+                        break;
+                    }
+                }
+
+                if (bResult == false)
+                {
+                    Flex_ConfigTextBox.BackColor = Color.Red;
+                }
+            }
+        }
+
+        private void Lens_ConfigTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = Lens_ConfigTextBox.Text;
+        }
+
+        private void Lens_ConfigTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != Lens_ConfigTextBox.Text)
+                Lens_ConfigTextBox.BackColor = Color.BurlyWood;
+
+            if (VendorNamecheckBox.Checked)
+            {
+                bool bResult = false;
+                foreach (string strCompareData in m_LensVendorList)
+                {
+                    if (strCompareData == Lens_ConfigTextBox.Text)
+                    {
+                        bResult = true;
+                        break;
+                    }
+                }
+
+                if (bResult == false)
+                {
+                    Lens_ConfigTextBox.BackColor = Color.Red;
+                }
+            }
+        }
+
+        private void Substrate_ConfigTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = Substrate_ConfigTextBox.Text;
+        }
+
+        private void Substrate_ConfigTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != Substrate_ConfigTextBox.Text)
+                Substrate_ConfigTextBox.BackColor = Color.BurlyWood;
+
+            if (VendorNamecheckBox.Checked)
+            {
+                bool bResult = false;
+                foreach (string strCompareData in m_SubstrateVendorList)
+                {
+                    if (strCompareData == Substrate_ConfigTextBox.Text)
+                    {
+                        bResult = true;
+                        break;
+                    }
+                }
+
+                if (bResult == false)
+                {
+                    Substrate_ConfigTextBox.BackColor = Color.Red;
+                }
+            }
+        }
+
+        private void IRCF_ConfigTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = IRCF_ConfigTextBox.Text;
+        }
+
+        private void IRCF_ConfigTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != IRCF_ConfigTextBox.Text)
+                IRCF_ConfigTextBox.BackColor = Color.BurlyWood;
+
+            if (VendorNamecheckBox.Checked)
+            {
+                bool bResult = false;
+                foreach (string strCompareData in m_IRCFVendorList)
+                {
+                    if (strCompareData == IRCF_ConfigTextBox.Text)
+                    {
+                        bResult = true;
+                        break;
+                    }
+                }
+
+                if (bResult == false)
+                {
+                    IRCF_ConfigTextBox.BackColor = Color.Red;
+                }
+            }
+        }
+
+        private void Stiffener_ConfigTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = Stiffener_ConfigTextBox.Text;
+        }
+
+        private void Stiffener_ConfigTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != Stiffener_ConfigTextBox.Text)
+                Stiffener_ConfigTextBox.BackColor = Color.BurlyWood;
+
+            if (VendorNamecheckBox.Checked)
+            {
+                bool bResult = false;
+                foreach (string strCompareData in m_StiffenerVendorList)
+                {
+                    if (strCompareData == Stiffener_ConfigTextBox.Text)
+                    {
+                        bResult = true;
+                        break;
+                    }
+                }
+
+                if (bResult == false)
+                {
+                    Stiffener_ConfigTextBox.BackColor = Color.Red;
+                }
+            }
+        }
+
+        private void AA_MachineTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = AA_MachineTextBox.Text;
+        }
+
+        private void AA_MachineTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != AA_MachineTextBox.Text)
+                AA_MachineTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void ProjectIDTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = ProjectIDTextBox.Text;
+        }
+
+        private void ProjectIDTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != ProjectIDTextBox.Text)
+                ProjectIDTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void Project_VersionTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = Project_VersionTextBox.Text;
+        }
+
+        private void Project_VersionTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != Project_VersionTextBox.Text)
+                Project_VersionTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void IntegratorTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = IntegratorTextBox.Text;
+        }
+
+        private void IntegratorTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != IntegratorTextBox.Text)
+                IntegratorTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void CameraBuildTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = CameraBuildTextBox.Text;
+        }
+
+        private void CameraBuildTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != CameraBuildTextBox.Text)
+                CameraBuildTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void ConfigTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = ConfigTextBox.Text;
+        }
+
+        private void ConfigTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != ConfigTextBox.Text)
+                ConfigTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void IRCFTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = IRCFTextBox.Text;
+        }
+
+        private void IRCFTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != IRCFTextBox.Text)
+                IRCFTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void SubstrateTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = SubstrateTextBox.Text;
+        }
+
+        private void SubstrateTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != SubstrateTextBox.Text)
+                SubstrateTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void SensorTypeTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = SensorTypeTextBox.Text;
+        }
+
+        private void SensorTypeTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != SensorTypeTextBox.Text)
+                SensorTypeTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void LensTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = LensTextBox.Text;
+        }
+
+        private void LensTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != LensTextBox.Text)
+                LensTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void FlexTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = FlexTextBox.Text;
+        }
+
+        private void FlexTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != FlexTextBox.Text)
+                FlexTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void StiffenerTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = StiffenerTextBox.Text;
+        }
+
+        private void StiffenerTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != StiffenerTextBox.Text)
+                StiffenerTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void CarrierTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = CarrierTextBox.Text;
+        }
+
+        private void CarrierTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != CarrierTextBox.Text)
+                CarrierTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void Process_ControlTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = Process_ControlTextBox.Text;
+        }
+
+        private void Process_ControlTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != Process_ControlTextBox.Text)
+                Process_ControlTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void Process_DOE_codeTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = Process_DOE_codeTextBox.Text;
+        }
+
+        private void Process_DOE_codeTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != Process_DOE_codeTextBox.Text)
+                Process_DOE_codeTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void SotfwareTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = SotfwareTextBox.Text;
+        }
+
+        private void SotfwareTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != SotfwareTextBox.Text)
+                SotfwareTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void WaiverTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = WaiverTextBox.Text;
+        }
+
+        private void WaiverTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != WaiverTextBox.Text)
+                WaiverTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void LensComponent_R_MajorTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = WaiverTextBox.Text;
+        }
+
+        private void LensComponent_R_MajorTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != WaiverTextBox.Text)
+                WaiverTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void LensComponent_R_MinorTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = LensComponent_R_MinorTextBox.Text;
+        }
+
+        private void LensComponent_R_MinorTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != LensComponent_R_MinorTextBox.Text)
+                LensComponent_R_MinorTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void ColorShading_RevTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = LensComponent_R_MinorTextBox.Text;
+        }
+
+        private void ColorShading_RevTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != LensComponent_R_MinorTextBox.Text)
+                LensComponent_R_MinorTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void Traceability_VersionTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = Traceability_VersionTextBox.Text;
+        }
+
+        private void Traceability_VersionTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != Traceability_VersionTextBox.Text)
+                Traceability_VersionTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void CISMaskIDTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = CISMaskIDTextBox.Text;
+        }
+
+        private void CISMaskIDTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != CISMaskIDTextBox.Text)
+                CISMaskIDTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void LAST_STRINGTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = LAST_STRINGTextBox.Text;
+        }
+
+        private void LAST_STRINGTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != LAST_STRINGTextBox.Text)
+                LAST_STRINGTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void FIRST_STRINGTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = FIRST_STRINGTextBox.Text;
+        }
+
+        private void FIRST_STRINGTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != FIRST_STRINGTextBox.Text)
+                FIRST_STRINGTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void SERIAL_COUNTTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = SERIAL_COUNTTextBox.Text;
+        }
+
+        private void SERIAL_COUNTTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != SERIAL_COUNTTextBox.Text)
+                SERIAL_COUNTTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void ShowVendorButton_Click(object sender, EventArgs e)
+        {
+            ShowVendors cShowVendor = new ShowVendors();
+
+            cShowVendor.ShowDialog();
+        }
+
+        private void VendorNamecheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (VendorNamecheckBox.Checked)
+            {
+                if (m_bReadFlag == false)
+                {
+                    LoadVendorNameData();
+                }
+            }
+        }
+
+        private void LoadVendorNameData()
+        {
+            string strFilePath;
+            strFilePath = Application.StartupPath +"\\Data\\VendorName.ini";
+
+            if (System.IO.File.Exists(strFilePath))
+            {
+                LoadINIFileAndSaveToList("Flex",        ref m_FlexVendorList,       strFilePath);
+                LoadINIFileAndSaveToList("Lens",        ref m_LensVendorList,       strFilePath);
+                LoadINIFileAndSaveToList("Substrate",   ref m_SubstrateVendorList,  strFilePath);
+                LoadINIFileAndSaveToList("IRCF",        ref m_IRCFVendorList,       strFilePath);
+                LoadINIFileAndSaveToList("Stiffener",   ref m_StiffenerVendorList,  strFilePath);
+                m_bReadFlag = true;
+            }
+        }
+
+        private void LoadINIFileAndSaveToList(string inBigItem, ref List<string> outList, string strFilePath)
+        {
+            int nIndex = 0;
+            StringBuilder strbReadValue = new StringBuilder();
+            GetPrivateProfileString(inBigItem, "Count", "0", strbReadValue, 255, strFilePath);
+            Int32.TryParse(strbReadValue.ToString(), out nIndex);
+
+            for (int i = 0; i < nIndex; i++)
+            {
+                GetPrivateProfileString(inBigItem, i.ToString(), "0", strbReadValue, 255, strFilePath);
+                outList.Add(strbReadValue.ToString());
+            }
         }
     }
 }

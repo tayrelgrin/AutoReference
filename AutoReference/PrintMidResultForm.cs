@@ -50,7 +50,10 @@ namespace AutoReference
         {
             NVMValuesListView.BeginUpdate();
             BaseData cTemp = new BaseData();
-            PrintNVMItemToListVeiw(m_cRefData.m_strPrjName, cTemp);
+            ListViewItem lvi = new ListViewItem("Project ");
+            lvi.SubItems.Add(m_cRefData.m_strPrjName);
+            NVMValuesListView.Items.Add(lvi);
+
             PrintNVMItemToListVeiw("NVM",               m_cRefData.NVM);
             PrintNVMItemToListVeiw("ProjectID",         m_cRefData.CameraBuild);
             PrintNVMItemToListVeiw("Program Variant",   m_cRefData.ProgramVariant);
@@ -65,12 +68,13 @@ namespace AutoReference
             PrintNVMItemToListVeiw("Stiffener",         m_cRefData.Stiffener);
             PrintNVMItemToListVeiw("Software",          m_cRefData.SoftWare);
 
-            PrintNVMItemToListVeiw("Lens Revision_Major", m_cRefData.LensComponent);
-            PrintNVMItemToListVeiw("Lens Revision_Minor", m_cRefData.LensComponent);
+            PrintNVMItemToListVeiw("Lens Revision_Major", m_cRefData.LensComponent_Major);
+            PrintNVMItemToListVeiw("Lens Revision_Minor", m_cRefData.LensComponent_Minor);
             PrintNVMItemToListVeiw("Color Shading",       m_cRefData.ColorShading);
             PrintNVMItemToListVeiw("TraceabliiltyRev",    m_cRefData.Traceability);
 
-            ListViewItem lvi = new ListViewItem(m_cRefData.m_strCISMask);
+            lvi = new ListViewItem("CISMask ");
+            lvi.SubItems.Add(m_cRefData.m_strCISMask);
             NVMValuesListView.Items.Add(lvi);
 
             NVMValuesListView.EndUpdate();
@@ -79,17 +83,15 @@ namespace AutoReference
         private void PrintNVMItemToListVeiw(string inItemName, BaseData inData)
         {
             ListViewItem lvi = new ListViewItem(inItemName);
-            if (inItemName != "Config")
+
+            lvi.SubItems.Add(inData.strVendorName);
+            lvi.SubItems.Add(inData.strBinaryValue);
+            string strHexValue = inData.strHexValue;
+            lvi.SubItems.Add(strHexValue);
+            if (inData.strBinaryValue != null)
             {
-                lvi.SubItems.Add(inData.strVendorName);
-                lvi.SubItems.Add(inData.strBinaryValue);
-                string strHexValue = inData.strHexValue;
-                lvi.SubItems.Add(strHexValue);
-                if (inData.strBinaryValue != null)
-                {
-                    string strBinary = inData.strBinaryValue.Replace(" ","");
-                    lvi.SubItems.Add(Convert.ToInt32(strBinary,2).ToString());
-                }
+                string strBinary = inData.strBinaryValue.Replace(" ", "");
+                lvi.SubItems.Add(Convert.ToInt32(strBinary, 2).ToString());
             }
             
             NVMValuesListView.Items.Add(lvi);
@@ -97,16 +99,16 @@ namespace AutoReference
 
         private void PrintItemVersion()
         {
-            PrintItemVersionItemToListView("Version",       m_cRefData.m_strItemVersion);
+            PrintItemVersionItemToListView("Version",       m_cRefData.m_strSWVersion);
             PrintItemVersionItemToListView("ers_ver",       m_cRefData.m_strErs_ver);
             PrintItemVersionItemToListView("vsr_ver",       m_cRefData.m_strVsr_ver);
             PrintItemVersionItemToListView("build_num",     m_cRefData.m_strBuild_num);
             PrintItemVersionItemToListView("Build_Config",  m_cRefData.m_strBuild_Config);
-            PrintItemVersionItemToListView("Flex_Config",   m_cRefData.m_strFlex_Config);
-            PrintItemVersionItemToListView("Lens_Config",   m_cRefData.m_strLens_Config);
-            PrintItemVersionItemToListView("Substrate_Config", m_cRefData.m_strSubstrate_Config);
-            PrintItemVersionItemToListView("IRCF_Config",   m_cRefData.m_strIRCF_Config);
-            PrintItemVersionItemToListView("Stiffener_Config", m_cRefData.m_strStiffener_Config);
+            PrintItemVersionItemToListView("Flex_Config",   m_cRefData.Flex.strVendorName);
+            PrintItemVersionItemToListView("Lens_Config",   m_cRefData.Lens.strVendorName);
+            PrintItemVersionItemToListView("Substrate_Config", m_cRefData.Substrate.strVendorName);
+            PrintItemVersionItemToListView("IRCF_Config", m_cRefData.IRCF.strVendorName);
+            PrintItemVersionItemToListView("Stiffener_Config", m_cRefData.Stiffener.strVendorName);
         }
 
         private void PrintItemVersionItemToListView(string inItemName, string inItemValue)
@@ -268,19 +270,19 @@ namespace AutoReference
             temp = m_cRefData.m_strBuild_Config;
             WritePrivateProfileString("LOG", "Build_Config", temp, inFilePath);
 
-            temp = m_cRefData.m_strFlex_Config;
+            temp = m_cRefData.Flex.strVendorName;
             WritePrivateProfileString("LOG", "Flex_Config", temp, inFilePath);
 
-            temp = m_cRefData.m_strLens_Config;
+            temp = m_cRefData.Lens.strVendorName;
             WritePrivateProfileString("LOG", "Lens_Config", temp, inFilePath);
 
-            temp = m_cRefData.m_strSubstrate_Config;
+            temp = m_cRefData.Substrate.strVendorName;
             WritePrivateProfileString("LOG", "Substrate_Config", temp, inFilePath);
 
-            temp = m_cRefData.m_strIRCF_Config;
+            temp = m_cRefData.IRCF.strVendorName;
             WritePrivateProfileString("LOG", "IRCF_Config", temp, inFilePath);
 
-            temp = m_cRefData.m_strStiffener_Config;
+            temp = m_cRefData.Stiffener.strVendorName;
             WritePrivateProfileString("LOG", "Stiffener_Config", temp, inFilePath);
         }
 
@@ -339,7 +341,7 @@ namespace AutoReference
             WritePrivateProfileString("OTP_WRITE", "Carrier", nValue.ToString(), inFilePath);
 
 
-            temp = m_cRefData.m_strLens_Config;
+            temp = m_cRefData.m_strLensComponent;
             nValue = Convert.ToInt32(temp[2].ToString(), 16);
 
             WritePrivateProfileString("OTP_WRITE", "LensComponent_Revision_Major", nValue.ToString(), inFilePath);
@@ -350,14 +352,11 @@ namespace AutoReference
             nValue = Convert.ToInt32(temp.Replace(" ", ""), 2);
             WritePrivateProfileString("OTP_WRITE", "ColorShading_Revision", nValue.ToString(), inFilePath);
 
-
             temp = m_cRefData.m_strCISMask;
             WritePrivateProfileString("OTP_WRITE", "CISMaskID", nValue.ToString(), inFilePath);
 
             temp = m_cRefData.m_strEEEE;
             WritePrivateProfileString("LOG", "LAST_STRING", nValue.ToString(), inFilePath);
-
-           
         }
     }
 }

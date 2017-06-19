@@ -111,6 +111,7 @@ namespace AutoReference
             else
                 strFilePath = Application.StartupPath + "\\Data\\" + m_strFileName + ".ini";
 
+
             SaveVSRVersionToFile();
             SaveEEEEToFile();
             SaveListDataToFile( NVMList,             "NVM",              strFilePath);
@@ -174,6 +175,7 @@ namespace AutoReference
 
         public void LoadDataToFile(string inFilePath)
         {
+            m_strFileName = inFilePath;
             LoadVSRVersionFromFile(inFilePath);
             LoadEEEEFromFile(inFilePath);
             LoadDataFromFile( ref PartsList,            "Parts",            inFilePath);
