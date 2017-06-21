@@ -109,8 +109,7 @@ namespace AutoReference
             if (m_strFileName == "")
                 strFilePath = Application.StartupPath + "\\Data\\" + m_strPrjName + m_strVSRVersion + ".ini";
             else
-                strFilePath = Application.StartupPath + "\\Data\\" + m_strFileName + ".ini";
-
+                strFilePath = m_strFileName;
 
             SaveVSRVersionToFile();
             SaveEEEEToFile();

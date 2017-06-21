@@ -32,14 +32,13 @@ namespace AutoReference
         public string m_strCISMask;
 
         // Itemversion.ini info
-        public string m_strItemVersion;
+        public string m_strSWVersion;
         public string m_strErs_ver;
         public string m_strVsr_ver;
         public string m_strBuild_num;
         public string m_strBuild_Config;
         
         // Ref Naming
-        public string m_strSWVersion;
         public string m_strLensComponent;
         public string m_strRefVersion;
         public string m_strDOEBuild_Config;
@@ -48,5 +47,7 @@ namespace AutoReference
         public string m_strEEEE;
         public string m_strPrjName;
         public string m_strFileName;
+
+        public string m_strRefName;
     }
 }

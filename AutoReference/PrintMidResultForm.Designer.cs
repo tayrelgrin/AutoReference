@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrintMidResultForm));
             this.FinalOKButton = new System.Windows.Forms.Button();
             this.FinalCancleButton = new System.Windows.Forms.Button();
             this.NVMValuesListView = new System.Windows.Forms.ListView();
@@ -92,6 +93,7 @@
             this.Controls.Add(this.NVMValuesListView);
             this.Controls.Add(this.FinalCancleButton);
             this.Controls.Add(this.FinalOKButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PrintMidResultForm";
             this.Text = "PrintMidResultForm";
             this.ResumeLayout(false);

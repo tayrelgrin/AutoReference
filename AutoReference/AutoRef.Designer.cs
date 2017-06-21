@@ -84,6 +84,24 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.PrjListView = new System.Windows.Forms.ListView();
+            this.SelSensorTextBox = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.SelConfigTextBox = new System.Windows.Forms.TextBox();
+            this.SelIRCFTextBox = new System.Windows.Forms.TextBox();
+            this.SelLensTextBox = new System.Windows.Forms.TextBox();
+            this.SelStiffenerTextBox = new System.Windows.Forms.TextBox();
+            this.SelSubstrateTextBox = new System.Windows.Forms.TextBox();
+            this.SelFlexTextBox = new System.Windows.Forms.TextBox();
+            this.SelCarrierTextBox = new System.Windows.Forms.TextBox();
+            this.SelBuildTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -685,11 +703,182 @@
             this.PrjListView.Click += new System.EventHandler(this.PrjListView_Click);
             this.PrjListView.DoubleClick += new System.EventHandler(this.PrjListView_DoubleClick);
             // 
+            // SelSensorTextBox
+            // 
+            this.SelSensorTextBox.Enabled = false;
+            this.SelSensorTextBox.Location = new System.Drawing.Point(95, 304);
+            this.SelSensorTextBox.Name = "SelSensorTextBox";
+            this.SelSensorTextBox.Size = new System.Drawing.Size(108, 21);
+            this.SelSensorTextBox.TabIndex = 66;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(38, 307);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(45, 12);
+            this.label20.TabIndex = 67;
+            this.label20.Text = "Sensor";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(42, 341);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(41, 12);
+            this.label21.TabIndex = 68;
+            this.label21.Text = "Config";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(51, 381);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(32, 12);
+            this.label22.TabIndex = 69;
+            this.label22.Text = "IRCF";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(50, 415);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(33, 12);
+            this.label23.TabIndex = 70;
+            this.label23.Text = "Lens";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(33, 451);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(50, 12);
+            this.label24.TabIndex = 71;
+            this.label24.Text = "Stiffener";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(25, 487);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(58, 12);
+            this.label25.TabIndex = 72;
+            this.label25.Text = "Substrate";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(54, 523);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(29, 12);
+            this.label26.TabIndex = 73;
+            this.label26.Text = "Flex";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(40, 559);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(43, 12);
+            this.label27.TabIndex = 74;
+            this.label27.Text = "Carrier";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(50, 592);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(33, 12);
+            this.label28.TabIndex = 75;
+            this.label28.Text = "Build";
+            // 
+            // SelConfigTextBox
+            // 
+            this.SelConfigTextBox.Enabled = false;
+            this.SelConfigTextBox.Location = new System.Drawing.Point(95, 340);
+            this.SelConfigTextBox.Name = "SelConfigTextBox";
+            this.SelConfigTextBox.Size = new System.Drawing.Size(108, 21);
+            this.SelConfigTextBox.TabIndex = 76;
+            // 
+            // SelIRCFTextBox
+            // 
+            this.SelIRCFTextBox.Enabled = false;
+            this.SelIRCFTextBox.Location = new System.Drawing.Point(95, 376);
+            this.SelIRCFTextBox.Name = "SelIRCFTextBox";
+            this.SelIRCFTextBox.Size = new System.Drawing.Size(108, 21);
+            this.SelIRCFTextBox.TabIndex = 77;
+            // 
+            // SelLensTextBox
+            // 
+            this.SelLensTextBox.Enabled = false;
+            this.SelLensTextBox.Location = new System.Drawing.Point(95, 412);
+            this.SelLensTextBox.Name = "SelLensTextBox";
+            this.SelLensTextBox.Size = new System.Drawing.Size(108, 21);
+            this.SelLensTextBox.TabIndex = 78;
+            // 
+            // SelStiffenerTextBox
+            // 
+            this.SelStiffenerTextBox.Enabled = false;
+            this.SelStiffenerTextBox.Location = new System.Drawing.Point(95, 448);
+            this.SelStiffenerTextBox.Name = "SelStiffenerTextBox";
+            this.SelStiffenerTextBox.Size = new System.Drawing.Size(108, 21);
+            this.SelStiffenerTextBox.TabIndex = 79;
+            // 
+            // SelSubstrateTextBox
+            // 
+            this.SelSubstrateTextBox.Enabled = false;
+            this.SelSubstrateTextBox.Location = new System.Drawing.Point(95, 484);
+            this.SelSubstrateTextBox.Name = "SelSubstrateTextBox";
+            this.SelSubstrateTextBox.Size = new System.Drawing.Size(108, 21);
+            this.SelSubstrateTextBox.TabIndex = 80;
+            // 
+            // SelFlexTextBox
+            // 
+            this.SelFlexTextBox.Enabled = false;
+            this.SelFlexTextBox.Location = new System.Drawing.Point(95, 520);
+            this.SelFlexTextBox.Name = "SelFlexTextBox";
+            this.SelFlexTextBox.Size = new System.Drawing.Size(108, 21);
+            this.SelFlexTextBox.TabIndex = 81;
+            // 
+            // SelCarrierTextBox
+            // 
+            this.SelCarrierTextBox.Enabled = false;
+            this.SelCarrierTextBox.Location = new System.Drawing.Point(95, 556);
+            this.SelCarrierTextBox.Name = "SelCarrierTextBox";
+            this.SelCarrierTextBox.Size = new System.Drawing.Size(108, 21);
+            this.SelCarrierTextBox.TabIndex = 82;
+            // 
+            // SelBuildTextBox
+            // 
+            this.SelBuildTextBox.Enabled = false;
+            this.SelBuildTextBox.Location = new System.Drawing.Point(95, 589);
+            this.SelBuildTextBox.Name = "SelBuildTextBox";
+            this.SelBuildTextBox.Size = new System.Drawing.Size(108, 21);
+            this.SelBuildTextBox.TabIndex = 83;
+            // 
             // AutoRef
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(878, 663);
+            this.Controls.Add(this.SelBuildTextBox);
+            this.Controls.Add(this.SelCarrierTextBox);
+            this.Controls.Add(this.SelFlexTextBox);
+            this.Controls.Add(this.SelSubstrateTextBox);
+            this.Controls.Add(this.SelStiffenerTextBox);
+            this.Controls.Add(this.SelLensTextBox);
+            this.Controls.Add(this.SelIRCFTextBox);
+            this.Controls.Add(this.SelConfigTextBox);
+            this.Controls.Add(this.label28);
+            this.Controls.Add(this.label27);
+            this.Controls.Add(this.label26);
+            this.Controls.Add(this.label25);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.SelSensorTextBox);
             this.Controls.Add(this.PrjListView);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
@@ -801,6 +990,24 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ListView PrjListView;
+        private System.Windows.Forms.TextBox SelSensorTextBox;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox SelConfigTextBox;
+        private System.Windows.Forms.TextBox SelIRCFTextBox;
+        private System.Windows.Forms.TextBox SelLensTextBox;
+        private System.Windows.Forms.TextBox SelStiffenerTextBox;
+        private System.Windows.Forms.TextBox SelSubstrateTextBox;
+        private System.Windows.Forms.TextBox SelFlexTextBox;
+        private System.Windows.Forms.TextBox SelCarrierTextBox;
+        private System.Windows.Forms.TextBox SelBuildTextBox;
     }
 }
 

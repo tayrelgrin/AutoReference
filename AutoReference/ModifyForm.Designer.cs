@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModifyForm));
             this.ModiOKButton = new System.Windows.Forms.Button();
             this.ModiCancelButton = new System.Windows.Forms.Button();
             this.TargetTextBox = new System.Windows.Forms.TextBox();
@@ -150,6 +151,7 @@
             this.Controls.Add(this.TargetTextBox);
             this.Controls.Add(this.ModiCancelButton);
             this.Controls.Add(this.ModiOKButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ModifyForm";
             this.Text = "ModifyForm";
             this.ResumeLayout(false);
