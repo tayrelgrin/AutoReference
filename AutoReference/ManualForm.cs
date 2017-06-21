@@ -1119,6 +1119,12 @@ namespace AutoReference
                 if (m_bReadFlag == false)
                 {
                     LoadVendorNameData();
+                    Flex_ConfigTextBox.Focus();
+                    Lens_ConfigTextBox.Focus();
+                    Substrate_ConfigTextBox.Focus();
+                    IRCF_ConfigTextBox.Focus();
+                    Stiffener_ConfigTextBox.Focus();
+                    ReferenceNameTextBox.Focus();
                 }
             }
         }

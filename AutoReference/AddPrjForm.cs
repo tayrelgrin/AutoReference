@@ -19,7 +19,7 @@ namespace AutoReference
 
         private BaseData m_CTempData = new BaseData();        
         private List<string> m_strList = new List<string>();
-        private List<BaseData>  m_SelectList;
+        private List<BaseData> m_SelectList;
         private int m_nSelectIndex = -1;
         private BaseData m_cNewBaseData = new BaseData();
         private string m_strNewBaseDataName = "";
@@ -55,7 +55,7 @@ namespace AutoReference
                 MessageBox.Show("Input File isn't VSR");
             }
             System.IO.FileInfo fileDel = new System.IO.FileInfo(strTXTPath);
-            fileDel.Delete();
+            //fileDel.Delete();
 
             // Set cursor as default arrow
             Cursor.Current = Cursors.Default;
@@ -108,13 +108,15 @@ namespace AutoReference
             BaseData cNewBaseData = new BaseData();
             ModifyForm cNewData = new ModifyForm(m_strNewBaseDataName, cNewBaseData);
             cNewData.SendModifyResultEvent += new ModifyForm.SendModifyResult(GetModifyResult);
-            cNewData.ShowDialog();
-            cNewBaseData = m_CTempData;
-            if (cNewBaseData.strVendorName != "" || cNewBaseData.strBinaryValue != "")
+            if (cNewData.ShowDialog() == DialogResult.OK)
             {
-                m_SelectList.Add(cNewBaseData);
-            }
-            PrintItemsToListBox();
+                cNewBaseData = m_CTempData;
+                if (cNewBaseData.strVendorName != "" || cNewBaseData.strBinaryValue != "")
+                {
+                    m_SelectList.Add(cNewBaseData);
+                }
+                PrintItemsToListBox();
+            }           
         }
 
         private void RightItemModifyClick(object sender, System.EventArgs e)
@@ -297,6 +299,7 @@ namespace AutoReference
             PrintToListView(AlgorithmListView,      ref m_cNewVSRData.AlgorithmList);
             PrintToListView(ColorShadingListView,   ref m_cNewVSRData.ColorShadingList);
             PrintToListView(TraceabilityRevListView,ref m_cNewVSRData.TraceabilityRevList);
+            PrintToListView(CarrierListView,        ref m_cNewVSRData.CarrierList);
 
             EEEEListBox.Items.Clear();
             EEEEListBox.Items.Add(m_cNewVSRData.m_strEEEE);
@@ -317,7 +320,8 @@ namespace AutoReference
             bool bFindStiffener         = false;
             bool bFindCameraBuild       = false;
             bool bFindTSAR              = false;
-            
+            bool bFindCarrier           = false;
+
             bool bFindColorShadingRev   = false;
             bool bFindTraceabilityRev   = false;
 
@@ -520,6 +524,18 @@ namespace AutoReference
                     bFindTraceabilityRev = true;
                 }
                 //
+                if (bFindCarrier)
+                {
+                    ParcingData(temp, ref m_cNewVSRData.CarrierList);
+                    if (temp.Length == 0)
+                    {
+                        bFindCarrier = false;
+                    }
+                }
+                if (temp.IndexOf("Carrier") != -1)
+                {
+                    bFindCarrier = true;
+                }
             }
             PrintItemsToListBox();
         }
@@ -569,43 +585,53 @@ namespace AutoReference
         {
             bool bResult = true;
             string strConvert = "";
-            inHex = inHex.Trim();
-            inBinary = inBinary.Trim();
-            string[] strBinarySplit = inBinary.Split(' ');
-            
-            string[] strHexSplit = inHex.Split(' ');
-            string strHexTarget = "";
 
-            if (strBinarySplit.Length > strHexSplit.Length)
+            do
             {
-                string temp = inBinary.Replace(" ", "");
-                inBinary = temp;
-                strBinarySplit = inBinary.Split(' ');
-            }
-            int nCount = 0;
-            foreach (string strBi in strBinarySplit)
-            {
-                try
+                if (inBinary == null || inHex == null)
                 {
-                    strHexTarget = strHexSplit[nCount++].Replace("0x","");
-                    strConvert = Convert.ToInt32(strBi, 2).ToString("X");
-                    if (strConvert.Length != strHexTarget.Length)
-                    {
-                        strConvert = "0" + strConvert;
-                    }
+                    bResult = false;
+                    break;
+                }
+                inHex = inHex.Trim();
+                inBinary = inBinary.Trim();
+                string[] strBinarySplit = inBinary.Split(' ');
 
-                    if (strConvert != strHexTarget)
+                string[] strHexSplit = inHex.Split(' ');
+                string strHexTarget = "";
+
+                if (strBinarySplit.Length > strHexSplit.Length)
+                {
+                    string temp = inBinary.Replace(" ", "");
+                    inBinary = temp;
+                    strBinarySplit = inBinary.Split(' ');
+                }
+                int nCount = 0;
+                foreach (string strBi in strBinarySplit)
+                {
+                    try
+                    {
+                        strHexTarget = strHexSplit[nCount++].Replace("0x", "");
+                        strConvert = Convert.ToInt32(strBi, 2).ToString("X");
+                        if (strConvert.Length != strHexTarget.Length)
+                        {
+                            strConvert = "0" + strConvert;
+                        }
+
+                        if (strConvert != strHexTarget)
+                        {
+                            bResult = false;
+                            break;
+                        }
+                    }
+                    catch
                     {
                         bResult = false;
                         break;
                     }
                 }
-                catch
-                {
-                    bResult = false;
-                    break;
-                }
-            }
+            } while (false);
+            
 
             return bResult;
         }
@@ -705,7 +731,9 @@ namespace AutoReference
         private void EEEEListBox_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
-                CMenu.Show(EEEEListBox, new System.Drawing.Point(e.X, e.Y));
+            {
+                //CMenu.Show(EEEEListBox, new System.Drawing.Point(e.X, e.Y));
+            }
         }
 
         private void InitAllListViews()
@@ -726,6 +754,7 @@ namespace AutoReference
             InitListView(AlgorithmListView);
             InitListView(ColorShadingListView);
             InitListView(TraceabilityRevListView);
+            InitListView(CarrierListView);
         }
 
         private void InitListView(ListView inListView)
@@ -878,16 +907,22 @@ namespace AutoReference
             PrintItemsToListBox();
         }
 
-        private void IRCFListView_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-                CMenu.Show(IRCFListView, new System.Drawing.Point(e.X, e.Y));
-        }
-
         private void VersionListBox_MouseDown(object sender, MouseEventArgs e)
         {
 //             if (e.Button == MouseButtons.Right)
 //                 CMenu.Show(VersionListBox, new System.Drawing.Point(e.X, e.Y));
+        }
+
+        private void RightMenuNonSelect(ListView inListView, ref List<BaseData> inDataList, MouseEventArgs e)
+        {
+            CMenu.MenuItems[1].Enabled = false;
+            CMenu.MenuItems[2].Enabled = false;
+            m_SelectList = inDataList;
+            m_nSelectIndex = 0;
+            CMenu.Show(inListView, new System.Drawing.Point(e.X, e.Y));
+            PrintItemsToListBox();
+            CMenu.MenuItems[1].Enabled = true;
+            CMenu.MenuItems[2].Enabled = true;
         }
 
         private void PartsListView_MouseDown(object sender, MouseEventArgs e)
@@ -895,11 +930,27 @@ namespace AutoReference
             if (e.Button == MouseButtons.Right)
             {
                 m_strNewBaseDataName = "Parts";
-                int nIndex = PartsListView.FocusedItem.Index;
-                m_cNewBaseData = m_cNewVSRData.PartsList[nIndex];
-                m_SelectList = m_cNewVSRData.PartsList;
-                CMenu.Show(PartsListView, new System.Drawing.Point(e.X, e.Y));
-                PrintItemsToListBox();
+
+                try
+                {
+                    int nIndex = PartsListView.FocusedItem.Index;
+                    if (nIndex != -1 && PartsListView.FocusedItem.Selected)
+                    {
+                        m_cNewBaseData = m_cNewVSRData.PartsList[nIndex];
+                        m_SelectList = m_cNewVSRData.PartsList;
+                        m_nSelectIndex = nIndex;
+                        CMenu.Show(PartsListView, new System.Drawing.Point(e.X, e.Y));
+                        PrintItemsToListBox();
+                    }
+                    else
+                    {
+                        RightMenuNonSelect(PartsListView, ref m_cNewVSRData.PartsList, e);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    RightMenuNonSelect(PartsListView, ref m_cNewVSRData.PartsList, e);
+                }
             }
         }
 
@@ -908,11 +959,27 @@ namespace AutoReference
             if (e.Button == MouseButtons.Right)
             {
                 m_strNewBaseDataName = "NVM";
-                int nIndex = NVMListView.FocusedItem.Index;
-                m_cNewBaseData = m_cNewVSRData.NVMList[nIndex];
-                m_SelectList = m_cNewVSRData.NVMList;
-                CMenu.Show(NVMListView, new System.Drawing.Point(e.X, e.Y));
-                PrintItemsToListBox();
+                
+                try
+                {
+                    int nIndex = NVMListView.FocusedItem.Index;
+                    if (nIndex != -1 && NVMListView.FocusedItem.Selected)
+                    {
+                        m_cNewBaseData = m_cNewVSRData.NVMList[nIndex];
+                        m_SelectList = m_cNewVSRData.NVMList;
+                        m_nSelectIndex = nIndex;
+                        CMenu.Show(NVMListView, new System.Drawing.Point(e.X, e.Y));
+                        PrintItemsToListBox();
+                    }
+                    else
+                    {
+                        RightMenuNonSelect(NVMListView, ref m_cNewVSRData.NVMList, e);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    RightMenuNonSelect(NVMListView, ref m_cNewVSRData.NVMList, e);
+                }
             }
         }
 
@@ -921,11 +988,27 @@ namespace AutoReference
             if (e.Button == MouseButtons.Right)
             {
                 m_strNewBaseDataName = "Lens";
-                int nIndex = LensListView.FocusedItem.Index;
-                m_cNewBaseData = m_cNewVSRData.LensList[nIndex];
-                m_SelectList = m_cNewVSRData.LensList;
-                CMenu.Show(LensListView, new System.Drawing.Point(e.X, e.Y));
-                PrintItemsToListBox();
+               
+                try
+                {
+                    int nIndex = LensListView.FocusedItem.Index;
+                    if (nIndex != -1 && LensListView.FocusedItem.Selected)
+                    {
+                        m_cNewBaseData = m_cNewVSRData.LensList[nIndex];
+                        m_SelectList = m_cNewVSRData.LensList;
+                        m_nSelectIndex = nIndex;
+                        CMenu.Show(LensListView, new System.Drawing.Point(e.X, e.Y));
+                        PrintItemsToListBox();
+                    }
+                    else
+                    {
+                        RightMenuNonSelect(LensListView, ref m_cNewVSRData.LensList, e);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    RightMenuNonSelect(LensListView, ref m_cNewVSRData.LensList, e);
+                }
             }
         }
 
@@ -934,11 +1017,27 @@ namespace AutoReference
             if (e.Button == MouseButtons.Right)
             {
                 m_strNewBaseDataName = "Substrate";
-                int nIndex = SubstrateListView.FocusedItem.Index;
-                m_cNewBaseData = m_cNewVSRData.SubstrateList[nIndex];
-                m_SelectList = m_cNewVSRData.SubstrateList;
-                CMenu.Show(SubstrateListView, new System.Drawing.Point(e.X, e.Y));
-                PrintItemsToListBox();
+                
+                try
+                {
+                    int nIndex = SubstrateListView.FocusedItem.Index;
+                    if (nIndex != -1 && SubstrateListView.FocusedItem.Selected)
+                    {
+                        m_cNewBaseData = m_cNewVSRData.SubstrateList[nIndex];
+                        m_SelectList = m_cNewVSRData.SubstrateList;
+                        m_nSelectIndex = nIndex;
+                        CMenu.Show(SubstrateListView, new System.Drawing.Point(e.X, e.Y));
+                        PrintItemsToListBox();
+                    }
+                    else
+                    {
+                        RightMenuNonSelect(SubstrateListView, ref m_cNewVSRData.SubstrateList, e);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    RightMenuNonSelect(SubstrateListView, ref m_cNewVSRData.SubstrateList, e);
+                }
             }
         }
 
@@ -947,11 +1046,27 @@ namespace AutoReference
             if (e.Button == MouseButtons.Right)
             {
                 m_strNewBaseDataName = "Camera Prj";
-                int nIndex = CameraPrjListView.FocusedItem.Index;
-                m_cNewBaseData = m_cNewVSRData.CameraPrjList[nIndex];
-                m_SelectList = m_cNewVSRData.CameraPrjList;
-                CMenu.Show(CameraPrjListView, new System.Drawing.Point(e.X, e.Y));
-                PrintItemsToListBox();
+                
+                try
+                {
+                    int nIndex = CameraPrjListView.FocusedItem.Index;
+                    if (nIndex != -1 && CameraPrjListView.FocusedItem.Selected)
+                    {
+                        m_cNewBaseData = m_cNewVSRData.CameraPrjList[nIndex];
+                        m_SelectList = m_cNewVSRData.CameraPrjList;
+                        m_nSelectIndex = nIndex;
+                        CMenu.Show(CameraPrjListView, new System.Drawing.Point(e.X, e.Y));
+                        PrintItemsToListBox();
+                    }
+                    else
+                    {
+                        RightMenuNonSelect(CameraPrjListView, ref m_cNewVSRData.CameraPrjList, e);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    RightMenuNonSelect(CameraPrjListView, ref m_cNewVSRData.CameraPrjList, e);
+                }
             }
         }
 
@@ -960,11 +1075,27 @@ namespace AutoReference
             if (e.Button == MouseButtons.Right)
             {
                 m_strNewBaseDataName = "Integrator";
-                int nIndex = ProgramVariantListView.FocusedItem.Index;
-                m_cNewBaseData = m_cNewVSRData.ProgramVariantList[nIndex];
-                m_SelectList = m_cNewVSRData.ProgramVariantList;
-                CMenu.Show(ProgramVariantListView, new System.Drawing.Point(e.X, e.Y));
-                PrintItemsToListBox();
+
+                try
+                {
+                    int nIndex = ProgramVariantListView.FocusedItem.Index;
+                    if (nIndex != -1 && ProgramVariantListView.FocusedItem.Selected)
+                    {
+                        m_cNewBaseData = m_cNewVSRData.ProgramVariantList[nIndex];
+                        m_SelectList = m_cNewVSRData.ProgramVariantList;
+                        m_nSelectIndex = nIndex;
+                        CMenu.Show(ProgramVariantListView, new System.Drawing.Point(e.X, e.Y));
+                        PrintItemsToListBox();
+                    }
+                    else
+                    {
+                        RightMenuNonSelect(ProgramVariantListView, ref m_cNewVSRData.ProgramVariantList, e);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    RightMenuNonSelect(ProgramVariantListView, ref m_cNewVSRData.ProgramVariantList, e);
+                }
             }
         }
 
@@ -973,11 +1104,27 @@ namespace AutoReference
             if (e.Button == MouseButtons.Right)
             {
                 m_strNewBaseDataName = "Integrator";
-                int nIndex = IntegratorListView.FocusedItem.Index;
-                m_cNewBaseData = m_cNewVSRData.IntegratorList[nIndex];
-                m_SelectList = m_cNewVSRData.IntegratorList;
-                CMenu.Show(IntegratorListView, new System.Drawing.Point(e.X, e.Y));
-                PrintItemsToListBox();
+                
+                try
+                {
+                    int nIndex = IntegratorListView.FocusedItem.Index;
+                    if (nIndex != -1 && IntegratorListView.FocusedItem.Selected)
+                    {
+                        m_cNewBaseData = m_cNewVSRData.IntegratorList[nIndex];
+                        m_SelectList = m_cNewVSRData.IntegratorList;
+                        m_nSelectIndex = nIndex;
+                        CMenu.Show(IntegratorListView, new System.Drawing.Point(e.X, e.Y));
+                        PrintItemsToListBox();
+                    }
+                    else
+                    {
+                        RightMenuNonSelect(IntegratorListView, ref m_cNewVSRData.IntegratorList, e);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    RightMenuNonSelect(IntegratorListView, ref m_cNewVSRData.IntegratorList, e);
+                }
             }
         }
 
@@ -986,11 +1133,27 @@ namespace AutoReference
             if (e.Button == MouseButtons.Right)
             {
                 m_strNewBaseDataName = "IRCF";
-                int nIndex = IRCFListView.FocusedItem.Index;
-                m_cNewBaseData = m_cNewVSRData.IRCFList[nIndex];
-                m_SelectList = m_cNewVSRData.IRCFList;
-                CMenu.Show(IRCFListView, new System.Drawing.Point(e.X, e.Y));
-                PrintItemsToListBox();
+
+                try
+                {
+                    int nIndex = IRCFListView.FocusedItem.Index;
+                    if (nIndex != -1 && IRCFListView.FocusedItem.Selected)
+                    {
+                        m_cNewBaseData = m_cNewVSRData.IRCFList[nIndex];
+                        m_SelectList = m_cNewVSRData.IRCFList;
+                        m_nSelectIndex = nIndex;
+                        CMenu.Show(IRCFListView, new System.Drawing.Point(e.X, e.Y));
+                        PrintItemsToListBox();
+                    }
+                    else
+                    {
+                        RightMenuNonSelect(IRCFListView, ref m_cNewVSRData.IRCFList, e);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    RightMenuNonSelect(IRCFListView, ref m_cNewVSRData.IRCFList, e);
+                }
             }
         }
 
@@ -999,11 +1162,27 @@ namespace AutoReference
             if (e.Button == MouseButtons.Right)
             {
                 m_strNewBaseDataName = "Sensor";
-                int nIndex = SensorListView.FocusedItem.Index;
-                m_cNewBaseData = m_cNewVSRData.SensorList[nIndex];
-                m_SelectList = m_cNewVSRData.SensorList;
-                CMenu.Show(SensorListView, new System.Drawing.Point(e.X, e.Y));
-                PrintItemsToListBox();
+                
+                try
+                {
+                    int nIndex = SensorListView.FocusedItem.Index;
+                    if (nIndex != -1 && SensorListView.FocusedItem.Selected)
+                    {
+                        m_cNewBaseData = m_cNewVSRData.SensorList[nIndex];
+                        m_SelectList = m_cNewVSRData.SensorList;
+                        m_nSelectIndex = nIndex;
+                        CMenu.Show(SensorListView, new System.Drawing.Point(e.X, e.Y));
+                        PrintItemsToListBox();
+                    }
+                    else
+                    {
+                        RightMenuNonSelect(SensorListView, ref m_cNewVSRData.SensorList, e);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    RightMenuNonSelect(SensorListView, ref m_cNewVSRData.SensorList, e);
+                }
             }
         }
 
@@ -1012,11 +1191,27 @@ namespace AutoReference
             if (e.Button == MouseButtons.Right)
             {
                 m_strNewBaseDataName = "Flex";
-                int nIndex = FlexListView.FocusedItem.Index;
-                m_cNewBaseData = m_cNewVSRData.FlexList[nIndex];
-                m_SelectList = m_cNewVSRData.FlexList;
-                CMenu.Show(FlexListView, new System.Drawing.Point(e.X, e.Y));
-                PrintItemsToListBox();
+                
+                try
+                {
+                    int nIndex = FlexListView.FocusedItem.Index;
+                    if (nIndex != -1 && FlexListView.FocusedItem.Selected)
+                    {
+                        m_cNewBaseData = m_cNewVSRData.FlexList[nIndex];
+                        m_SelectList = m_cNewVSRData.FlexList;
+                        m_nSelectIndex = nIndex;
+                        CMenu.Show(FlexListView, new System.Drawing.Point(e.X, e.Y));
+                        PrintItemsToListBox();
+                    }
+                    else
+                    {
+                        RightMenuNonSelect(FlexListView, ref m_cNewVSRData.FlexList, e);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    RightMenuNonSelect(FlexListView, ref m_cNewVSRData.FlexList, e);
+                }
             }
         }
 
@@ -1025,11 +1220,27 @@ namespace AutoReference
             if (e.Button == MouseButtons.Right)
             {
                 m_strNewBaseDataName = "Stiffener";
-                int nIndex = StiffenerListView.FocusedItem.Index;
-                m_cNewBaseData = m_cNewVSRData.StiffenerList[nIndex];
-                m_SelectList = m_cNewVSRData.StiffenerList;
-                CMenu.Show(StiffenerListView, new System.Drawing.Point(e.X, e.Y));
-                PrintItemsToListBox();
+
+                try
+                {
+                    int nIndex = StiffenerListView.FocusedItem.Index;
+                    if (nIndex != -1 && StiffenerListView.FocusedItem.Selected)
+                    {
+                        m_cNewBaseData = m_cNewVSRData.StiffenerList[nIndex];
+                        m_SelectList = m_cNewVSRData.StiffenerList;
+                        m_nSelectIndex = nIndex;
+                        CMenu.Show(StiffenerListView, new System.Drawing.Point(e.X, e.Y));
+                        PrintItemsToListBox();
+                    }
+                    else
+                    {
+                        RightMenuNonSelect(StiffenerListView, ref m_cNewVSRData.StiffenerList, e);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    RightMenuNonSelect(StiffenerListView, ref m_cNewVSRData.StiffenerList, e);
+                }
             }
         }
 
@@ -1038,11 +1249,27 @@ namespace AutoReference
             if (e.Button == MouseButtons.Right)
             {
                 m_strNewBaseDataName = "Camera Build";
-                int nIndex = CameraListView.FocusedItem.Index;
-                m_cNewBaseData = m_cNewVSRData.CameraBuildList[nIndex];
-                m_SelectList = m_cNewVSRData.CameraBuildList;
-                CMenu.Show(CameraListView, new System.Drawing.Point(e.X, e.Y));
-                PrintItemsToListBox();
+                
+                try
+                {
+                    int nIndex = CameraListView.FocusedItem.Index;
+                    if (nIndex != -1 && CameraListView.FocusedItem.Selected)
+                    {
+                        m_cNewBaseData = m_cNewVSRData.CameraBuildList[nIndex];
+                        m_SelectList = m_cNewVSRData.CameraBuildList;
+                        m_nSelectIndex = nIndex;
+                        CMenu.Show(CameraListView, new System.Drawing.Point(e.X, e.Y));
+                        PrintItemsToListBox();
+                    }
+                    else
+                    {
+                        RightMenuNonSelect(CameraListView, ref m_cNewVSRData.CameraBuildList, e);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    RightMenuNonSelect(CameraListView, ref m_cNewVSRData.CameraBuildList, e);
+                }
             }
         }
 
@@ -1051,11 +1278,27 @@ namespace AutoReference
             if (e.Button == MouseButtons.Right)
             {
                 m_strNewBaseDataName = "Algorithm";
-                int nIndex = AlgorithmListView.FocusedItem.Index;
-                m_cNewBaseData = m_cNewVSRData.AlgorithmList[nIndex];
-                m_SelectList = m_cNewVSRData.AlgorithmList;
-                CMenu.Show(AlgorithmListView, new System.Drawing.Point(e.X, e.Y));
-                PrintItemsToListBox();
+                
+                try
+                {
+                    int nIndex = AlgorithmListView.FocusedItem.Index;
+                    if (nIndex != -1 && AlgorithmListView.FocusedItem.Selected)
+                    {
+                        m_cNewBaseData = m_cNewVSRData.AlgorithmList[nIndex];
+                        m_SelectList = m_cNewVSRData.AlgorithmList;
+                        m_nSelectIndex = nIndex;
+                        CMenu.Show(AlgorithmListView, new System.Drawing.Point(e.X, e.Y));
+                        PrintItemsToListBox();
+                    }
+                    else
+                    {
+                        RightMenuNonSelect(AlgorithmListView, ref m_cNewVSRData.AlgorithmList, e);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    RightMenuNonSelect(AlgorithmListView, ref m_cNewVSRData.AlgorithmList, e);
+                }
             }
         }
 
@@ -1064,11 +1307,27 @@ namespace AutoReference
             if (e.Button == MouseButtons.Right)
             {
                 m_strNewBaseDataName = "Color Shading";
-                int nIndex = ColorShadingListView.FocusedItem.Index;
-                m_cNewBaseData = m_cNewVSRData.ColorShadingList[nIndex];
-                m_SelectList = m_cNewVSRData.ColorShadingList;
-                CMenu.Show(ColorShadingListView, new System.Drawing.Point(e.X, e.Y));
-                PrintItemsToListBox();
+               
+                try
+                {
+                    int nIndex = ColorShadingListView.FocusedItem.Index;
+                    if (nIndex != -1 && ColorShadingListView.FocusedItem.Selected)
+                    {
+                        m_cNewBaseData = m_cNewVSRData.ColorShadingList[nIndex];
+                        m_SelectList = m_cNewVSRData.ColorShadingList;
+                        m_nSelectIndex = nIndex;
+                        CMenu.Show(ColorShadingListView, new System.Drawing.Point(e.X, e.Y));
+                        PrintItemsToListBox();
+                    }
+                    else
+                    {
+                        RightMenuNonSelect(ColorShadingListView, ref m_cNewVSRData.ColorShadingList, e);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    RightMenuNonSelect(ColorShadingListView, ref m_cNewVSRData.ColorShadingList, e);
+                }
             }
         }
 
@@ -1077,11 +1336,27 @@ namespace AutoReference
             if (e.Button == MouseButtons.Right)
             {
                 m_strNewBaseDataName = "Traceability Rev";
-                int nIndex = TraceabilityRevListView.FocusedItem.Index;
-                m_cNewBaseData = m_cNewVSRData.TraceabilityRevList[nIndex];
-                m_SelectList = m_cNewVSRData.TraceabilityRevList;
-                CMenu.Show(TraceabilityRevListView, new System.Drawing.Point(e.X, e.Y));
-                PrintItemsToListBox();
+                
+                try
+                {
+                    int nIndex = TraceabilityRevListView.FocusedItem.Index;
+                    if (nIndex != -1 && TraceabilityRevListView.FocusedItem.Selected)
+                    {
+                        m_cNewBaseData = m_cNewVSRData.TraceabilityRevList[nIndex];
+                        m_SelectList = m_cNewVSRData.TraceabilityRevList;
+                        m_nSelectIndex = nIndex;
+                        CMenu.Show(TraceabilityRevListView, new System.Drawing.Point(e.X, e.Y));
+                        PrintItemsToListBox();
+                    }
+                    else
+                    {
+                        RightMenuNonSelect(TraceabilityRevListView, ref m_cNewVSRData.TraceabilityRevList, e);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    RightMenuNonSelect(TraceabilityRevListView, ref m_cNewVSRData.TraceabilityRevList, e);
+                }
             }
         }
 
@@ -1097,6 +1372,40 @@ namespace AutoReference
 
             m_cNewVSRData.m_strEEEE = m_CTempData.strBinaryValue;
             PrintItemsToListBox();
+        }
+
+        private void CarrierListView_DoubleClick(object sender, EventArgs e)
+        {
+            ModifyData("Carrier", CarrierListView, ref m_cNewVSRData.CarrierList);
+            PrintItemsToListBox();
+        }
+
+        private void CarrierListView_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                m_strNewBaseDataName = "Carrier";
+                try
+                {
+                    int nIndex = CarrierListView.FocusedItem.Index;
+                    if (nIndex != -1 && CarrierListView.FocusedItem.Selected)
+                    {
+                        m_cNewBaseData = m_cNewVSRData.CarrierList[nIndex];
+                        m_SelectList = m_cNewVSRData.CarrierList;
+                        m_nSelectIndex = nIndex;
+                        CMenu.Show(CarrierListView, new System.Drawing.Point(e.X, e.Y));
+                        PrintItemsToListBox();
+                    }
+                    else
+                    {
+                        RightMenuNonSelect(CarrierListView, ref m_cNewVSRData.CarrierList, e);
+                    }
+                }
+                catch(Exception ex)
+                {
+                    RightMenuNonSelect(CarrierListView, ref m_cNewVSRData.CarrierList, e);
+                }
+            }
         }
     }
 }

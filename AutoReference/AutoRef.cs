@@ -264,6 +264,7 @@ namespace AutoReference
 
         private void InitPrjListView()
         {
+            PrjListView.Clear();
             PrjListView.FullRowSelect = true;
             PrjListView.Columns.Add("VSR Ver.", 80);
             PrjListView.Columns.Add("Project Name", 90);
@@ -342,7 +343,7 @@ namespace AutoReference
             string strFilePath;
 
             strFilePath = Application.StartupPath +"\\Data";
-
+            DataList.Clear();
             if (System.IO.Directory.Exists(strFilePath))
             {
                 System.IO.DirectoryInfo direc = new System.IO.DirectoryInfo(strFilePath);
@@ -546,9 +547,12 @@ namespace AutoReference
             if (nSelecedIndex != -1)
             {
                 string strSelectdItem;
-                strSelectdItem = FlexListView.FocusedItem.SubItems[1].Text.ToString();
+                strSelectdItem = FlexListView.FocusedItem.SubItems[1].Text.Trim();
 
-                FlexTextBox.Text = strSelectdItem[0].ToString();
+                if (strSelectdItem != "Fujikura")
+                    FlexTextBox.Text = strSelectdItem[0].ToString();
+                else
+                    FlexTextBox.Text = "J";
 
                 SelFlexTextBox.Text = FlexListView.FocusedItem.SubItems[1].Text;
 
@@ -834,7 +838,9 @@ namespace AutoReference
                     addDlg.ShowDialog();
                     DataFileSave();
                 }
+                DataFileLoad();
                 initAllListViews();
+                PrintProjectToListBox();
             }
         }
 

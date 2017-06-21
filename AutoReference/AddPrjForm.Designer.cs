@@ -70,6 +70,8 @@
             this.ColorShadingListView = new System.Windows.Forms.ListView();
             this.TraceabilityRevListView = new System.Windows.Forms.ListView();
             this.EEEEListBox = new System.Windows.Forms.ListBox();
+            this.CarrierListView = new System.Windows.Forms.ListView();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -104,9 +106,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(-4, 483);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 12);
+            this.label5.Size = new System.Drawing.Size(77, 12);
             this.label5.TabIndex = 36;
-            this.label5.Text = "Camera Prj  :";
+            this.label5.Text = "Camera Prj :";
             // 
             // label6
             // 
@@ -131,7 +133,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(464, 116);
+            this.label10.Location = new System.Drawing.Point(457, 116);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 12);
             this.label10.TabIndex = 46;
@@ -140,7 +142,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(477, 29);
+            this.label11.Location = new System.Drawing.Point(470, 29);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(40, 12);
             this.label11.TabIndex = 45;
@@ -148,7 +150,7 @@
             // 
             // AddCloseButton
             // 
-            this.AddCloseButton.Location = new System.Drawing.Point(760, 587);
+            this.AddCloseButton.Location = new System.Drawing.Point(763, 600);
             this.AddCloseButton.Name = "AddCloseButton";
             this.AddCloseButton.Size = new System.Drawing.Size(106, 35);
             this.AddCloseButton.TabIndex = 49;
@@ -158,7 +160,7 @@
             // 
             // AddOKbutton
             // 
-            this.AddOKbutton.Location = new System.Drawing.Point(648, 587);
+            this.AddOKbutton.Location = new System.Drawing.Point(651, 600);
             this.AddOKbutton.Name = "AddOKbutton";
             this.AddOKbutton.Size = new System.Drawing.Size(106, 35);
             this.AddOKbutton.TabIndex = 50;
@@ -205,7 +207,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(459, 294);
+            this.label14.Location = new System.Drawing.Point(452, 294);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(58, 12);
             this.label14.TabIndex = 59;
@@ -214,7 +216,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(480, 223);
+            this.label15.Location = new System.Drawing.Point(473, 223);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(37, 12);
             this.label15.TabIndex = 61;
@@ -223,7 +225,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(476, 383);
+            this.label16.Location = new System.Drawing.Point(469, 424);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(41, 12);
             this.label16.TabIndex = 64;
@@ -232,7 +234,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(467, 365);
+            this.label17.Location = new System.Drawing.Point(460, 406);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(50, 12);
             this.label17.TabIndex = 65;
@@ -241,7 +243,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(451, 427);
+            this.label18.Location = new System.Drawing.Point(444, 468);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(66, 12);
             this.label18.TabIndex = 66;
@@ -250,7 +252,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(478, 457);
+            this.label20.Location = new System.Drawing.Point(471, 498);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(39, 12);
             this.label20.TabIndex = 70;
@@ -259,7 +261,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(458, 473);
+            this.label21.Location = new System.Drawing.Point(451, 514);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(59, 12);
             this.label21.TabIndex = 70;
@@ -268,7 +270,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(456, 507);
+            this.label22.Location = new System.Drawing.Point(449, 548);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(61, 12);
             this.label22.TabIndex = 73;
@@ -277,7 +279,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(446, 495);
+            this.label23.Location = new System.Drawing.Point(439, 536);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(71, 12);
             this.label23.TabIndex = 72;
@@ -286,7 +288,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(472, 529);
+            this.label19.Location = new System.Drawing.Point(465, 570);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(45, 12);
             this.label19.TabIndex = 75;
@@ -421,7 +423,6 @@
             this.IRCFListView.UseCompatibleStateImageBehavior = false;
             this.IRCFListView.View = System.Windows.Forms.View.Details;
             this.IRCFListView.DoubleClick += new System.EventHandler(this.IRCFListView_DoubleClick);
-            this.IRCFListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.IRCFListView_MouseClick);
             this.IRCFListView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.IRCFListView_MouseDown);
             // 
             // SensorListView
@@ -471,7 +472,7 @@
             this.CameraListView.FullRowSelect = true;
             this.CameraListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.CameraListView.HideSelection = false;
-            this.CameraListView.Location = new System.Drawing.Point(519, 358);
+            this.CameraListView.Location = new System.Drawing.Point(519, 399);
             this.CameraListView.Name = "CameraListView";
             this.CameraListView.Size = new System.Drawing.Size(329, 54);
             this.CameraListView.TabIndex = 90;
@@ -485,7 +486,7 @@
             this.AlgorithmListView.FullRowSelect = true;
             this.AlgorithmListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.AlgorithmListView.HideSelection = false;
-            this.AlgorithmListView.Location = new System.Drawing.Point(519, 418);
+            this.AlgorithmListView.Location = new System.Drawing.Point(519, 459);
             this.AlgorithmListView.Name = "AlgorithmListView";
             this.AlgorithmListView.Size = new System.Drawing.Size(329, 30);
             this.AlgorithmListView.TabIndex = 91;
@@ -499,7 +500,7 @@
             this.ColorShadingListView.FullRowSelect = true;
             this.ColorShadingListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.ColorShadingListView.HideSelection = false;
-            this.ColorShadingListView.Location = new System.Drawing.Point(519, 454);
+            this.ColorShadingListView.Location = new System.Drawing.Point(519, 495);
             this.ColorShadingListView.Name = "ColorShadingListView";
             this.ColorShadingListView.Size = new System.Drawing.Size(329, 30);
             this.ColorShadingListView.TabIndex = 92;
@@ -513,7 +514,7 @@
             this.TraceabilityRevListView.FullRowSelect = true;
             this.TraceabilityRevListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.TraceabilityRevListView.HideSelection = false;
-            this.TraceabilityRevListView.Location = new System.Drawing.Point(519, 490);
+            this.TraceabilityRevListView.Location = new System.Drawing.Point(519, 531);
             this.TraceabilityRevListView.Name = "TraceabilityRevListView";
             this.TraceabilityRevListView.Size = new System.Drawing.Size(329, 30);
             this.TraceabilityRevListView.TabIndex = 93;
@@ -526,18 +527,43 @@
             // 
             this.EEEEListBox.FormattingEnabled = true;
             this.EEEEListBox.ItemHeight = 12;
-            this.EEEEListBox.Location = new System.Drawing.Point(519, 526);
+            this.EEEEListBox.Location = new System.Drawing.Point(519, 567);
             this.EEEEListBox.Name = "EEEEListBox";
             this.EEEEListBox.Size = new System.Drawing.Size(329, 28);
             this.EEEEListBox.TabIndex = 94;
             this.EEEEListBox.DoubleClick += new System.EventHandler(this.EEEEListBox_DoubleClick);
             this.EEEEListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EEEEListBox_MouseDown);
             // 
+            // CarrierListView
+            // 
+            this.CarrierListView.FullRowSelect = true;
+            this.CarrierListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.CarrierListView.HideSelection = false;
+            this.CarrierListView.Location = new System.Drawing.Point(519, 358);
+            this.CarrierListView.Name = "CarrierListView";
+            this.CarrierListView.Size = new System.Drawing.Size(329, 37);
+            this.CarrierListView.TabIndex = 95;
+            this.CarrierListView.UseCompatibleStateImageBehavior = false;
+            this.CarrierListView.View = System.Windows.Forms.View.Details;
+            this.CarrierListView.DoubleClick += new System.EventHandler(this.CarrierListView_DoubleClick);
+            this.CarrierListView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CarrierListView_MouseDown);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(459, 367);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(51, 12);
+            this.label7.TabIndex = 96;
+            this.label7.Text = "Carrier :";
+            // 
             // AddPrjForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(898, 647);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.CarrierListView);
             this.Controls.Add(this.EEEEListBox);
             this.Controls.Add(this.TraceabilityRevListView);
             this.Controls.Add(this.ColorShadingListView);
@@ -631,6 +657,8 @@
         private System.Windows.Forms.ListView ColorShadingListView;
         private System.Windows.Forms.ListView TraceabilityRevListView;
         private System.Windows.Forms.ListBox EEEEListBox;
+        private System.Windows.Forms.ListView CarrierListView;
+        private System.Windows.Forms.Label label7;
 
     }
 }
