@@ -221,6 +221,7 @@
             // 
             // Build_ConfigTextBox
             // 
+            this.Build_ConfigTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.Build_ConfigTextBox.Location = new System.Drawing.Point(123, 144);
             this.Build_ConfigTextBox.Name = "Build_ConfigTextBox";
             this.Build_ConfigTextBox.Size = new System.Drawing.Size(110, 21);
@@ -231,6 +232,7 @@
             // 
             // Build_numTextBox
             // 
+            this.Build_numTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.Build_numTextBox.Location = new System.Drawing.Point(123, 113);
             this.Build_numTextBox.Name = "Build_numTextBox";
             this.Build_numTextBox.Size = new System.Drawing.Size(110, 21);
@@ -261,6 +263,7 @@
             // 
             // ItemVERSIONtextBox
             // 
+            this.ItemVERSIONtextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.ItemVERSIONtextBox.Location = new System.Drawing.Point(123, 20);
             this.ItemVERSIONtextBox.Name = "ItemVERSIONtextBox";
             this.ItemVERSIONtextBox.Size = new System.Drawing.Size(110, 21);
@@ -995,6 +998,7 @@
             // 
             // FIRST_STRINGTextBox
             // 
+            this.FIRST_STRINGTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.FIRST_STRINGTextBox.Location = new System.Drawing.Point(123, 51);
             this.FIRST_STRINGTextBox.Name = "FIRST_STRINGTextBox";
             this.FIRST_STRINGTextBox.Size = new System.Drawing.Size(110, 21);
@@ -1005,6 +1009,7 @@
             // 
             // LAST_STRINGTextBox
             // 
+            this.LAST_STRINGTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.LAST_STRINGTextBox.Location = new System.Drawing.Point(123, 20);
             this.LAST_STRINGTextBox.Name = "LAST_STRINGTextBox";
             this.LAST_STRINGTextBox.Size = new System.Drawing.Size(110, 21);

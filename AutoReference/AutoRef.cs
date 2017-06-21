@@ -67,16 +67,22 @@ namespace AutoReference
             if (PrjListView.SelectedItems.Count > 0)
             {
                 int nSelected = PrjListView.FocusedItem.Index;
-                string strFilePath = DataList[nSelected].m_strFileName;
-                string temp = "Delete Project " + DataList[nSelected].m_strVSRVersion + "-" + DataList[nSelected].m_strPrjName + "?";
-                if (DialogResult.Yes == MessageBox.Show(temp, "Delete Project", MessageBoxButtons.YesNo))
+                if (nSelected != -1)
                 {
-                    DataList.Remove(DataList[nSelected]);
-                }
+                    string strFilePath = DataList[nSelected].m_strFileName;
+                    string temp = "Delete Project " + DataList[nSelected].m_strVSRVersion + "-" + DataList[nSelected].m_strPrjName + "?";
+                    if (System.IO.File.Exists(strFilePath))
+                    {
+                        if (DialogResult.Yes == MessageBox.Show(temp, "Delete Project", MessageBoxButtons.YesNo))
+                        {
+                            DataList.Remove(DataList[nSelected]);
+                        }
 
-                FileDelete(strFilePath);
-                PrintProjectToListBox();
-                CleanListBoxes();
+                        FileDelete(strFilePath);
+                        PrintProjectToListBox();
+                        CleanListBoxes();
+                    }                    
+                }
             }
         }
 
@@ -88,6 +94,14 @@ namespace AutoReference
 
             if (CheckAllDataSelect() == true)
             {
+                if (CheckCombination() == false)
+                {
+                    if (MessageBox.Show("Parts combination is not matched with config.\n Do you want continue?", "Warning", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                    {
+                        return;
+                    }
+                }
+
                 FolderBrowserDialog ofd = new FolderBrowserDialog();
 
                 m_cRefData.m_strBuild_Config = BuildConfigTextBox.Text;
@@ -360,6 +374,15 @@ namespace AutoReference
 
         private void CleanListBoxes()
         {
+            SensorListView.Clear();
+            ConfigListView.Clear();
+            IRCFListView.Clear();
+            LensListView.Clear();
+            StiffenerListView.Clear();
+            SubstrateListView.Clear();
+            FlexListView.Clear();
+            CarrierListView.Clear();
+            BuildListView.Clear();
             EEEETextBox.Clear();
         }
 
@@ -815,6 +838,52 @@ namespace AutoReference
             }
         }
 
-       
+        private bool CheckCombination()
+        {
+            bool bResult = false;
+            string strSelConfig = ConfigListView.FocusedItem.SubItems[1].Text;
+            string[] strConfigSplit = strSelConfig.Split(',');
+            string strCombination = strConfigSplit[1];
+            string[] strSelItems = new string[6];
+
+            if (strCombination.IndexOf('/') != -1 && strCombination.IndexOf('(') != -1)
+            {
+                strCombination = strCombination.Replace("(", "");
+                strCombination = strCombination.Replace(")", "");
+                strCombination = strCombination.Trim();
+
+                strConfigSplit = strCombination.Split('/');
+
+                strSelItems[0] = IRCFListView.FocusedItem.SubItems[1].Text;
+                strSelItems[1] = LensListView.FocusedItem.SubItems[1].Text;
+                strSelItems[2] = StiffenerListView.FocusedItem.SubItems[1].Text;
+                strSelItems[3] = SubstrateListView.FocusedItem.SubItems[1].Text;
+                strSelItems[4] = FlexListView.FocusedItem.SubItems[1].Text;
+                if (CarrierListView.FocusedItem!=null)
+                    strSelItems[5] = CarrierListView.FocusedItem.SubItems[1].Text;
+
+                int nCount = 0;
+
+                foreach (string strTarget in strConfigSplit)
+                {
+                    foreach (string strTemp in strSelItems)
+                    {
+                        if (strTarget == strTemp)
+                        {
+                            nCount++;
+                            break;
+                        }
+                    }
+                }
+                if (nCount == strConfigSplit.Length)
+                    bResult = true;
+            }
+            else
+            {
+                bResult = true;
+            }
+            
+            return bResult;
+        }
     }
 }

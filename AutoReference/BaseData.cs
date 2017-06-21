@@ -45,6 +45,7 @@ namespace AutoReference
             WritePrivateProfileString(strSection, "VenderName" + strKey, strVendorName, strFilePath);
             WritePrivateProfileString(strSection, "Binary" + strKey,    strBinaryValue, strFilePath);
             WritePrivateProfileString(strSection, "Hex" + strKey,       strHexValue,    strFilePath);
+            WritePrivateProfileString(strSection, "APN" + strKey,       strApplePN,     strFilePath);
         }
 
         public void ReadInfoFromFile(string strFilePath, string strSection, string strKey)
@@ -58,6 +59,9 @@ namespace AutoReference
 
             GetPrivateProfileString(strSection, "Hex" + strKey,         "0", strbReadValue, 255, strFilePath);
             strHexValue = strbReadValue.ToString();
+
+            GetPrivateProfileString(strSection, "APN" + strKey,         "0", strbReadValue, 255, strFilePath);
+            strApplePN = strbReadValue.ToString();
         }
 
         public int stringHexToDec(string inHex)

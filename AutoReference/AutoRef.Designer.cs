@@ -249,6 +249,7 @@
             this.BuildConfigTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.BuildConfigTextBox.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.BuildConfigTextBox.Location = new System.Drawing.Point(15, 37);
+            this.BuildConfigTextBox.MaxLength = 5;
             this.BuildConfigTextBox.Name = "BuildConfigTextBox";
             this.BuildConfigTextBox.Size = new System.Drawing.Size(146, 22);
             this.BuildConfigTextBox.TabIndex = 11;
@@ -296,6 +297,7 @@
             this.LenscomponentTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.LenscomponentTextBox.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.LenscomponentTextBox.Location = new System.Drawing.Point(15, 119);
+            this.LenscomponentTextBox.MaxLength = 4;
             this.LenscomponentTextBox.Name = "LenscomponentTextBox";
             this.LenscomponentTextBox.Size = new System.Drawing.Size(146, 22);
             this.LenscomponentTextBox.TabIndex = 13;
@@ -643,6 +645,7 @@
             this.BuildConfig2TextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.BuildConfig2TextBox.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.BuildConfig2TextBox.Location = new System.Drawing.Point(506, 633);
+            this.BuildConfig2TextBox.MaxLength = 5;
             this.BuildConfig2TextBox.Name = "BuildConfig2TextBox";
             this.BuildConfig2TextBox.Size = new System.Drawing.Size(77, 22);
             this.BuildConfig2TextBox.TabIndex = 61;

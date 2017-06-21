@@ -162,7 +162,7 @@ namespace AutoReference
             
             try
             {
-                System.IO.StreamReader file = new System.IO.StreamReader(strFilePath, Encoding.Default);
+                System.IO.StreamReader file = new System.IO.StreamReader(strFilePath, System.Text.Encoding.GetEncoding("utf-16"));
 
                 while ((strData = file.ReadLine()) != null)
                 {

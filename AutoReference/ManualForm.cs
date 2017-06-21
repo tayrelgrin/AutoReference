@@ -338,7 +338,6 @@ namespace AutoReference
                         }
                     }
 
-
                     if (m_strRefPath != null)
                     {
                         // ref copy
@@ -354,6 +353,8 @@ namespace AutoReference
                         {
                             System.Diagnostics.Process.Start(strNewDirName + "\\");
                         }
+
+                        WriteTimeToFile();
                     }
                 }
                 else
@@ -361,6 +362,16 @@ namespace AutoReference
                     MessageBox.Show("Reference Name is Empty");
                 }
             }
+        }
+
+        private void WriteTimeToFile()
+        {
+            string strData = System.DateTime.Now.ToString("yyyy/MM/dd, hh:mm:ss");
+
+            string strFilePath;
+            strFilePath = Application.StartupPath + "\\Data\\VendorName.ini";
+
+            WritePrivateProfileString("Log", "Menual " + strData, "1", strFilePath);
         }
 
         private void DirFileNameChange(string inRootPath)
@@ -388,9 +399,10 @@ namespace AutoReference
                             string strRegisterName = strSplit_s[strSplit_s.Length - 1] + "_Register.ini";
                             string[] strTempArray = strSplit_s[strSplit_s.Length - 1].Split('_');
                             string strTestName = strTempArray[5];
-                            string strNewRefFileName = ReferenceNameTextBox.Text + "_" + strTestName + "_" + Reference_VersionTextBox.Text + ".ini";
-                            string strNewRegisterName = ReferenceNameTextBox.Text + "_" + strTestName + "_" + Reference_VersionTextBox.Text + "_Register.ini";
-                            string strNewDirName = subs.Replace(strSplit_s[strSplit_s.Length - 1], ReferenceNameTextBox.Text + "_" + strTestName + "_" + Reference_VersionTextBox.Text);
+                            string strNewRefFileName = ReferenceNameTextBox.Text + "_" + strTestName + "_" + Reference_VersionTextBox.Text + "_" + strTempArray[strTempArray.Length - 1] + ".ini";
+                            string strNewRegisterName = ReferenceNameTextBox.Text + "_" + strTestName + "_" + Reference_VersionTextBox.Text + "_" + strTempArray[strTempArray.Length - 1] + "_Register.ini";
+                            string strNewDirName = subs.Replace(strSplit_s[strSplit_s.Length - 1], ReferenceNameTextBox.Text + "_" + strTestName + "_" + Reference_VersionTextBox.Text)+"_" + strTempArray[strTempArray.Length - 1];
+
                             strRefFileName = System.IO.Path.Combine(subs, strRefFileName);
                             strRegisterName = System.IO.Path.Combine(subs, strRegisterName);
                             strNewRefFileName = System.IO.Path.Combine(subs, strNewRefFileName);
@@ -421,7 +433,8 @@ namespace AutoReference
                         System.IO.File.Move(strRefFileName, strNewRefFileName);
                         System.IO.File.Move(strRegisterName, strNewRegisterName);
 
-                        System.IO.Directory.Move(s, strNewDirName);
+                        if (s != strNewDirName)
+                            System.IO.Directory.Move(s, strNewDirName);
                     }
                 }
             }

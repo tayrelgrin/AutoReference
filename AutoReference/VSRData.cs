@@ -107,12 +107,30 @@ namespace AutoReference
         {
             string strFilePath;
             if (m_strFileName == "")
+            {
                 strFilePath = Application.StartupPath + "\\Data\\" + m_strPrjName + m_strVSRVersion + ".ini";
+                string strTemp = strFilePath;
+                int nCount = 0;
+                while (true)
+                {
+                    if (System.IO.File.Exists(strTemp))
+                    {
+                        nCount++;
+                        strTemp = Application.StartupPath + "\\Data\\" + m_strPrjName + m_strVSRVersion +"(" + nCount.ToString() + ").ini";
+                    }
+                    else
+                    {
+                        strFilePath = strTemp;
+                        m_strFileName = strTemp;
+                        break;
+                    }
+                }
+            }
             else
                 strFilePath = m_strFileName;
 
-            SaveVSRVersionToFile();
-            SaveEEEEToFile();
+            SaveVSRVersionToFile(strFilePath);
+            SaveEEEEToFile(strFilePath);
             SaveListDataToFile( NVMList,             "NVM",              strFilePath);
             SaveListDataToFile( PartsList,           "Parts",            strFilePath);
             SaveListDataToFile( LensList,            "Lens",             strFilePath);
@@ -135,27 +153,16 @@ namespace AutoReference
 
         }
         
-        public void SaveVSRVersionToFile()
+        public void SaveVSRVersionToFile(string strFilePath)
         {
             string strSection = "VSR";
-            string strFilePath;
-            if (m_strFileName == "")
-                strFilePath = Application.StartupPath + "\\Data\\" + m_strPrjName + m_strVSRVersion + ".ini";
-            else
-                strFilePath = Application.StartupPath + "\\Data\\" + m_strFileName + ".ini";
-
             WritePrivateProfileString(strSection, "Version", m_strVSRVersion, strFilePath);
             WritePrivateProfileString(strSection, "PrjName", m_strPrjName, strFilePath);
         }
 
-        public void SaveEEEEToFile()
+        public void SaveEEEEToFile(string strFilePath)
         {
             string strSection = "EEEE";
-            string strFilePath;
-            if(m_strFileName == "")
-                strFilePath = Application.StartupPath + "\\Data\\" + m_strPrjName + m_strVSRVersion + ".ini";
-            else
-                strFilePath = Application.StartupPath + "\\Data\\" + m_strFileName + ".ini";
 
             WritePrivateProfileString(strSection, "Code", m_strEEEE, strFilePath);
         }

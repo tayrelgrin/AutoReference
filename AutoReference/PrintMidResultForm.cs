@@ -25,8 +25,10 @@ namespace AutoReference
         {
             m_strPreDirPath = inPath;
             m_cRefData = inData;
-
+            
             InitializeComponent();
+
+            label1.Text = inData.m_strRefName;
             InitListView();
             PrintNVMInfo();
             PrintItemVersion();
@@ -162,6 +164,9 @@ namespace AutoReference
             {
                 System.Diagnostics.Process.Start(strNewDirName + "\\");
             }
+
+            WriteTimeToFile(); // 측정용
+
             Cursor.Current = Cursors.Default;
             this.Dispose();
         }
@@ -271,9 +276,9 @@ namespace AutoReference
                             string strRegisterName = strSplit_s[strSplit_s.Length - 1] + "_Register.ini";
                             string[] strTempArray = strSplit_s[strSplit_s.Length - 1].Split('_');
                             string strTestName = strTempArray[5];
-                            string strNewRefFileName = m_cRefData.m_strRefName.Replace("TEST", strTestName) +"_"+ strTempArray[8] + ".ini";
-                            string strNewRegisterName = m_cRefData.m_strRefName.Replace("TEST", strTestName) + "_" + strTempArray[8] + "_Register.ini";
-                            string strNewDirName = subs.Replace(strSplit_s[strSplit_s.Length - 1], m_cRefData.m_strRefName.Replace("TEST", strTestName)) + "_" + strTempArray[8];
+                            string strNewRefFileName = m_cRefData.m_strRefName.Replace("TEST", strTestName) + "_" + strTempArray[strTempArray.Length - 1] + ".ini";
+                            string strNewRegisterName = m_cRefData.m_strRefName.Replace("TEST", strTestName) + "_" + strTempArray[strTempArray.Length - 1] + "_Register.ini";
+                            string strNewDirName = subs.Replace(strSplit_s[strSplit_s.Length - 1], m_cRefData.m_strRefName.Replace("TEST", strTestName)) + "_" + strTempArray[strTempArray.Length - 1];
                             strRefFileName = System.IO.Path.Combine(subs, strRefFileName);
                             strRegisterName = System.IO.Path.Combine(subs, strRegisterName);
                             strNewRefFileName = System.IO.Path.Combine(subs, strNewRefFileName);
@@ -483,6 +488,16 @@ namespace AutoReference
 
             temp = m_cRefData.m_strEEEE;
             WritePrivateProfileString("LOG", "LAST_STRING", temp, inFilePath);
+        }
+
+        private void WriteTimeToFile()
+        {
+            string strData = System.DateTime.Now.ToString("yyyy/MM/dd, hh:mm:ss");
+
+            string strFilePath;
+            strFilePath = Application.StartupPath + "\\Data\\VendorName.ini";
+
+            WritePrivateProfileString("Log", "Auto "+strData, "1", strFilePath);
         }
     }
 }
