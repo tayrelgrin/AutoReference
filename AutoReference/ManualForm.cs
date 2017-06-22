@@ -410,8 +410,8 @@ namespace AutoReference
                             // ref 파일 
                             System.IO.File.Move(strRefFileName, strNewRefFileName);
                             System.IO.File.Move(strRegisterName, strNewRegisterName);
-
-                            System.IO.Directory.Move(subs,strNewDirName);
+                            if (subs != strNewDirName)
+                                System.IO.Directory.Move(subs,strNewDirName);
                         }
                     }
                     else

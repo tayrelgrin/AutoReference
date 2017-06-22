@@ -55,7 +55,7 @@ namespace AutoReference
                 MessageBox.Show("Input File isn't VSR");
             }
             System.IO.FileInfo fileDel = new System.IO.FileInfo(strTXTPath);
-            //fileDel.Delete();
+            fileDel.Delete();
 
             // Set cursor as default arrow
             Cursor.Current = Cursors.Default;
