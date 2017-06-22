@@ -1052,6 +1052,8 @@
             this.ReferenceNameTextBox.Name = "ReferenceNameTextBox";
             this.ReferenceNameTextBox.Size = new System.Drawing.Size(234, 21);
             this.ReferenceNameTextBox.TabIndex = 1;
+            this.ReferenceNameTextBox.Enter += new System.EventHandler(this.ReferenceNameTextBox_Enter);
+            this.ReferenceNameTextBox.Leave += new System.EventHandler(this.ReferenceNameTextBox_Leave);
             // 
             // Reference_VersionTextBox
             // 
@@ -1060,6 +1062,8 @@
             this.Reference_VersionTextBox.Name = "Reference_VersionTextBox";
             this.Reference_VersionTextBox.Size = new System.Drawing.Size(110, 21);
             this.Reference_VersionTextBox.TabIndex = 2;
+            this.Reference_VersionTextBox.Enter += new System.EventHandler(this.Reference_VersionTextBox_Enter);
+            this.Reference_VersionTextBox.Leave += new System.EventHandler(this.Reference_VersionTextBox_Leave);
             // 
             // label40
             // 
@@ -1120,7 +1124,7 @@
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ManualForm";
-            this.Text = "ManualForm";
+            this.Text = "AutoReference Maker : Manual Mode";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

@@ -1158,5 +1158,27 @@ namespace AutoReference
                 outList.Add(strbReadValue.ToString());
             }
         }
+
+        private void ReferenceNameTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = ReferenceNameTextBox.Text;
+        }
+
+        private void ReferenceNameTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != ReferenceNameTextBox.Text)
+                ReferenceNameTextBox.BackColor = Color.BurlyWood;
+        }
+
+        private void Reference_VersionTextBox_Enter(object sender, EventArgs e)
+        {
+            m_strPreText = Reference_VersionTextBox.Text;
+        }
+
+        private void Reference_VersionTextBox_Leave(object sender, EventArgs e)
+        {
+            if (m_strPreText != Reference_VersionTextBox.Text)
+                Reference_VersionTextBox.BackColor = Color.BurlyWood;
+        }
     }
 }
